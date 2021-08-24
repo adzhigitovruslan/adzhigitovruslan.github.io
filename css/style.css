@@ -681,6 +681,9 @@ a.item-subtitle__item:hover {
 		padding-top: 15%;
 		padding-bottom: 5%;
 	}
+	.contact__content {
+		width: 550px;
+	}
 	
 }
 
@@ -702,5 +705,14 @@ a.item-subtitle__item:hover {
 	.container {
 		max-width: 88%;
 	}
-	
+	.contact__form-item {
+		width: 45%;
+
+	}
+	.form__input {
+		width: 100%;
+	}
+	.contact__form-item.input-item {
+		width: 100%;
+	}
 }
