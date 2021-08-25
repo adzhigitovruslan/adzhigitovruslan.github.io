@@ -567,29 +567,10 @@ color:#ED4C5C;
 }
 
 .contact__form-btn:hover {
-	color: #ED4C5C !important;
+	color: #ED4C5C;
 	background-color: transparent;
-	text-shadow: nthree;
 }
-.contact__form-btn:hover:before {
-	left: 0%;
-	right: auto;
-	width: 100%;
-}
-.contact__form-btn:before {
-	display: block;
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	height: 100%;
-	width: 0px;
-	z-index: -1;
-	content: '';
-	color: #FFFFFF !important;
-	background: transparent;
-	transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
-	border-radius: 6px;
-  }
+
   @media(max-width:970px) {
 	.login__btn {
 		padding: 8px 14px;
