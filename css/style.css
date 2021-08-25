@@ -104,6 +104,9 @@
 	display: flex;
 	justify-content: center;
 }
+.button-two {
+	display: flex;
+}
 .button__item {
 	background-color: #FFFFFF;
 	color: #ED4C5C;
@@ -562,8 +565,6 @@ color:#ED4C5C;
 	display: block;
 	border: 1px solid #ED4C5C;
 }
-.button-two {
-	display: flex;
 .contact__form-btn:hover {
 	color: #ED4C5C;
 	background-color: transparent;
