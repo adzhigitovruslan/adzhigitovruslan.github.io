@@ -1,0 +1,72 @@
+@font-face {
+  font-family: 'icons';
+  src:
+    url('../fonts/icons.ttf?fixase') format('truetype'),
+    url('../fonts/icons.woff?fixase') format('woff'),
+    url('../fonts/icons.svg?fixase#icons') format('svg');}
+  @font-face {
+      font-family: 'icons';
+      src:  
+    url('../fonts/icons2.ttf?fvu238') format('truetype'),
+    url('../fonts/icons2.woff?fvu238') format('woff'),
+    url('../fonts/icons2.svg?fvu238#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="_icon-"]::before, [class*=" _icon-"]::before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+._icon-Search2:before {
+  content: "\e904";
+}
+._icon-ArchiveBox:before {
+  content: "\e909";
+}
+._icon-Close:before {
+  content: "\e900";
+}
+._icon-Eye:before {
+  content: "\e901";
+  color: #FFFFFF;
+}
+._icon-DownloadInBox:before {
+  content: "\e902";
+}
+._icon-Down:before {
+  content: "\e90a";
+}
+._icon-SearchLeft:before {
+  content: "\e903";
+}
+._icon-TextArea:before {
+  content: "\e905";
+  color: #ff3e1d;
+}
+._icon-Upload:before {
+  content: "\e906";
+  color: black;
+}
+._icon-UploadBig:before {
+  content: "\e907";
+}
+._icon-nike:before {
+  content: "\e908";
+}
+._icon-tear:before {
+  content: "\e900";
+  color: #18a0fb;
+}
