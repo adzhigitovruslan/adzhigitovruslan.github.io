@@ -162,9 +162,9 @@ let valueone = document.getElementById("valueOne");
 valueone.innerHTML = rangeone.value;
 
 rangeone.oninput = function () {
-	colorone.style.width = rangeone.value * 3.16 +"%";
+	colorone.style.width = rangeone.value * 3.29 +"%";
 	valueone.innerHTML = rangeone.value;
-	thumbOne.style.left = rangeone.value * 3.16 + "%";
+	thumbOne.style.left = rangeone.value * 3.29 + "%";
 };
 
 // let checkbox = document.getElementById('indeterminate')
