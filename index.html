@@ -5,11 +5,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/vanilla-calendar-master/src/css/vanilla-calendar.css">
-	<link rel="stylesheet" href="/css/style.css">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">	
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="/css/icon-fonts.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<link href="/LC-select-main/themes/light.css" rel="stylesheet" />
+	<link rel="stylesheet" href="/node_modules/rangeable/dist/rangeable.min.css">
+	<link rel="stylesheet" href="/node_modules/bulma-calendar/dist/css/bulma-calendar.css">
+	<link rel="stylesheet" href="/css/style.css">
 	<title>Starter Kit</title>
 
 </head>
@@ -101,7 +103,9 @@
 					</div>
 				</div>
 
-				<div id="myCalendar" class="vanilla-calendar"></div>
+				<!-- <div id="myCalendar" class="vanilla-calendar"></div> -->
+				<input class="demo" hidden/>
+				
 			</div>
 			<div class="forms__container">
 				<div class="forms__inputs active">
@@ -152,11 +156,11 @@
 			</form>
 			</div>
 			<div class="forms__container">
-				<div class="textareaLines">
+				<div class="textarealines">
 				<div class="textarea textarea-mrg">
 					<h6 class="forms__header">Textarea</h6>
 					<div class="textarea-item">
-					<textarea class="textarea-basic textarea__corner-grey forms__header" name="" id="" cols="30" rows="6">Value</textarea>
+					<textarea class="textarea-basic textarea__corner-grey forms__header" name="" id="" cols="30" rows="6">Placeholder</textarea>
 					</div>
 				</div>
 				<div class="textarea textarea-mrg">
@@ -168,15 +172,15 @@
 			
 				<div class="allsliders">
 					<div class="middle">
-						<input type="range" class="rangeOne" id="rangeO" min="0" max="100" value="50">
-						<div class="colorO" id="colorO"></div>
+						<input type="range" class="rangeone" id="rangeo" min="0" max="100" value="50">
+						<div class="coloro" id="coloro"></div>
 						<div class="one-thumb" id="one-t"></div>
 						<div class="track2"></div>
 					</div> 
 					<div class="middle">
 						<div class="middle__elements">
-							<input type="range" class="typeRange" id="inputL" min="0" max="50" value="15">
-							<input type="range" class="typeRange" id="inputR" min="0" max="50" value="34">
+							<input type="range" class="typerange" id="inputL" min="0" max="50" value="15">
+							<input type="range" class="typerange" id="inputR" min="0" max="50" value="34">
 							<div class="sliders">
 								<div class="track"></div>
 								<div class="ranges"></div>
@@ -186,41 +190,33 @@
 						</div>
 					</div>
 					<div class="middle">
-						<input type="range" class="rangeOne" id="rangeOne" min="0" max="30" value="15">
-						<div id="colorOne"></div>
-						<div class="one-thumb" id="one-thumb">
-						<div id="valueOne"></div>
-						<div class="_icon-tear"></div>
-					   </div>
-					   <div id="one-thumb-slider" class="slider-textLeft"></div>
-						<div class="track2"></div>
-					</div> 
-					<div class="middle">
-						<div class="middle__elements">
-							<input type="range" class="typeRange" id="input-left" min="0" max="50" value="15">
-							<input type="range" class="typeRange" id="input-right" min="0" max="50" value="34">
-							<div class="slider">
-								<div class="track"></div>
-								<div class="range"></div>
-								<div class="thumb left"><div id="SelectValueL" class="slider-textLeft"></div><div class="_icon-tear"></div></div>
-								<div class="thumb right"><div id="SelectValueR" class="slider-textRight"></div><div class="_icon-tear"></div></div>
-							</div>
-						</div>
-					</div>
-			
-					<div class="middle">
-						<div class="middle__elements">
-							<input type="range" class="typeRange" id="in-left" min="0" max="50" value="15">
-							<input type="range" class="typeRange" id="in-right" min="0" max="50" value="34">
-							<div class="sliders one">
-								<div class="track"></div>
-								<div class="ranges one"></div>
-								<div class="thumb leftleft one"><div id="ValueL" class="slider-textLeft"></div><div class="_icon-tear icon-pos"></div></div>
-								<div class="thumb rightright one"><div id="ValueR" class="slider-textRight"></div><div class="_icon-tear icon-pos"></div></div>
-							</div>
+						<div class="allsliders_item one">
+							<input type="range" id="newslider">
 						</div>
 					</div>
 					
+					<div class="middle">
+						<div class="allsliders_item double">
+							<input type="range" id="newslider1">
+						</div>
+					</div>
+					<div class="middle">
+						<div class="allsliders_item doublebig">
+							<input type="range" id="newslider2">
+						</div>
+					</div>
+					<!-- <div class="middle">
+						<div class="middle__elements">
+							<input type="range" class="typerange" id="in-left" min="0" max="50" value="15">
+							<input type="range" class="typerange" id="in-right" min="0" max="50" value="34">
+							<div class="sliders one">
+								<div class="track"></div>
+								<div class="ranges one"></div>
+								<div class="thumb leftleft one"><div id="ValueL" class="slider-textleft"></div><div class="icon-tear icon-pos"></div></div>
+								<div class="thumb rightright one"><div id="ValueR" class="slider-textright"></div><div class="icon-tear icon-pos"></div></div>
+							</div>
+						</div>
+					</div> -->
 				</div>
 				</div>
 			</div>
@@ -302,8 +298,8 @@
 						</div>
 						</div>
 						<div class="open-diss-btn">
-								<button type="button" class="upbtn-right alerts__header white-back left-btn upButton">Open</button>						
-								<button type="button" class="downbtn-right alerts__subtitle gray white-back left-btn downButton">Dismiss</button>
+								<button type="button" class="upbtn-right alerts__header white-back left-btn upbutton">Open</button>						
+								<button type="button" class="downbtn-right alerts__subtitle gray white-back left-btn downbutton">Dismiss</button>
 						</div>
 					</div>
 				</div>	
@@ -865,35 +861,34 @@
 						<div class="components-square" id="custom-button">
 							<input type="file" hidden id="real-file">
 							<i class="_icon-point-in-circle"></i>
-							<h1 class="components__textOne">Add Files</h1>
-							<p class="components__textOne">Drag & Drop to upload or</p>
+							<h1 class="components__textone">Add Files</h1>
+							<p class="components__textone">Drag & Drop to upload or</p>
 						</div>
 						<div class="components-square active">
 							<i class="_icon-point-in-circle"></i>
-							<h1 class="components__textTwo">Something went wrong.</h1>
-							<p class="components__textTwo">Please try again</p>
+							<h1 class="components__texttwo">Something went wrong.</h1>
+							<p class="components__texttwo">Please try again</p>
 						</div>		
 					</div>
 					<div class="components__rows">
 						<div class="components-square">
 							
-							<div class="components__textThree"><span id="label" class="components__textThree">0%</span> uploaded</div>
+							<div class="components__textthree"><span id="label" class="components__textthree">0%</span> uploaded</div>
 					
-							<div id="myProgress" class="components__sliderBar sliderBar">
-								<div id="myBar" class="sliderBar__done" data-size="69"></div>
+							<div id="myprogress" class="components__sliderbar sliderbar">
+								<div id="mybar" class="sliderbar__done" data-size="69"></div>
 							</div>
-							<p class="components__textThree">Please wait...</p>
+							<p class="components__textthree">Please wait...</p>
 							<button type="button" class="components_button-cancel">Cancel</button>
 						</div>
 						<div class="components-square">
 							<div class="svg-container">
 							<svg  class="components__progress-ring" width="120" height="120">
-								<circle id="svg" cx="60" cy="60" r="52" stroke="#18A0FB" stroke-width="5" fill="none"></circle>
-								<circle class="progress-ring__circle" stroke="#FFFFFF" stroke-width="5%" fill="transparent" r="52" cx="60" cy="60" data-percent="69" />
+								<circle stroke-dashoffset="0" class="progress-ring__circle" stroke="#18A0FB" stroke-width="5%" fill="transparent" r="52" cx="60" cy="60" data-percent="69" />
 							 </svg>
-							 <span id="showData"></span>
+							 <span id="showdata"></span>
 							</div>
-							<p class="components__textFour">Uploading...</p>
+							<p class="components__textfour">Uploading...</p>
 							<button type="button" class="components_button-cancel">Cancel</button>
 						</div>
 					</div>
@@ -902,70 +897,70 @@
 							<div class="components__upload-header">
 							<div class="components__upload-title">Recent Uploads</div>
 							<div class="components__upload-button"><button type="button" class="components__upload-btn">Upload<div class="_icon-point-in-circle-small"></div> </button></div></div>
-						<div class="components__fileUpload-list fileUpload">
-									<div class="fileUpload_item">
-										<div class="fileUpload_progress">
-											<div class="fileUpload_iconText">
-											<div class="fileUpload_icon"></div>
-											<div class="fileUpload_info">
-											<div class="fileUpload_name">file name.jpg</div>
-											<div class="fileUpload_minutes">23 min ago</div>
+						<div class="components__fileupload-list fileupload">
+									<div class="fileupload_item">
+										<div class="fileupload_progress">
+											<div class="fileupload_iconText">
+											<div class="fileupload_icon"></div>
+											<div class="fileupload_info">
+											<div class="fileupload_name">file name.jpg</div>
+											<div class="fileupload_minutes">23 min ago</div>
 											</div>
 											</div>
-											<button class="fileUpload_close"><div class="_icon-close-button"></div></button>
+											<button class="fileupload_close"><div class="_icon-close-button"></div></button>
 										</div>
-										<div class="fileUpload_progressLine">
-											<div class="fileUpload_innerLine"></div>
-										</div>
-									</div>
-									<div class="fileUpload_item">
-										<div class="fileUpload_progress">
-											<div class="fileUpload_iconText">
-											<div class="fileUpload_icon"></div>
-											<div class="fileUpload_info">
-											<div class="fileUpload_name">file name.jpg</div>
-											<div class="fileUpload_minutes">23 min ago</div>
-											</div>
-											</div>
-											<button class="fileUpload_close"><div class="_icon-eye"></div></button>
-										</div>
-										<div class="fileUpload_progressLine">
-											<div class="fileUpload_innerLine active-green"></div>
+										<div class="fileupload_progressline">
+											<div class="fileupload_innerline"></div>
 										</div>
 									</div>
-									<div class="fileUpload_item">
-										<div class="fileUpload_progress">
-											<div class="fileUpload_iconText">
-											<div class="fileUpload_icon"></div>
-											<div class="fileUpload_info">
-											<div class="fileUpload_name">file name.jpg</div>
-											<div class="fileUpload_minutes">23 min ago</div>
+									<div class="fileupload_item">
+										<div class="fileupload_progress">
+											<div class="fileupload_iconText">
+											<div class="fileupload_icon"></div>
+											<div class="fileupload_info">
+											<div class="fileupload_name">file name.jpg</div>
+											<div class="fileupload_minutes">23 min ago</div>
 											</div>
 											</div>
-											<div class="fileUpload__iconGroup">
-											<div class="fileUpload_icon-text red">Failed</div>
-											<button class="fileUpload_close red"><div class="_icon-flex-point"></div></button>
-											</div>
+											<button class="fileupload_close"><div class="_icon-eye"></div></button>
 										</div>
-										<div class="fileUpload_progressLine ">
-											<div class="fileUpload_innerLine active-red"></div>
+										<div class="fileupload_progressline">
+											<div class="fileupload_innerline active-green"></div>
 										</div>
 									</div>
-									<div class="fileUpload_item">
-										<div class="fileUpload_progress">
-											<div class="fileUpload_iconText">
-											<div class="fileUpload_icon"></div>
-											<div class="fileUpload_info">
-											<div class="fileUpload_name">file name.jpg</div>
-											<div class="fileUpload_minutes">23 min ago</div>
+									<div class="fileupload_item">
+										<div class="fileupload_progress">
+											<div class="fileupload_iconText">
+											<div class="fileupload_icon"></div>
+											<div class="fileupload_info">
+											<div class="fileupload_name">file name.jpg</div>
+											<div class="fileupload_minutes">23 min ago</div>
 											</div>
 											</div>
-											<div class="fileUpload__iconGroup">
-											<div class="fileUpload_icon-text">Canceled</div>
-											<button class="fileUpload_close"><div class="_icon-flex-point"></div></button></div>
+											<div class="fileupload__iconGroup">
+											<div class="fileupload_icon-text red">Failed</div>
+											<button class="fileupload_close red"><div class="_icon-flex-point"></div></button>
+											</div>
 										</div>
-										<div class="fileUpload_progressLine">
-											<div class="fileUpload_innerLine active-yellow"></div>
+										<div class="fileupload_progressline ">
+											<div class="fileupload_innerline active-red"></div>
+										</div>
+									</div>
+									<div class="fileupload_item">
+										<div class="fileupload_progress">
+											<div class="fileupload_iconText">
+											<div class="fileupload_icon"></div>
+											<div class="fileupload_info">
+											<div class="fileupload_name">file name.jpg</div>
+											<div class="fileupload_minutes">23 min ago</div>
+											</div>
+											</div>
+											<div class="fileupload__iconGroup">
+											<div class="fileupload_icon-text">Canceled</div>
+											<button class="fileupload_close"><div class="_icon-flex-point"></div></button></div>
+										</div>
+										<div class="fileupload_progressline">
+											<div class="fileupload_innerline active-yellow"></div>
 										</div>
 									</div>
 						</div>
@@ -985,6 +980,8 @@
 	<script src="/LC-select-main/lc_select.js"></script>
 	<script src="https://kit.fontawesome.com/f37415fb3f.js" crossorigin="anonymous"></script>
 	<script src="/vanilla-calendar-master/src/js/vanilla-calendar.js"></script>
+	<script src="/node_modules/bulma-calendar/dist/js/bulma-calendar.js"></script>
+	<script src="/node_modules/rangeable/dist/rangeable.min.js"></script>
 	<script src="/js/script.js"></script>
 </body>
 </html>
