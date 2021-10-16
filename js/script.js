@@ -1,4 +1,9 @@
 
+var myCal = bulmaCalendar.attach('.demo', {
+	isRange: true,
+	showButtons: true,
+	displayMode: 'inline',  
+});
 
 let myCalendar = new VanillaCalendar({
     selector: "#myCalendar",
@@ -46,129 +51,114 @@ inputR.addEventListener("input", setRValue);
 
 
 
-let inputLeft = document.getElementById("input-left");
-let inputRight = document.getElementById("input-right");
+// let inputLeft = document.getElementById("input-left");
+// let inputRight = document.getElementById("input-right");
 
-let thumbLeft = document.querySelector(".slider > .thumb.left");
-let thumbRight = document.querySelector(".slider > .thumb.right");
+// let thumbLeft = document.querySelector(".slider > .thumb.left");
+// let thumbRight = document.querySelector(".slider > .thumb.right");
 
-let range = document.querySelector(".slider > .range");
+// let range = document.querySelector(".slider > .range");
 
-let SelectValueL = document.getElementById("SelectValueL");
-SelectValueL.innerHTML = inputLeft.value;
+// let SelectValueL = document.getElementById("SelectValueL");
+// SelectValueL.innerHTML = inputLeft.value;
 
-let SelectValueR = document.getElementById("SelectValueR");
-SelectValueR.innerHTML = inputRight.value;
+// let SelectValueR = document.getElementById("SelectValueR");
+// SelectValueR.innerHTML = inputRight.value;
 
-function setLeftValue() {
+// function setLeftValue() {
 	
-	let _this = inputLeft,
-		min = parseInt(_this.min),
-		max = parseInt(_this.max);
+// 	let _this = inputLeft,
+// 		min = parseInt(_this.min),
+// 		max = parseInt(_this.max);
 
-		_this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value)-1);
-		let percent = ((_this.value - min) / (max-min)) * 100;
+// 		_this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value)-1);
+// 		let percent = ((_this.value - min) / (max-min)) * 100;
 
-		thumbLeft.style.left = percent + "%";
-		range.style.left = percent + "%";
+// 		thumbLeft.style.left = percent + "%";
+// 		range.style.left = percent + "%";
 
-		SelectValueL.innerHTML = inputLeft.value;
-}
-setLeftValue ();
+// 		SelectValueL.innerHTML = inputLeft.value;
+// }
+// setLeftValue ();
 
-function setRightValue() {
-	let _this = inputRight,
-		min = parseInt(_this.min),
-		max = parseInt(_this.max);
+// function setRightValue() {
+// 	let _this = inputRight,
+// 		min = parseInt(_this.min),
+// 		max = parseInt(_this.max);
 
-		_this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value)+1);
-		let percent = ((_this.value - min) / (max-min)) * 100;
+// 		_this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value)+1);
+// 		let percent = ((_this.value - min) / (max-min)) * 100;
 
-		thumbRight.style.right = (100-percent) + "%";
-		range.style.right = (100-percent) + "%";
+// 		thumbRight.style.right = (100-percent) + "%";
+// 		range.style.right = (100-percent) + "%";
 
-		SelectValueR.innerHTML = inputRight.value;
-}
-setRightValue ();
+// 		SelectValueR.innerHTML = inputRight.value;
+// }
+// setRightValue ();
 
-inputLeft.addEventListener("input", setLeftValue);
-inputRight.addEventListener("input", setRightValue);
+// inputLeft.addEventListener("input", setLeftValue);
+// inputRight.addEventListener("input", setRightValue);
 
 
 
-let inLeft = document.getElementById("in-left");
-let inRight = document.getElementById("in-right");
+// let inLeft = document.getElementById("in-left");
+// let inRight = document.getElementById("in-right");
 
-let tLeft = document.querySelector(".sliders.one > .thumb.leftleft");
-let tRight = document.querySelector(".sliders.one > .thumb.rightright");
+// let tLeft = document.querySelector(".sliders.one > .thumb.leftleft");
+// let tRight = document.querySelector(".sliders.one > .thumb.rightright");
 
-let ranges = document.querySelector(".sliders.one > .ranges");
+// let ranges = document.querySelector(".sliders.one > .ranges");
 
-let ValueL = document.getElementById("ValueL");
-ValueL.innerHTML = inLeft.value;
+// let ValueL = document.getElementById("ValueL");
+// ValueL.innerHTML = inLeft.value;
 
-let ValueR = document.getElementById("ValueR");
-ValueR.innerHTML = inRight.value;
+// let ValueR = document.getElementById("ValueR");
+// ValueR.innerHTML = inRight.value;
 
-function setLeftValueL() {
+// function setLeftValueL() {
 	
-	let _this = inLeft,
-		min = parseInt(_this.min),
-		max = parseInt(_this.max);
+// 	let _this = inLeft,
+// 		min = parseInt(_this.min),
+// 		max = parseInt(_this.max);
 
-		_this.value = Math.min(parseInt(_this.value), parseInt(inRight.value)-1);
-		let percent = ((_this.value - min) / (max-min)) * 100;
+// 		_this.value = Math.min(parseInt(_this.value), parseInt(inRight.value)-1);
+// 		let percent = ((_this.value - min) / (max-min)) * 100;
 
-		tLeft.style.left = percent + "%";
-		ranges.style.left = percent + "%";
+// 		tLeft.style.left = percent + "%";
+// 		ranges.style.left = percent + "%";
 
-		ValueL.innerHTML = inLeft.value;
-}
-setLeftValueL ();
+// 		ValueL.innerHTML = inLeft.value;
+// }
+// setLeftValueL ();
 
-function setRightValueR() {
-	let _this = inRight,
-		min = parseInt(_this.min),
-		max = parseInt(_this.max);
+// function setRightValueR() {
+// 	let _this = inRight,
+// 		min = parseInt(_this.min),
+// 		max = parseInt(_this.max);
 
-		_this.value = Math.max(parseInt(_this.value), parseInt(inLeft.value)+1);
-		let percent = ((_this.value - min) / (max-min)) * 100;
+// 		_this.value = Math.max(parseInt(_this.value), parseInt(inLeft.value)+1);
+// 		let percent = ((_this.value - min) / (max-min)) * 100;
 
-		tRight.style.right = (100-percent) + "%";
-		ranges.style.right = (100-percent) + "%";
+// 		tRight.style.right = (100-percent) + "%";
+// 		ranges.style.right = (100-percent) + "%";
 
-		ValueR.innerHTML = inRight.value;
-}
-setRightValueR ();
+// 		ValueR.innerHTML = inRight.value;
+// }
+// setRightValueR ();
 
-inLeft.addEventListener("input", setLeftValueL);
-inRight.addEventListener("input", setRightValueR);
+// inLeft.addEventListener("input", setLeftValueL);
+// inRight.addEventListener("input", setRightValueR);
 
 
 let thumbO = document.getElementById("one-t");
-let rangeo = document.getElementById("rangeO");
-let coloro = document.getElementById("colorO");
+let rangeo = document.getElementById("rangeo");
+let coloro = document.getElementById("coloro");
 
 
 rangeo.oninput = function () {
 	coloro.style.width = rangeo.value +"%";
 	thumbO.style.left = rangeo.value * 0.95 + "%";
 };
-
-let thumbOne = document.getElementById("one-thumb");
-let rangeone = document.getElementById("rangeOne");
-let colorone = document.getElementById("colorOne");
-let valueone = document.getElementById("valueOne");
-valueone.innerHTML = rangeone.value;
-
-rangeone.oninput = function () {
-	colorone.style.width = rangeone.value * 3.29 +"%";
-	valueone.innerHTML = rangeone.value;
-	thumbOne.style.left = rangeone.value * 3.29 + "%";
-};
-
-// let checkbox = document.getElementById('indeterminate')
-// checkbox.indeterminate = true;
 
 
 //  TABS 
@@ -229,7 +219,7 @@ let example_select = new lc_select(document.querySelector('#example-select'), {e
 // ====ROUNDED RANGE SLIDER======
 
 function loading() {
-	document.querySelectorAll(".sliderBar__done").forEach(function(current) {
+	document.querySelectorAll(".sliderbar__done").forEach(function(current) {
 	  let startWidth = 0;
 	  let elementPerc = document.getElementById("label")
 	  const endWidth = current.dataset.size;
@@ -254,7 +244,7 @@ function loading() {
 
 const circle = document.querySelector(".progress-ring__circle");
 let precentText = circle.getAttribute("data-percent");
-let showData = document.getElementById("showData");
+let showData = document.getElementById("showdata");
 const radius = circle.r.baseVal.value;
 const circumference = 2 * Math.PI * radius;
 
@@ -263,7 +253,7 @@ circle.style.strokeDashoffset = circumference;
 
 
 function setProgress(percent) {
-	const offset = percent / 100 * circumference;
+	const offset = (1 - percent / 100) * circumference;
 	circle.style.strokeDashoffset = offset;
 	
 };
@@ -287,4 +277,25 @@ const custombutton = document.getElementById("custom-button");
 
 custombutton.addEventListener("click", function() {
 	realfile.click();
+});
+
+const slider0 = new Rangeable('#newslider', {
+	step: '1',
+	value: 15,
+	max: 30,
+	min: 0,
+});
+const slider1 = new Rangeable("#newslider1", {
+	multiple: true,
+	step: "1",
+	max: 50,
+	min: 0,
+	value: [15, 34],
+});
+const slider2 = new Rangeable("#newslider2", {
+	multiple: true,
+	step: "1",
+	max: 50,
+	min: 0,
+	value: [15, 34],
 });
