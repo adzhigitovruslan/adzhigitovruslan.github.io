@@ -5,11 +5,6 @@ var myCal = bulmaCalendar.attach('.demo', {
 	displayMode: 'inline',  
 });
 
-let myCalendar = new VanillaCalendar({
-    selector: "#myCalendar",
-	onSelect: (data, elem) => {}
-});
-
 let inputL = document.getElementById("inputL");
 let inputR = document.getElementById("inputR");
 
