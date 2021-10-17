@@ -1,9 +1,9 @@
 
-var myCal = bulmaCalendar.attach('.demo', {
-	isRange: true,
-	showButtons: true,
-	displayMode: 'inline',  
-});
+const picker = new Litepicker({ 
+    element: document.getElementById('litepicker'),
+	singleMode: false,
+	inlineMode: true,
+  });
 
 let inputL = document.getElementById("inputL");
 let inputR = document.getElementById("inputR");
