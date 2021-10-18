@@ -9,9 +9,9 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<link href="/LC-select-main/themes/light.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
+	<link rel="stylesheet" href="/css/rangeable.min.css">
 	<link rel="stylesheet" href="/css/style.css">
 	<title>Starter Kit</title>
-
 </head>
 <body>
 	<section class="header">
@@ -173,6 +173,7 @@
 						<div class="one-thumb" id="one-t"></div>
 						<div class="track2"></div>
 					</div> 
+					<input type="text" class="js-range-slider" name="my_range" value="" />
 					<div class="middle">
 						<div class="middle__elements">
 							<input type="range" class="typerange" id="inputL" min="0" max="50" value="15">
@@ -191,6 +192,8 @@
 						</div>
 					</div>
 					
+					<input type="text" id="myRangeInput">
+
 					<div class="middle">
 						<div class="allsliders_item double">
 							<input type="range" id="newslider1">
@@ -976,6 +979,7 @@
 	<script src="/LC-select-main/lc_select.js"></script>
 	<script src="https://kit.fontawesome.com/f37415fb3f.js" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+	<script src="/js/rangeable.min.js"></script>
 	<script src="/js/script.js"></script>
 </body>
 </html>

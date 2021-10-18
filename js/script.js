@@ -4,6 +4,19 @@ const picker = new Litepicker({
 	singleMode: false,
 	inlineMode: true,
   });
+const rangeable = new Rangeable(myRangeInput);
+
+//   const element = document.querySelector('.button-previous-month');
+//   const svg_icon_left = document.createElement('img');
+//   svg_icon_left.src = '/iconfonts/Vector.svg';
+//   svg_icon_left.className = 'img_vector';
+//   element.appendChild(svg_icon_left);
+
+//   if (document.body.contains(svg_icon_left)) {
+// 	  console.log('true');
+//   } else {
+// 	  console.log('none');
+//   }
 
 let inputL = document.getElementById("inputL");
 let inputR = document.getElementById("inputR");
@@ -274,23 +287,23 @@ custombutton.addEventListener("click", function() {
 	realfile.click();
 });
 
-const slider0 = new Rangeable('#newslider', {
-	step: '1',
-	value: 15,
-	max: 30,
-	min: 0,
-});
-const slider1 = new Rangeable("#newslider1", {
-	multiple: true,
-	step: "1",
-	max: 50,
-	min: 0,
-	value: [15, 34],
-});
-const slider2 = new Rangeable("#newslider2", {
-	multiple: true,
-	step: "1",
-	max: 50,
-	min: 0,
-	value: [15, 34],
-});
+// const slider0 = new Rangeable('#newslider', {
+// 	step: '1',
+// 	value: 15,
+// 	max: 30,
+// 	min: 0,
+// });
+// const slider1 = new Rangeable("#newslider1", {
+// 	multiple: true,
+// 	step: "1",
+// 	max: 50,
+// 	min: 0,
+// 	value: [15, 34],
+// });
+// const slider2 = new Rangeable("#newslider2", {
+// 	multiple: true,
+// 	step: "1",
+// 	max: 50,
+// 	min: 0,
+// 	value: [15, 34],
+// });
