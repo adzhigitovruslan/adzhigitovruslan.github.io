@@ -450,6 +450,9 @@ th > .check__item > .check__box-label::after {
 	height: 260px;
 	overflow: hidden;
 }
+.button-next-month, .button-previous-month {
+	display: flex;
+}
 .litepicker .container__months .month-item {
 	width: 100%;
 	box-sizing: border-box;	
@@ -535,6 +538,9 @@ th > .check__item > .check__box-label::after {
     margin: 0 auto;
     height: 32px;
 }
+.litepicker .button-prev-month:hover{
+	color: red !important;
+}
 .litepicker .month-item-header div {
 	font-size: 12px;
 	color: #2c2c2c;
@@ -544,8 +550,9 @@ th > .check__item > .check__box-label::after {
 	font-weight: 500;
 }
 .litepicker .container__months .month-item-header .button-next-month>svg, .litepicker .container__months .month-item-header .button-next-month>img, .litepicker .container__months .month-item-header .button-previous-month>svg, .litepicker .container__months .month-item-header .button-previous-month>img {
-	fill: #2c2c2c;
+	fill: none;
 }
+
 .forms {
 	display: flex;
 }
@@ -2993,9 +3000,6 @@ color: #FF3E1D;
 .litepicker .container__months .month-item-header div>.month-item-name {
 	font-weight: 500;
 }
-.litepicker .container__months .month-item-header .button-next-month>svg, .litepicker .container__months .month-item-header .button-next-month>img, .litepicker .container__months .month-item-header .button-previous-month>svg, .litepicker .container__months .month-item-header .button-previous-month>img {
-	fill: #2c2c2c;
-}
 
 }
 @media screen and (max-width: 839px) {
@@ -3306,9 +3310,7 @@ color: #FF3E1D;
 .litepicker .container__months .month-item-header div>.month-item-name {
 	font-weight: 500;
 }
-.litepicker .container__months .month-item-header .button-next-month>svg, .litepicker .container__months .month-item-header .button-next-month>img, .litepicker .container__months .month-item-header .button-previous-month>svg, .litepicker .container__months .month-item-header .button-previous-month>img {
-	fill: #2c2c2c;
-}
+
 	.btn-left {
 		margin-left: 20px;
 	}
