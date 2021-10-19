@@ -3,7 +3,20 @@ const picker = new Litepicker({
     element: document.getElementById('litepicker'),
 	singleMode: false,
 	inlineMode: true,
-  });
+	"erfe":"<svg>ee</svg>",
+	
+});
+
+const week0 = document.querySelector('.litepicker .container__months .month-item-weekdays-row').childNodes[0];
+var textnode = document.createTextNode("Mo");
+console.log(week0);
+week0.replaceChild(textnode, week0.childNodes[0]);
+
+ 
+//   console.log(weekday0);
+//   const mo = document.textContent.createTextNode('Mo');
+//   weekday0.replaceChild(mo, weekday0.childNodes[0].textContent);
+
 
 //   const element = document.querySelector('.button-previous-month');
 //   const svg_icon_left = document.createElement('img');
