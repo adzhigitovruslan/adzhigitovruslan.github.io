@@ -2,33 +2,9 @@
 const picker = new Litepicker({ 
     element: document.getElementById('litepicker'),
 	singleMode: false,
-	inlineMode: true,
-	"erfe":"<svg>ee</svg>",
-	
+	inlineMode: true,	
 });
 
-const week0 = document.querySelector('.litepicker .container__months .month-item-weekdays-row').childNodes[0];
-var textnode = document.createTextNode("Mo");
-console.log(week0);
-week0.replaceChild(textnode, week0.childNodes[0]);
-
- 
-//   console.log(weekday0);
-//   const mo = document.textContent.createTextNode('Mo');
-//   weekday0.replaceChild(mo, weekday0.childNodes[0].textContent);
-
-
-//   const element = document.querySelector('.button-previous-month');
-//   const svg_icon_left = document.createElement('img');
-//   svg_icon_left.src = '/iconfonts/Vector.svg';
-//   svg_icon_left.className = 'img_vector';
-//   element.appendChild(svg_icon_left);
-
-//   if (document.body.contains(svg_icon_left)) {
-// 	  console.log('true');
-//   } else {
-// 	  console.log('none');
-//   }
 
 let inputL = document.getElementById("inputL");
 let inputR = document.getElementById("inputR");
