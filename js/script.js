@@ -9,10 +9,11 @@ mainFormInput.addEventListener('blur', function(e) {
 	mainFormInput.classList('search-form__error').remove();
 });
 
+
+const iconItem = document.querySelectorAll('.icon-item');
 const iconMenu = document.querySelector('.icon-menu');
 if (iconMenu) {
 	const menuList = document.querySelector('.menu__list');
-	const iconItem = document.querySelectorAll('.icon-item');
 	iconMenu.addEventListener('click', function(e) {
 		document.body.classList.toggle('_lock');
 		menuList.classList.toggle('show');
@@ -21,6 +22,34 @@ if (iconMenu) {
 		})
 	});
 }
+
+const menuList = document.querySelector('.menu__list');
+const menuItem = document.querySelectorAll('.menu__item:not(:last-child)');
+const mql = window.matchMedia('(max-width: 767.98px)');
+	
+function someFunc() {
+		// Выполняем действие, если ширина меньше 1000px
+		let w = window.innerWidth;
+		if (w < 767.98) {
+			menuItem.forEach(item => {
+				item.addEventListener('click', (e) => {
+					menuList.classList.toggle('show'); 
+					document.body.classList.toggle('_lock');
+					iconItem.forEach(element => {
+						element.classList.toggle('_active');
+					})
+				})
+				} 
+				)
+		  console.log("Че-то делаем");
+		}
+	  };
+someFunc();
+mql.addEventListener('change', someFunc);
+mql.onchange = function() {
+    console.log(mql);
+  }
+
 // Найти все ссылки начинающиеся на #
 const anchors = document.querySelectorAll('a[href^="#"]')
 
