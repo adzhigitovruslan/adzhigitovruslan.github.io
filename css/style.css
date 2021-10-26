@@ -665,6 +665,7 @@ body._lock {
   line-height: 125%;
   letter-spacing: 0.2px;
   font-weight: 700;
+  color: #FFFFFF;
 }
 
 .header-main__buttons {
@@ -1669,10 +1670,6 @@ body._lock {
         -ms-flex-align: center;
             align-items: center;
     margin-left: 0px;
-  }
-
-  .header-main__subtitle {
-    color: #FFFFFF;
   }
 
   .header-main__button {
