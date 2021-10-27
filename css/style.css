@@ -1474,14 +1474,6 @@ body._lock {
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
   }
-
-  .item-pricing__title._mobile {
-    display: none;
-  }
-
-  .value-pricing__number._mobile {
-    display: none;
-  }
 }
 
 @media (min-width: 1800px) {
@@ -1821,22 +1813,6 @@ body._lock {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 100%;
             flex: 0 1 100%;
-  }
-
-  .item-pricing__title {
-    display: none;
-  }
-
-  .item-pricing__title._mobile {
-    display: block;
-  }
-
-  .value-pricing__number {
-    display: none;
-  }
-
-  .value-pricing__number._mobile {
-    display: block;
   }
 
   .info-contact {
