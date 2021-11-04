@@ -345,6 +345,10 @@ h6 {
   color: #FFFFFF;
 }
 
+.parallax {
+  position: relative !important;
+}
+
 .footer__body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1139,12 +1143,6 @@ h6 {
             flex-direction: column;
   }
 
-  .header .scene:first-child {
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
-  }
-
   .header__logo img {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
@@ -1333,21 +1331,21 @@ h6 {
     padding: 10px 0;
   }
 
-  .footer__logo {
-    margin: 8px 0px 8px 0px;
-  }
-
-  .footer .scene:first-child {
+  .footer__rights {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
   }
 
-  .footer .scene:nth-child(3) {
+  .footer__logo {
+    margin: 8px 0px 8px 0px;
+  }
+
+  .footer__info {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
-    margin-top: 15px;
+    margin: 15px 0 15px 15px;
   }
 
   .rights-footer__text {
