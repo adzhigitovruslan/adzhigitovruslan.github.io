@@ -345,10 +345,6 @@ h6 {
   color: #FFFFFF;
 }
 
-.parallax {
-  position: relative !important;
-}
-
 .footer__body {
   display: -webkit-box;
   display: -ms-flexbox;
