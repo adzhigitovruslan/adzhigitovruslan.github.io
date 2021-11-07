@@ -458,7 +458,6 @@ h6 {
   padding: 82px 0 0 0;
   background: #F0F5FB;
   position: relative;
-  overflow-y: hidden;
 }
 
 .content-form {
@@ -480,7 +479,6 @@ h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  overflow: hidden;
 }
 
 .images__car {
@@ -1229,7 +1227,7 @@ h6 {
 
   .images__car {
     height: 300px;
-    margin-bottom: -45px;
+    margin-bottom: -55px;
   }
 }
 
@@ -1255,10 +1253,16 @@ h6 {
 
 @media (max-width: 471px) {
   .dishes__menu .menu__list {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    -webkit-column-gap: 10px;
+       -moz-column-gap: 10px;
+            column-gap: 10px;
+    row-gap: 15px;
   }
 
   .dishes__menu .menu__item {
@@ -1293,7 +1297,7 @@ h6 {
 @media (max-width: 420px) {
   .images__car {
     height: 230px;
-    margin-bottom: -35px;
+    margin-bottom: -40px;
   }
 }
 
@@ -1310,6 +1314,18 @@ h6 {
 @media (max-width: 400px) {
   .images-pizza {
     height: 350px;
+  }
+
+  .dishes__menu .menu__item {
+    margin: 0 0 50px 0;
+  }
+
+  .dishes__menu .menu__link {
+    padding: 17px 36px;
+  }
+
+  .item-dishes {
+    width: 90%;
   }
 
   .card {
@@ -1353,7 +1369,7 @@ h6 {
   }
 
   .header-block__title {
-    font-size: 40px;
+    font-size: 37px;
   }
 
   .images-pizza {
@@ -1363,7 +1379,7 @@ h6 {
 
   .images__car {
     height: 210px;
-    margin-bottom: -30px;
+    margin-bottom: -38px;
   }
 }
 
