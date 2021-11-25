@@ -905,7 +905,7 @@ h6 {
           align-items: center;
 }
 
-.content__apartment > .content__apartmnet-subtitle {
+.content__apartmnet-subtitle {
   font-size: 16px;
   line-height: 155%;
   font-family: "Sofia_Pro";
@@ -986,7 +986,7 @@ h6 {
           align-items: flex-end;
 }
 
-.content__property > .content__property-subtitle {
+.content__property-subtitle {
   font-size: 16px;
   font-family: "Sofia_Pro";
 }
@@ -1000,7 +1000,7 @@ h6 {
           align-items: flex-end;
 }
 
-.content__bedroom > .content__bedroom-subtitle {
+.content__bedroom-subtitle {
   font-size: 16px;
   font-family: "Sofia_Pro";
   line-height: 0.9;
@@ -1015,7 +1015,7 @@ h6 {
           align-items: flex-end;
 }
 
-.content__square > .content__square-subtitle {
+.content__square-subtitle {
   font-size: 16px;
   font-family: "Sofia_Pro";
   line-height: 0.8;
@@ -1030,7 +1030,7 @@ h6 {
   overflow: hidden;
 }
 
-.main-img .main-img__image {
+.main-img__image {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -1191,7 +1191,7 @@ h6 {
   gap: 12px;
 }
 
-.gallery__content > .gallery__img {
+.gallery__content .gallery__img {
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
@@ -1201,7 +1201,7 @@ h6 {
   max-height: 111px;
 }
 
-.gallery__content > .gallery__img .gallery__img-item {
+.gallery__content .gallery__img .gallery__img-item {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -1968,7 +1968,7 @@ h6 {
     font-size: 16px;
   }
 
-  .content__apartment > .content__apartmnet-subtitle {
+  .content__apartmnet-subtitle {
     font-size: 13px;
   }
 
@@ -1976,15 +1976,15 @@ h6 {
     font-size: 16px;
   }
 
-  .content__property > .content__property-subtitle {
+  .content__property-subtitle {
     font-size: 14px;
   }
 
-  .content__bedroom > .content__bedroom-subtitle {
+  .content__bedroom-subtitle {
     font-size: 14px;
   }
 
-  .content__square > .content__square-subtitle {
+  .content__square-subtitle {
     font-size: 14px;
   }
 
