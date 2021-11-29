@@ -282,10 +282,10 @@ h6 {
   margin: 0 0 43px 0;
 }
 
-.accordion {
-  -webkit-transition: 0.2s ease;
-  -o-transition: 0.2s ease;
-  transition: 0.2s ease;
+.accordion__item:hover {
+  -webkit-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .accordion__item:hover .accordion__item-header {
@@ -297,13 +297,16 @@ h6 {
   border-bottom: 1px solid #E8E8EA;
   margin-bottom: 16px;
   cursor: pointer;
-  -webkit-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 
 .accordion__item._active {
   padding-bottom: 19px;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 
 .accordion__item._active .accordion__item-content {
@@ -320,6 +323,9 @@ h6 {
 .accordion__item._active .accordion__item-header {
   font-weight: 700;
   color: #1E1F36;
+  -webkit-transition: font-weight 0.4s ease, color 0.4s ease;
+  -o-transition: font-weight 0.4s ease, color 0.4s ease;
+  transition: font-weight 0.4s ease, color 0.4s ease;
 }
 
 .accordion__item-trigger {
@@ -336,17 +342,17 @@ h6 {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding-bottom: 19px;
-  -webkit-transition: all 0.55s ease;
-  -o-transition: all 0.55s ease;
-  transition: all 0.55s ease;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .accordion__item-header {
   display: block;
   color: #4B4C5F;
-  -webkit-transition: 0.55s ease;
-  -o-transition: 0.55s ease;
-  transition: 0.55s ease;
+  -webkit-transition: font-weight 0.4s ease, color 0.4s ease;
+  -o-transition: font-weight 0.4s ease, color 0.4s ease;
+  transition: font-weight 0.4s ease, color 0.4s ease;
   line-height: 1.1;
   margin-right: 72px;
 }
@@ -361,7 +367,9 @@ h6 {
   transition: 0.2s ease;
   color: #787887;
   font-size: 12px;
-  transition: 0.2s ease;
+  -webkit-transition: opacity 0.2s ease, max-height 0.2s ease;
+  -o-transition: opacity 0.2s ease, max-height 0.2s ease;
+  transition: opacity 0.2s ease, max-height 0.2s ease;
 }
 
 ._icon-path {
