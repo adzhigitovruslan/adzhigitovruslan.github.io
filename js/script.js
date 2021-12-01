@@ -38,14 +38,3 @@ basicXlNew = parseFloat(basicXlContent * 12 - ((basicXlContent * 12) / 100 * per
 		})
 		
 	});
-
-
-
-// textAnimation.forEach(function(item) {
-// 	item.addEventListener('click', function() {
-
-// 		textAnimation.forEach(function(item) {
-// 			item.classList.add('_active');
-// 		});
-// 	});
-// });
