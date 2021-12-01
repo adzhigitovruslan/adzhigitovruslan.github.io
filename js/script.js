@@ -27,3 +27,25 @@ basicXlNew = parseFloat(basicXlContent * 12 - ((basicXlContent * 12) / 100 * per
 			basicXl.textContent = `${basicXlContent}`;
 		}
 	});
+
+	const textAnimation = document.querySelectorAll('.item__price-content');
+
+
+	elementInput.addEventListener('click', function() {
+		textAnimation.forEach(function(item) {
+		   item.classList.remove('_active');
+		   setTimeout(e=>{item.classList.add("_active")},2) 
+		})
+		
+	});
+
+
+
+// textAnimation.forEach(function(item) {
+// 	item.addEventListener('click', function() {
+
+// 		textAnimation.forEach(function(item) {
+// 			item.classList.add('_active');
+// 		});
+// 	});
+// });

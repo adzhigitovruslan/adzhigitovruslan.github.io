@@ -337,6 +337,35 @@ h6 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin: 0 auto;
+  width: 197px;
+}
+
+.item__price-content._active {
+  -webkit-animation: show 2s 1;
+          animation: show 2s 1;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .item__icon {
@@ -436,7 +465,7 @@ h6 {
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 780px) {
   .content__body {
     -ms-grid-columns: (minmax(auto, 23.3333333333rem))[2];
     grid-template-columns: repeat(2, minmax(auto, 23.3333333333rem));
@@ -492,7 +521,7 @@ h6 {
 
 }
 
- @media (max-width: 680px){
+ @media (max-width: 780px){
 
 @supports (-webkit-appearance:none){
 
