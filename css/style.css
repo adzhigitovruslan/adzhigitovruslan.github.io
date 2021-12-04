@@ -180,11 +180,11 @@ h6 {
   height: 100vh;
 }
 
-.time.day {
+.time.dayz {
   background-image: url(../img/background-day.png);
 }
 
-.time.night {
+.time.nightz {
   background-image: url(../img/background-night.png);
 }
 
@@ -512,6 +512,6 @@ h6 {
   transition: 0.4s ease;
 }
 @supports (-webkit-appearance:none){
-.time.day{background-image:url(../img/background-day.webp)}
-.time.night{background-image:url(../img/background-night.webp)}
+.time.dayz{background-image:url(../img/background-day.webp)}
+.time.nightz{background-image:url(../img/background-night.webp)}
 }
