@@ -7,51 +7,55 @@ window.setInterval(function () {
     const min = moment().format('mm');
     document.querySelector('.timezone__hours').innerHTML = hours;
     document.querySelector('.timezone__min').innerHTML = min;
-    // background 
-	const currentTime = new Date().getHours();
-	if (document.body) {
-		const morningText = document.querySelector('.timezone__greeting.morning');
-		const dayText = document.querySelector('.timezone__greeting.day');
-		const eveningText = document.querySelector('.timezone__greeting.evening');
-		const nightText = document.querySelector('.timezone__greeting.night');
-		const timeText = document.querySelectorAll('.timezone__greeting');
-		
-		if (6 <= currentTime && currentTime < 10) {
-			timeText.forEach((slide) => {
-				slide.classList.remove('_active');
-			});
-			morningText.classList.add('_active');
-			} 
-		if (10 <= currentTime && currentTime < 16) {
-			timeText.forEach((slide) => {
-				slide.classList.remove('_active');
-			})
-			dayText.classList.add('_active');
-			}
-		if (16 <= currentTime && currentTime < 22) {
-			timeText.forEach((slide) => {
-				slide.classList.remove('_active');
-			})
-			eveningText.classList.add('_active');
-		} else {
-			timeText.forEach((slide) => {
-				slide.classList.remove('_active');
-			})
-			nightText.classList.add('_active');
-		};
-	}
-    if (document.body) {
-        const mainImage = document.getElementById('background');
-
-        if (6 <= currentTime && currentTime < 16) {
-            mainImage.classList.remove('night');
-            mainImage.classList.add('day');
-        } else {
-            mainImage.classList.remove('day');
-            mainImage.classList.add('night');
-        }
-    };
 });
+
+
+     const currentTime = new Date().getHours();
+     function updateBackground() {
+     const morningText = document.querySelector('.morning');
+     const dayText = document.querySelector('.timezone__greeting.day');
+     const eveningText = document.querySelector('.evening');
+     const nightText = document.querySelector('.timezone__greeting.night');
+     const timeText = document.querySelectorAll('.timezone__greeting');
+        
+     if (6 <= currentTime && currentTime < 10) {
+         timeText.forEach((slide) => {
+             slide.classList.remove('_active');
+         })
+         morningText.classList.add('_active');
+         } else
+     if (10 <= currentTime && currentTime < 16) {
+         timeText.forEach((slide) => {
+             slide.classList.remove('_active');
+         })
+         dayText.classList.add('_active');
+         } else
+     if (16 <= currentTime && currentTime < 22) {
+         timeText.forEach((slide) => {
+             slide.classList.remove('_active');
+         })
+         eveningText.classList.add('_active');
+     } else {
+         timeText.forEach((slide) => {
+             slide.classList.remove('_active');
+         })
+         nightText.classList.add('_active');
+     };
+
+         const mainImage = document.getElementById('background');
+    
+         if (6 <= currentTime && currentTime < 16) {
+             mainImage.classList.remove('night');
+             mainImage.classList.add('day');
+         } else {
+             mainImage.classList.remove('day');
+             mainImage.classList.add('night');
+         }
+
+ }
+
+ setInterval(updateBackground, 1000 * 60);
+ updateBackground();
 
 
 let phrases = [
@@ -99,8 +103,9 @@ buttonMore.addEventListener('click', function () {
     iconPointer.classList.toggle('_active');
 })
 
-// buttonMore.addEventListener('blur', function () {
-//  const iconPointer = document.querySelector('._icon-pointer');
+buttonMore.addEventListener('blur', function () {
+ const iconPointer = document.querySelector('._icon-pointer');
 
-//  iconPointer.classList.remove('_active'), true;
-// });
+ iconPointer.classList.remove('_active'), true;
+});
+
