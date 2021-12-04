@@ -101,9 +101,14 @@ const subtitleAnimation = document.querySelector('.time__quotes-subtitle');
 
 const buttonMore = document.querySelector('.timezone__button');
 
+
 buttonMore.addEventListener('click', function () {
     const iconPointer = document.querySelector('._icon-pointer');
+    const slideUP = document.querySelector('.time__container');
+    const downBlock = document.querySelector('.page__addition');
 
+    downBlock.classList.toggle('_active');
+    slideUP.classList.toggle('_active');
     iconPointer.classList.toggle('_active');
 })
 
@@ -113,3 +118,14 @@ buttonMore.addEventListener('click', function () {
 //  iconPointer.classList.remove('_active'), true;
 // });
 
+const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+document.querySelector('#timezone_location').textContent = tz;
+
+const yearDay = moment().dayOfYear();
+document.querySelector('#dayYear').textContent = yearDay;
+
+const weekDay = moment().weekday();
+document.querySelector('#dayWeek').textContent =  weekDay;
+
+const weekNumber = moment().week();
+document.querySelector('#numberWeek').textContent = weekNumber;
