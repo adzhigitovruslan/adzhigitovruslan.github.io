@@ -175,6 +175,10 @@ h6 {
   position: relative;
 }
 
+.audio {
+  display: none;
+}
+
 .time {
   background-size: cover;
   background-position: center;
