@@ -374,6 +374,22 @@ h6 {
   min-height: 288px;
 }
 
+.timezone__geolocation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 16px;
+}
+
+.timezone__geolocation:not(:last-child) {
+  margin-right: 10px;
+}
+
 .timezone__bst {
   position: relative;
   margin: 0 0 -120px 8px;
@@ -714,6 +730,12 @@ h6 {
   }
 }
 
+@media (min-width: 950px) {
+  .timezone__geolocation {
+    display: none;
+  }
+}
+
 @media (max-width: 950px) {
   .time__container._active {
     -webkit-transform: translateY(-33%);
@@ -801,6 +823,15 @@ h6 {
     width: 47%;
   }
 
+  .timezone__geolocation {
+    font-size: 13px;
+  }
+
+  .timezone__geolocation {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
   .timezone__button {
     height: 39px;
   }
@@ -878,6 +909,11 @@ h6 {
     font-size: 12px;
   }
 
+  .timezone__geolocation {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
   .timezone__bst {
     margin: 0 0 -50px 8px;
   }
@@ -928,6 +964,14 @@ h6 {
 }
 
  @media (min-width: 600px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (min-width: 950px){
 
 @supports (-webkit-appearance:none){
 
