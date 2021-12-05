@@ -45,13 +45,41 @@ function updateTime() {
      };
 
          const mainImage = document.getElementById('background');
+         const backColor = document.getElementById('back_color');
+         const textColor = document.querySelector('.addition__body');
+         const textColorMobile = document.querySelector('.addition__body-mobile');
+         const borderColor = document.querySelector('.addition__block');
     
          if (6 <= currentTime && currentTime < 16) {
              mainImage.classList.remove('nightz');
              mainImage.classList.add('dayz');
-         } else if (6 > currentTime || currentTime > 16) {
+
+             backColor.classList.remove('nightz');
+             backColor.classList.add('dayz');
+
+             textColor.classList.remove('nightz');
+             textColor.classList.add('dayz');
+
+             borderColor.classList.remove('dayz');
+             borderColor.classList.add('nightz');
+
+             textColorMobile.classList.remove('nightz');
+             textColorMobile.classList.add('dayz');
+         } else if (16<= currentTime || currentTime < 6) {
              mainImage.classList.remove('dayz');
              mainImage.classList.add('nightz');
+
+             backColor.classList.remove('dayz');
+             backColor.classList.add('nightz');
+
+             textColor.classList.remove('dayz');
+             textColor.classList.add('nightz');
+
+             borderColor.classList.remove('nightz');
+             borderColor.classList.add('dayz');
+
+             textColorMobile.classList.remove('dayz');
+             textColorMobile.classList.add('nightz');
          }
 
  }
@@ -107,17 +135,24 @@ document.addEventListener('click', timeSection);
 const iconPointer = document.querySelector('._icon-pointer');
 const slideUP = document.querySelector('.time__container');
 const downBlock = document.querySelector('.page__addition');
+const openButton = document.querySelector('.timezone__open');
+const closeButton = document.querySelector('.timezone__close');
+
 
 function timeSection(event) {
     if(event.target.closest('.timezone__button')) {
         downBlock.classList.toggle('_active');
         slideUP.classList.toggle('_active');
         iconPointer.classList.toggle('_active');
+        openButton.classList.toggle('_active');
+        closeButton.classList.toggle('_active');
     }
     if(!event.target.closest('.page__addition') & !event.target.closest('.timezone__button')) {
     downBlock.classList.remove('_active');
     slideUP.classList.remove('_active');
     iconPointer.classList.remove('_active');
+    openButton.classList.add('_active');
+    closeButton.classList.remove('_active');
     }
 }
 
@@ -132,3 +167,17 @@ document.querySelector('#dayWeek').textContent =  weekDay;
 
 const weekNumber = moment().isoWeek();
 document.querySelector('#numberWeek').textContent = weekNumber;
+
+// Mobile
+
+const tzMob = Intl.DateTimeFormat().resolvedOptions().timeZone;
+document.querySelector('#timezone_location-mob').textContent = tzMob;
+
+const yearDayMob = moment().dayOfYear();
+document.querySelector('#dayYear-mob').textContent = yearDayMob;
+
+const weekDayMob = moment().isoWeekday();
+document.querySelector('#dayWeek-mob').textContent =  weekDayMob;
+
+const weekNumberMob = moment().isoWeek();
+document.querySelector('#numberWeek-mob').textContent = weekNumberMob;

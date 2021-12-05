@@ -177,6 +177,7 @@ h6 {
 
 .time {
   background-size: cover;
+  background-position: center;
   height: 100vh;
 }
 
@@ -225,10 +226,11 @@ h6 {
 .time__quotes-block {
   max-width: 540px;
   width: 100%;
+  margin-right: 20px;
+  font-size: 18px;
 }
 
 .time__quotes-subtitle {
-  font-size: 18px;
   font-weight: 700;
   line-height: 155%;
   color: #FFFFFF;
@@ -243,7 +245,6 @@ h6 {
 
 .time__quotes-text {
   margin-right: 15px;
-  font-size: 18px;
   line-height: 155%;
   max-width: 540px;
   width: 100%;
@@ -373,6 +374,38 @@ h6 {
   min-height: 288px;
 }
 
+.timezone__bst {
+  position: relative;
+  margin: 0 0 -120px 8px;
+}
+
+.timezone__bst-text {
+  font-size: 40px;
+  color: #FFFFFF;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.timezone__open {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.timezone__open._active {
+  display: none;
+}
+
+.timezone__close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.timezone__close._active {
+  display: none;
+}
+
 .timezone__greeting {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -428,6 +461,12 @@ h6 {
   font-size: 20px;
   letter-spacing: 4px;
   color: #FFFFFF;
+}
+
+.timezone__header.mobile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .timezone__clock {
@@ -537,7 +576,6 @@ h6 {
   -o-transition: transform 0.4s ease;
   transition: transform 0.4s ease;
   transition: transform 0.4s ease, -webkit-transform 0.4s ease;
-  overflow: hidden;
   -webkit-transform: translateY(100%);
       -ms-transform: translateY(100%);
           transform: translateY(100%);
@@ -552,10 +590,13 @@ h6 {
 .addition__container {
   padding: 74px 26px 74px 26px;
   position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .addition__background {
-  background: rgba(0, 0, 0, 0.75);
   -webkit-filter: blur(40.7742px);
           filter: blur(40.7742px);
   position: absolute;
@@ -563,13 +604,35 @@ h6 {
   height: 100vh;
 }
 
+.addition__background.dayz {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.addition__background.nightz {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.addition__background-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
 .addition__body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: none;
+}
+
+.addition__body-mobile {
+  display: none;
+}
+
+.addition__body-mobile.dayz {
+  color: #303030;
+}
+
+.addition__body-mobile.nightz {
+  color: white;
 }
 
 .addition__block {
@@ -579,8 +642,15 @@ h6 {
 }
 
 .addition__block:nth-child(1) {
-  border-right: 1px solid #FFFFFF;
   padding: 0 26px 0 0;
+}
+
+.addition__block:nth-child(1).dayz {
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.addition__block:nth-child(1).nightz {
+  border-right: 1px solid rgba(48, 48, 48, 0.25);
 }
 
 .addition__block:nth-child(2) {
@@ -591,20 +661,340 @@ h6 {
   margin-bottom: 42px;
 }
 
+.addition__item-mobile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.addition__item-mobile:not(:last-child) {
+  margin-bottom: 20px;
+}
+
 .addition__header {
   font-size: 15px;
   letter-spacing: 3px;
   line-height: 155%;
   margin-bottom: 9px;
-  color: #FFFFFF;
 }
 
 .addition__text {
   font-weight: 700;
   font-size: 56px;
-  color: #FFFFFF;
+}
+
+@media (min-width: 599px) {
+  .timezone__header.mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) {
+  .addition__body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .addition__body.dayz {
+    color: #303030;
+  }
+
+  .addition__body.nightz {
+    color: white;
+  }
+}
+
+@media (max-width: 950px) {
+  .time__container._active {
+    -webkit-transform: translateY(-33%);
+        -ms-transform: translateY(-33%);
+            transform: translateY(-33%);
+  }
+
+  .timezone {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+
+  .timezone__bst {
+    margin: 0 0 -90px 8px;
+  }
+
+  .timezone__bst {
+    margin: 0 0 -105px 12px;
+  }
+
+  .timezone__bst-text {
+    font-size: 32px;
+  }
+
+  .timezone__header {
+    font-size: 18px;
+  }
+
+  .timezone__clock {
+    font-size: 175px;
+  }
+
+  .timezone__block-button {
+    margin-top: 80px;
+  }
+
+  .timezone__block-button {
+    margin-top: 48px;
+  }
+
+  .page__addition {
+    height: 35%;
+  }
+
+  .addition__block:nth-child(1).dayz {
+    border-right: 1px solid rgba(255, 255, 255, 0);
+  }
+
+  .addition__block:nth-child(1).nightz {
+    border-right: 1px solid rgba(48, 48, 48, 0);
+  }
+
+  .addition__header {
+    font-size: 13px;
+  }
+
+  .addition__text {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 615px) {
+  .timezone__bst {
+    margin: 0 0 -80px 8px;
+  }
+
+  .timezone__clock {
+    font-size: 130px;
+  }
+}
+
+@media (max-width: 600px) {
+  .time__container._active {
+    -webkit-transform: translateY(-25%);
+        -ms-transform: translateY(-25%);
+            transform: translateY(-25%);
+  }
+
+  ._icon-pointer {
+    width: 47%;
+  }
+
+  .timezone__button {
+    height: 39px;
+  }
+
+  .timezone__block-button {
+    max-width: 119px;
+  }
+
+  .timezone__btn {
+    letter-spacing: 3.5px;
+    font-size: 12px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0 5px 0 15px;
+  }
+
+  .timezone__btn-pointer {
+    width: 32px;
+    height: 32px;
+    margin-left: 9px;
+  }
+}
+
+@media (max-width: 599px) {
+  .time__quotes-block {
+    font-size: 16px;
+  }
+
+  .timezone__header {
+    font-size: 16px;
+    display: none;
+  }
+
+  .addition__body-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .addition__block:nth-child(2) {
+    padding: 0 0 0 5%;
+  }
+
+  .addition__header {
+    margin-bottom: 0;
+  }
+
+  .addition__text {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 550px) {
+  .page__addition {
+    height: 30%;
+  }
+
+  .addition__header {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .addition__text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .time__quotes-block {
+    font-size: 12px;
+  }
+
+  .timezone__bst {
+    margin: 0 0 -50px 8px;
+  }
+
+  .timezone__clock {
+    font-size: 95px;
+  }
+}
+
+@media (max-width: 400px) {
+  ._container {
+    padding: 56px 15px 98px 15px;
+  }
+
+  ._container {
+    padding: 56px 10px 48px 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  .timezone__bst {
+    margin: 0 0 -60px 5px;
+  }
+
+  .timezone__bst-text {
+    font-size: 18px;
+  }
+
+  .addition__header {
+    letter-spacing: 0px;
+  }
+
+  .addition__text {
+    font-size: 16px;
+  }
 }
 @supports (-webkit-appearance:none){
 .time.dayz{background-image:url(../img/background-day.webp)}
 .time.nightz{background-image:url(../img/background-night.webp)}
+}
+
+ @media (min-width: 599px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (min-width: 600px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 950px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 615px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 600px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 599px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 550px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 500px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 400px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 375px){
+
+@supports (-webkit-appearance:none){
+
+}
+
 }
