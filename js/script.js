@@ -102,21 +102,24 @@ const subtitleAnimation = document.querySelector('.time__quotes-subtitle');
 const buttonMore = document.querySelector('.timezone__button');
 
 
-buttonMore.addEventListener('click', function () {
-    const iconPointer = document.querySelector('._icon-pointer');
-    const slideUP = document.querySelector('.time__container');
-    const downBlock = document.querySelector('.page__addition');
+document.addEventListener('click', timeSection);
 
-    downBlock.classList.toggle('_active');
-    slideUP.classList.toggle('_active');
-    iconPointer.classList.toggle('_active');
-})
+const iconPointer = document.querySelector('._icon-pointer');
+const slideUP = document.querySelector('.time__container');
+const downBlock = document.querySelector('.page__addition');
 
-// buttonMore.addEventListener('blur', function () {
-//  const iconPointer = document.querySelector('._icon-pointer');
-
-//  iconPointer.classList.remove('_active'), true;
-// });
+function timeSection(event) {
+    if(event.target.closest('.timezone__button')) {
+        downBlock.classList.toggle('_active');
+        slideUP.classList.toggle('_active');
+        iconPointer.classList.toggle('_active');
+    }
+    if(!event.target.closest('.page__addition') & !event.target.closest('.timezone__button')) {
+    downBlock.classList.remove('_active');
+    slideUP.classList.remove('_active');
+    iconPointer.classList.remove('_active');
+    }
+}
 
 const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 document.querySelector('#timezone_location').textContent = tz;
@@ -124,8 +127,8 @@ document.querySelector('#timezone_location').textContent = tz;
 const yearDay = moment().dayOfYear();
 document.querySelector('#dayYear').textContent = yearDay;
 
-const weekDay = moment().weekday();
+const weekDay = moment().isoWeekday();
 document.querySelector('#dayWeek').textContent =  weekDay;
 
-const weekNumber = moment().week();
+const weekNumber = moment().isoWeek();
 document.querySelector('#numberWeek').textContent = weekNumber;

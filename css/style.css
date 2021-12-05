@@ -172,11 +172,11 @@ h6 {
 .wrapper {
   min-height: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 .time {
   background-size: cover;
-  width: 100vw;
   height: 100vh;
 }
 
@@ -189,7 +189,6 @@ h6 {
 }
 
 .time__container {
-  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -200,15 +199,21 @@ h6 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  top: 0;
-  position: relative;
-  -webkit-transition: top 0.4s ease;
-  -o-transition: top 0.4s ease;
-  transition: top 0.4s ease;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  -o-transition: transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+  height: 100%;
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
 }
 
 .time__container._active {
-  top: -45vh;
+  -webkit-transform: translateY(-40%);
+      -ms-transform: translateY(-40%);
+          transform: translateY(-40%);
 }
 
 .time__quotes {
@@ -522,17 +527,26 @@ h6 {
 }
 
 .page__addition {
-  position: absolute;
-  width: 100%;
-  bottom: -100%;
-  -webkit-transition: bottom 0.4s ease;
-  -o-transition: bottom 0.4s ease;
-  transition: bottom 0.4s ease;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 40%;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  -o-transition: transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
   overflow: hidden;
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
 }
 
 .page__addition._active {
-  bottom: 0;
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
 }
 
 .addition__container {
