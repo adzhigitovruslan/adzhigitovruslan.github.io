@@ -188,6 +188,9 @@ function playMusic () {
     document.body.addEventListener('touchstart', function() {
         soundX.play();
     })
+    document.body.addEventListener('click', function() {
+        soundX.play();
+    })
     
 }
 window.onload = playMusic();
