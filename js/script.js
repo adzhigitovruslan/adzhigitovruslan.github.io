@@ -183,7 +183,14 @@ const weekNumberMob = moment().isoWeek();
 document.querySelector('#numberWeek-mob').textContent = weekNumberMob;
 
 //MUSIC
-
+function playMusic () {
+    const soundX = document.querySelector('#soundX');
+    document.body.addEventListener('touchstart', function() {
+        soundX.play();
+    })
+    
+}
+window.onload = playMusic();
 
 // GEOLOCATION
 window.onload = function () {
@@ -193,3 +200,4 @@ const geo_country = document.getElementById('geo_country');
 geo_city.textContent = ymaps.geolocation.city + ',';
 geo_country.textContent = ymaps.geolocation.country;
 }
+
