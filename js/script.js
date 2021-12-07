@@ -5,6 +5,9 @@ function updateTime() {
     // time
     const hours = moment().format('HH');
     const min = moment().format('mm');
+    const timeBst = moment().format('ZZ');
+    
+    document.querySelector('.timezone__bst-inner').innerHTML = timeBst;
     document.querySelector('.timezone__hours').innerHTML = hours;
     document.querySelector('.timezone__min').innerHTML = min;
 };
@@ -19,30 +22,25 @@ function updateTime() {
      const eveningText = document.querySelector('.evening');
      const nightText = document.querySelector('.night');
      const timeText = document.querySelectorAll('.timezone__greeting');
-        
-     if (6 <= currentTime && currentTime < 10) {
-         timeText.forEach((slide) => {
-             slide.classList.remove('_active');
-         })
-         morningText.classList.add('_active');
-         } else
-     if (10 <= currentTime && currentTime < 16) {
-         timeText.forEach((slide) => {
-             slide.classList.remove('_active');
-         })
-         dayText.classList.add('_active');
-         } else
-     if (16 <= currentTime && currentTime < 22) {
-         timeText.forEach((slide) => {
-             slide.classList.remove('_active');
-         })
-         eveningText.classList.add('_active');
-     } else if (22 <= currentTime || currentTime < 6) {
-         timeText.forEach((slide) => {
-             slide.classList.remove('_active');
-         })
-         nightText.classList.add('_active');
-     };
+     
+     function updateText() {
+        timeText.forEach((slide) => {slide.classList.remove('_active');})
+        let T = currentTime;
+        switch (true) {
+            case (6 <= T > 10) : morningText.classList.add('_active');
+            break;
+
+            case (10 <= T > 16) : dayText.classList.add('_active');
+            break;
+
+            case (16 <= T < 22) : eveningText.classList.add('_active');
+            break;
+
+            case (22 <= T < 6) : nightText.classList.add('_active');
+            break;
+        }
+    };
+    updateText();
 
          const mainImage = document.getElementById('background');
          const backColor = document.getElementById('back_color');
@@ -118,17 +116,17 @@ const iconAnimation = document.querySelector('._icon-refresh');
 const textAnimation = document.querySelector('.time__quotes-text');
 const subtitleAnimation = document.querySelector('.time__quotes-subtitle');
 
-    iconAnimation.addEventListener('click', function() {
-           iconAnimation.classList.remove('_active');
-           textAnimation.classList.remove('_active');
-           subtitleAnimation.classList.remove('_active');
-           setTimeout(e=>{textAnimation.classList.add("_active")},1) 
-           setTimeout(e=>{iconAnimation.classList.add("_active")},1) 
-           setTimeout(e=>{subtitleAnimation.classList.add("_active")},1) 
+iconAnimation.addEventListener('click', function() {
+        iconAnimation.classList.remove('_active');
+        textAnimation.classList.remove('_active');
+        subtitleAnimation.classList.remove('_active');
+        setTimeout(e=>{textAnimation.classList.add("_active")},1) 
+        setTimeout(e=>{iconAnimation.classList.add("_active")},1) 
+        setTimeout(e=>{subtitleAnimation.classList.add("_active")},1) 
         });
 
+// OPEN BUTTON
 const buttonMore = document.querySelector('.timezone__button');
-
 
 document.addEventListener('click', timeSection);
 
@@ -137,7 +135,6 @@ const slideUP = document.querySelector('.time__container');
 const downBlock = document.querySelector('.page__addition');
 const openButton = document.querySelector('.timezone__open');
 const closeButton = document.querySelector('.timezone__close');
-
 
 function timeSection(event) {
     if(event.target.closest('.timezone__button')) {
@@ -148,39 +145,34 @@ function timeSection(event) {
         closeButton.classList.toggle('_active');
     }
     if(!event.target.closest('.page__addition') & !event.target.closest('.timezone__button')) {
-    downBlock.classList.remove('_active');
-    slideUP.classList.remove('_active');
-    iconPointer.classList.remove('_active');
-    openButton.classList.add('_active');
-    closeButton.classList.remove('_active');
+        downBlock.classList.remove('_active');
+        slideUP.classList.remove('_active');
+        iconPointer.classList.remove('_active');
+        openButton.classList.add('_active');
+        closeButton.classList.remove('_active');
     }
 }
 
-const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-document.querySelector('#timezone_location').textContent = tz;
+// OPEN SECTION 
+const tz = document.querySelectorAll('.addition__current-tz');
+for (const e of tz ) {
+    e.textContent = Intl.DateTimeFormat().resolvedOptions().timeZone;
+};
 
-const yearDay = moment().dayOfYear();
-document.querySelector('#dayYear').textContent = yearDay;
+const yearDays = document.querySelectorAll('.addition__day-year');
+for (const yearday of yearDays ) {
+    yearday.textContent = moment().dayOfYear();
+};
 
-const weekDay = moment().isoWeekday();
-document.querySelector('#dayWeek').textContent =  weekDay;
+const weekDays = document.querySelectorAll('.addition__weekday');
+for (const weekday of weekDays ) {
+    weekday.textContent = moment().isoWeekday();
+};
 
-const weekNumber = moment().isoWeek();
-document.querySelector('#numberWeek').textContent = weekNumber;
-
-// Mobile
-
-const tzMob = Intl.DateTimeFormat().resolvedOptions().timeZone;
-document.querySelector('#timezone_location-mob').textContent = tzMob;
-
-const yearDayMob = moment().dayOfYear();
-document.querySelector('#dayYear-mob').textContent = yearDayMob;
-
-const weekDayMob = moment().isoWeekday();
-document.querySelector('#dayWeek-mob').textContent =  weekDayMob;
-
-const weekNumberMob = moment().isoWeek();
-document.querySelector('#numberWeek-mob').textContent = weekNumberMob;
+const weekNumbers = document.querySelectorAll('.addition__week-number');
+for (const weekNumber of weekNumbers ) {
+    weekNumber.textContent = moment().isoWeek();
+};
 
 //MUSIC
 function playMusic () {
