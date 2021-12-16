@@ -100,7 +100,6 @@ settingsOpen.addEventListener('click', function() {
 
 submitForm.addEventListener('submit', function(e) {
 		e.preventDefault();
-		localStorage.getItem('items')
 		localStorage.setItem('items', JSON.stringify(TIMER));
 		TIMER = makeUser(`${focusTimeInput.value}`, `${shortBreakInput.value}`, `${longBreakInput.value}`)
 });
@@ -361,7 +360,7 @@ function datasetMode() {
                 }
                 if(seconds > 0) {
                     perc = Math.ceil(((totalsecs - seconds) / totalsecs)* 100)
-                    setProgress(perc);
+                    setProgress(perc*0.8);
                     seconds--;
                     initial = window.setTimeout('pomodoroStart()', 1000);
                 } else {
@@ -401,6 +400,7 @@ function datasetMode() {
         clearTimeout(initial);
         setProgress(0);
         localStorage.clear()
+        clickOnActive()
         if (restartBtn.classList.contains('_active')) {
             restartBtn.classList.remove('_active');
             startBtn.classList.add("_active");
@@ -415,6 +415,7 @@ function datasetMode() {
     });
     restartBtn.addEventListener('click', () => {
         pomodoroRestart();
+
     });
 
     modeButtons.addEventListener('click', changeMode);
