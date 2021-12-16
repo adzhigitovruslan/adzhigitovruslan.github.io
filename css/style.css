@@ -251,8 +251,9 @@ body {
 }
 
 .timer__timer-control {
-  width: 185px;
+  width: 100%;
   margin: 0 auto;
+  text-align: center;
 }
 
 .timer__clock {
@@ -265,8 +266,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   color: #D7E0FF;
-  font-size: calc(80px + 20 * (100vw - 320px) / 850);
-  letter-spacing: -5px;
+  font-size: 100px;
 }
 
 .timer__clock-button {
@@ -642,6 +642,8 @@ body {
 .block-control ._icon-stroke-btn {
   font-size: 6px;
   color: rgba(30, 33, 63, 0.25);
+  background: none;
+  outline: none;
 }
 
 .block-control ._icon-stroke-btn.down::before {
@@ -840,7 +842,7 @@ body {
 
 @media (max-width: 450px) {
   .timer__timer-control {
-    width: 150px;
+    width: 170px;
   }
 
   .timer__clock-time {

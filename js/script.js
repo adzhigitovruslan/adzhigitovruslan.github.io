@@ -293,11 +293,6 @@ function changeMode(e) {
     document.title = 'Pomodoro timer'
     clearTimeout(initial);
 
-    for(let i = 0; i < 3; i++) {
-        e.path[1].children[i].classList.remove('_active');
-    }
-    e.target.classList.add('_active');
-
     let mode = e.target.dataset.mode;
     timer.dataset.mode = mode;
 
@@ -420,7 +415,18 @@ function datasetMode() {
 
     modeButtons.addEventListener('click', changeMode);
 
+    console.log(modeButtons);
+
     const buttonControl = document.querySelectorAll('.control__block');
+    buttonControl.forEach(function(item){
+        item.addEventListener('click', function() {
+            buttonControl.forEach(function(item) {
+                item.classList.remove('_active');
+            })
+            item.classList.add('_active');
+        })
+    })
+
     function clickOnActive() {
             for(i=0; i<buttonControl.length;i++){
                 if(buttonControl[i].classList.contains('_active')){
