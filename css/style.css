@@ -250,6 +250,11 @@ body {
           align-items: center;
 }
 
+.timer__timer-control {
+  width: 185px;
+  margin: 0 auto;
+}
+
 .timer__clock {
   position: relative;
   z-index: 5;
@@ -779,6 +784,7 @@ body {
   -webkit-transition: 0.4s ease;
   -o-transition: 0.4s ease;
   transition: 0.4s ease;
+  pointer-events: all;
 }
 
 .color__item:first-child:hover {
@@ -813,6 +819,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  pointer-events: all;
 }
 
 ._icon-check-btn {
@@ -832,10 +839,6 @@ body {
 }
 
 @media (max-width: 450px) {
-  ._container {
-    padding: 0 15px;
-  }
-
   .timer__clock-time {
     font-size: 70px;
   }
@@ -881,6 +884,10 @@ body {
 
   .settings__block-to-choose {
     padding: 20px 15px 30px 15px;
+  }
+
+  .settings__text {
+    text-align: center;
   }
 
   .settings__apply-btn {
@@ -930,11 +937,25 @@ body {
     margin-right: 15px;
   }
 }
+
+@media (max-width: 350px) {
+  ._container {
+    padding: 0 15px;
+  }
+}
 @supports (-webkit-appearance:none){
 
 }
 
  @media (max-width: 450px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 350px){
 
 @supports (-webkit-appearance:none){
 

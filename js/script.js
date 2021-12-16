@@ -100,7 +100,7 @@ settingsOpen.addEventListener('click', function() {
 
 submitForm.addEventListener('submit', function(e) {
 		e.preventDefault();
-
+		localStorage.getItem('items')
 });
 
 document.addEventListener('click', timeSection);
@@ -110,37 +110,89 @@ function timeSection(event) {
 		settingsPage.classList.remove('_active');
 	} else 
 	if (event.target.closest('.settings__apply-btn')) {
+
 		settingsPage.classList.remove('_active');
+		//
+	setProgress(0);
+    changeClasses();
+    document.title = 'Pomodoro timer'
+    clearTimeout(initial);
+
+		//
 		TIMER = makeUser(`${focusTimeInput.value}`, `${shortBreakInput.value}`, `${longBreakInput.value}`)
 		localStorage.setItem('items', JSON.stringify(TIMER));
+		saveSelectedFont();
+		saveSelectedColor()
 		getNewData();
 		datasetMode();
 	}
 };
 
 function getNewData() {
-		JSON.parse(localStorage.getItem('items'));
+	//SAVE FONT-COLOR IN LOCALSTORAGE
+	if (localStorage.getItem('fontColor') === null) 
+	{localStorage.setItem('fontColor', JSON.stringify('#F87070'))} else 
+	{var dataColor = JSON.parse(localStorage.getItem('fontColor'));
+root.style.setProperty('--mainColor', `${dataColor}`)}
+
+	//SAVE FONT-FAMILY IN LOCALSTORAGE
+	if (localStorage.getItem('fontFamily') === null){
+		localStorage.setItem('fontFamily', JSON.stringify('KumbhSans'))
+	} else {
 		const dataFont = JSON.parse(localStorage.getItem('fontFamily'));
-		const dataColor = JSON.parse(localStorage.getItem('fontColor'));
 		document.body.style.fontFamily = dataFont;
-		root.style.setProperty('--mainColor', `${dataColor}`)
+	}
+
+	//SAVE FONTS 
+	if (localStorage.getItem('selected') === null) {
+		fontItem[0].click();
+	}
+	if (localStorage.getItem('selectedColor') === null) {
+		colorItem[0].click();
+		colorIcons[0].click();
+	}
+	JSON.parse(localStorage.getItem('items'));
+		
 }
 
-window.onload = getNewData;
+
 
 //Change Font-Family 
 
 const fontItem = document.querySelectorAll('.fonts__item');
 const fontBlock = document.querySelector('.setting__fonts')
 
+let stored = localStorage.getItem('selected') || '[]'
+let indexes = JSON.parse(stored)
+for(const index of indexes) {
+	
+	fontItem[index].classList.add('_active');
+}
+
 	fontItem.forEach(function(item) {
 		item.addEventListener('click', function() {
 			fontItem.forEach(function(item) {
 				item.classList.remove('_active');
 			})
-			item.classList.add('_active');
+			item.classList.add('_active')
+			const indexes = [];
+			for(let i = 0; i < fontItem.length; i++){
+			if(fontItem[i].classList.contains('_active')){indexes.push(i);}
+		}
 		})
 	})
+	
+	
+
+	function saveSelectedFont() {
+		const indexes = [];
+		for(let i = 0; i < fontItem.length; i++){
+		  if(fontItem[i].classList.contains('_active')){
+			indexes.push(i);
+		  }
+		}
+		localStorage.setItem('selected', JSON.stringify(indexes));
+	  }
 
 	fontBlock.addEventListener('click', function (event) {
 		if (event.target.closest('[data-family=KumbhSans]')){
@@ -158,14 +210,24 @@ const fontBlock = document.querySelector('.setting__fonts')
 //
 
 
-
 //Change Font-Color
 
 const colorItem = document.querySelectorAll('.color__item');
 const colorBlock = document.querySelector('.setting__color');
+const colorIcons = document.querySelectorAll('.color-icon');
+
+let storedColor = localStorage.getItem('selectedColor') || '[]'
+let indexesColor = JSON.parse(storedColor)
+for(const index of indexesColor) {
+	colorIcons[index].classList.add('_icon-check-btn');
+}
+
+console.log(colorIcons);
+
+
 
 colorItem.forEach(function(item) {
-	const colorIcons = document.querySelectorAll('.color-icon');
+	
 	item.addEventListener('click', function() {
 		colorIcons.forEach(element => {
 			element.addEventListener('click', function() {
@@ -173,10 +235,26 @@ colorItem.forEach(function(item) {
 					item.classList.remove('_icon-check-btn')
 				})
 				element.classList.add('_icon-check-btn')
+				const indexesColor = [];
+				for(let i = 0; i < colorIcons.length; i++){
+				if(colorIcons[i].classList.contains('_icon-check-btn')){indexesColor.push(i);}
+			}
 			})
 		});
 	})
 });
+
+function saveSelectedColor() {
+	const indexesColor = [];
+	for(let i = 0; i < colorIcons.length; i++){
+	  if(colorIcons[i].classList.contains('_icon-check-btn')){
+		indexesColor.push(i);
+	  }
+	}
+	console.log(indexesColor);
+	localStorage.setItem('selectedColor', JSON.stringify(indexesColor));
+  }
+
 const root = document.documentElement;
 colorBlock.addEventListener('click', function (event) {
 	if (event.target.closest('[data-color=pink]')){
@@ -186,7 +264,9 @@ colorBlock.addEventListener('click', function (event) {
 	} else if (event.target.closest('[data-color=purple]')){
 		localStorage.setItem('fontColor', JSON.stringify('#D881F8'))
 	}
-});
+})
+
+window.onload = getNewData;;
 const modeButtons = document.querySelector('[class=control]');
 const timer = document.getElementById('timer');
 const pomodorButton = document.getElementById('pomodoroButton');
@@ -281,10 +361,6 @@ function datasetMode() {
             let timeRemaining = ('0' + Math.floor(seconds / 60)).slice(-2) + ':' + ('0' + (seconds % 60)).slice(-2);
                 timer.innerHTML = timeRemaining;
                 document.title = `${timeRemaining} - ${timer.dataset.mode === 'pomodoro' ? 'Work' : 'Break'}`;
-
-                if(startBtn.classList.contains('_active')){
-                    clearTimeout(initial);
-                }
                 if (startBtn.classList.contains('_active')) {
                     startBtn.classList.remove('_active');
                     pauseBtn.classList.add("_active");
@@ -299,7 +375,6 @@ function datasetMode() {
                     bell.play();
                     pauseBtn.classList.remove('_active');
                     restartBtn.classList.add("_active");
-                    
                 }
                 
     }
