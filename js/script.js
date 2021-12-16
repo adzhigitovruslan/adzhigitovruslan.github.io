@@ -101,6 +101,8 @@ settingsOpen.addEventListener('click', function() {
 submitForm.addEventListener('submit', function(e) {
 		e.preventDefault();
 		localStorage.getItem('items')
+		localStorage.setItem('items', JSON.stringify(TIMER));
+		TIMER = makeUser(`${focusTimeInput.value}`, `${shortBreakInput.value}`, `${longBreakInput.value}`)
 });
 
 document.addEventListener('click', timeSection);
@@ -110,21 +112,19 @@ function timeSection(event) {
 		settingsPage.classList.remove('_active');
 	} else 
 	if (event.target.closest('.settings__apply-btn')) {
-
 		settingsPage.classList.remove('_active');
 		//
+		clickOnActive()
 	setProgress(0);
     changeClasses();
     document.title = 'Pomodoro timer'
-    clearTimeout(initial);
-
 		//
-		TIMER = makeUser(`${focusTimeInput.value}`, `${shortBreakInput.value}`, `${longBreakInput.value}`)
-		localStorage.setItem('items', JSON.stringify(TIMER));
+		localStorage.getItem('items')
 		saveSelectedFont();
 		saveSelectedColor()
 		getNewData();
 		datasetMode();
+		clearTimeout(initial);
 	}
 };
 
@@ -222,10 +222,6 @@ for(const index of indexesColor) {
 	colorIcons[index].classList.add('_icon-check-btn');
 }
 
-console.log(colorIcons);
-
-
-
 colorItem.forEach(function(item) {
 	
 	item.addEventListener('click', function() {
@@ -251,7 +247,6 @@ function saveSelectedColor() {
 		indexesColor.push(i);
 	  }
 	}
-	console.log(indexesColor);
 	localStorage.setItem('selectedColor', JSON.stringify(indexesColor));
   }
 
@@ -357,7 +352,6 @@ function datasetMode() {
     }
     
     function pomodoroStart() {
-            
             let timeRemaining = ('0' + Math.floor(seconds / 60)).slice(-2) + ':' + ('0' + (seconds % 60)).slice(-2);
                 timer.innerHTML = timeRemaining;
                 document.title = `${timeRemaining} - ${timer.dataset.mode === 'pomodoro' ? 'Work' : 'Break'}`;
@@ -374,7 +368,7 @@ function datasetMode() {
                     seconds = 0;
                     bell.play();
                     pauseBtn.classList.remove('_active');
-                    restartBtn.classList.add("_active");
+                    restartBtn.classList.add('_active');
                 }
                 
     }
@@ -425,6 +419,14 @@ function datasetMode() {
 
     modeButtons.addEventListener('click', changeMode);
 
+    const buttonControl = document.querySelectorAll('.control__block');
+    function clickOnActive() {
+            for(i=0; i<buttonControl.length;i++){
+                if(buttonControl[i].classList.contains('_active')){
+                    buttonControl[i].click();
+                }
+            }
+    }
     pomodorButton.click();
   
 ; 
