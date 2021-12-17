@@ -355,7 +355,7 @@ function datasetMode() {
                 }
                 if(seconds > 0) {
                     perc = Math.ceil(((totalsecs - seconds) / totalsecs)* 100)
-                    setProgress(perc*0.8);
+                    setProgress(perc);
                     seconds--;
                     initial = window.setTimeout('pomodoroStart()', 1000);
                 } else {

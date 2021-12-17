@@ -203,11 +203,6 @@ body {
   background: #1E213F;
 }
 
-.page {
-  padding-top: calc(32px + 16 * (100vw - 320px) / 850);
-  padding-bottom: calc(48px + 8 * (100vw - 320px) / 850);
-}
-
 .page__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -220,6 +215,8 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 100vh;
+  padding-top: calc(32px + 16 * (100vw - 320px) / 850);
+  padding-bottom: calc(48px + 8 * (100vw - 320px) / 850);
 }
 
 .page__settings-btn {
@@ -343,8 +340,8 @@ body {
   -webkit-box-shadow: -50px -50px 100px #272C5A, 50px 50px 100px #121530;
           box-shadow: -50px -50px 100px #272C5A, 50px 50px 100px #121530;
   border-radius: 50%;
-  width: 380px;
-  height: 380px;
+  width: 410px;
+  height: 410px;
 }
 
 .timer .progress-ring__circle {
@@ -390,7 +387,6 @@ body {
   outline: none;
   position: relative;
   z-index: 5;
-  margin-top: 180px;
 }
 
 .control {
@@ -841,12 +837,8 @@ body {
 }
 
 @media (max-width: 450px) {
-  .timer__timer-control {
-    width: 170px;
-  }
-
   .timer__clock-time {
-    font-size: 70px;
+    font-size: 60px;
   }
 
   .timer .progress-ring {
