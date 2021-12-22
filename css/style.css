@@ -215,8 +215,7 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 100vh;
-  padding-top: calc(32px + 16 * (100vw - 320px) / 850);
-  padding-bottom: calc(48px + 8 * (100vw - 320px) / 850);
+  padding: 40px 0;
 }
 
 .page__settings-btn {
@@ -229,6 +228,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 160px;
 }
 
 .timer {
@@ -263,7 +263,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   color: #D7E0FF;
-  font-size: 100px;
+  font-size: 85px;
 }
 
 .timer__clock-button {
@@ -340,8 +340,8 @@ body {
   -webkit-box-shadow: -50px -50px 100px #272C5A, 50px 50px 100px #121530;
           box-shadow: -50px -50px 100px #272C5A, 50px 50px 100px #121530;
   border-radius: 50%;
-  width: 410px;
-  height: 410px;
+  width: 380px;
+  height: 380px;
 }
 
 .timer .progress-ring__circle {
@@ -374,12 +374,12 @@ body {
 .timer__header-text {
   color: #D7E0FF;
   font-size: calc(24px + 8 * (100vw - 320px) / 850);
-  margin-bottom: calc(45px + 10 * (100vw - 320px) / 850);
+  margin-bottom: 45px;
 }
 
 .timer__slider {
   position: relative;
-  margin-top: 180px;
+  margin-top: 170px;
 }
 
 .timer__icon {
