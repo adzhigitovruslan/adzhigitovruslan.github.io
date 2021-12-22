@@ -215,7 +215,7 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 100vh;
-  padding: 40px 0;
+  padding: 40px 15px;
 }
 
 .page__settings-btn {
@@ -938,7 +938,7 @@ body {
 
 @media (max-width: 350px) {
   ._container {
-    padding: 0 15px;
+    padding: 40 15px;
   }
 }
 @supports (-webkit-appearance:none){
