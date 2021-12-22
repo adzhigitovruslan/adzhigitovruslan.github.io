@@ -10,25 +10,6 @@ function setProgress (percent) {
 	circle.style.strokeDashoffset = offset;
 	localStorage.setItem('percent', percent);
 }
-
-const circleBody = document.querySelector('.progress-ring__circle');
-
-const mediaQuery = window.matchMedia('(max-width: 450px)')
-
-function handleTabletChange(e) {
-	if (e.matches) {
-	  	circleBody.setAttribute('r', '130');
-		circleBody.setAttribute('cx', '145');
-		circleBody.setAttribute('cy', '145');
-		
-		circle.setAttribute('r', '115');
-		circle.setAttribute('cx', '145');
-		circle.setAttribute('cy', '145');
-	}
-  }
-  mediaQuery.addEventListener('onchange', handleTabletChange);
-  handleTabletChange(mediaQuery)
-
 ;
 
 // UP/DOWN Buttons settings
@@ -295,7 +276,12 @@ colorItem.forEach(function(item) {
         } else {
             count_timer = count_timer - 1;
             perc = Math.ceil(((totalsecs -  count_timer) / totalsecs) * 100);
+
+            if(mediaQuery.matches){
+            setProgress(perc * 0.77);
+            } else {
             setProgress(perc);
+            }
             
             timeRemaining = ('0' + Math.floor(count_timer / 60)).slice(-2) + ':' + ('0' + (count_timer % 60)).slice(-2);
             localStorage.setItem('count_timer', count_timer);
@@ -384,11 +370,9 @@ restartBtn.addEventListener('click', () => {
         for (let i = 0; i < buttonControl.length; i++) {
             if(buttonControl[i].classList.contains('_active')){
                 tabIndex.push(i);
-               var buttonData = buttonControl[i].dataset.mode;
             }
         }
         localStorage.setItem('selectedTab', JSON.stringify(tabIndex));
-        localStorage.setItem('buttonData', JSON.stringify(buttonData));
     }
 
     saveSelectedTab()
@@ -467,4 +451,20 @@ function getNewData() {
 }
 
 
- 
+const circleBody = document.querySelector('.progress-ring__circle');
+
+const mediaQuery = window.matchMedia('(max-width: 450px)')
+
+function handleTabletChange(e) {
+	if (e.matches) {
+	  	circleBody.setAttribute('r', '130');
+		circleBody.setAttribute('cx', '145');
+		circleBody.setAttribute('cy', '145');
+		
+		circle.setAttribute('r', '115');
+		circle.setAttribute('cx', '145');
+		circle.setAttribute('cy', '145');
+	}
+  }
+  mediaQuery.addEventListener('onchange', handleTabletChange);
+  handleTabletChange(mediaQuery)
