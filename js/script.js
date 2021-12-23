@@ -3,7 +3,7 @@ const radius = circle.r.baseVal.value;
 const circumference = 2 * Math.PI * radius;
 let offset;
 circle.style.strokeDasharray = `${circumference} ${circumference}`;
-// circle.style.strokeDashoffset = circumference;
+circle.style.strokeDashoffset = circumference;
 
 function setProgress (percent) {
 	offset = localStorage.getItem('percent') ? circumference - localStorage.getItem('percent') / 100 * circumference : circumference - percent / 100 * circumference;
@@ -106,18 +106,17 @@ function timeSection(event) {
     } else if (event.target.closest('.settings__apply-btn')) {
         settingsPage.classList.remove('_active');
         //
-    //clickOnActive()
+    clickOnActive()
     changeClasses();
     document.title = 'Pomodoro timer'
     //
-    localStorage.getItem('items')
     saveSelectedFont();
     saveSelectedColor()
     saveSelectedTab()
-    getNewData();
     clearTimeout(timeout);
-    localStorage.clear('perc')
-    setProgress(0)
+    localStorage.removeItem('percent')
+    setProgress(0);
+    getNewData();
     }
 };
 
@@ -143,18 +142,25 @@ function makeUser (POMODORO, SHORTBREAK, LONGBREAK) {
 }
 
 function changeMode(e) {
-    localStorage.clear('count_timer')
+    localStorage.removeItem('count_timer')
     changeClasses()
-    setProgress(0);
+    clickOnActive()
     document.title = 'Pomodoro timer'
     clearTimeoutFunc()
     saveSelectedTab()
     let mode = e.target.dataset.mode;
     timer.dataset.mode = mode;
+    setProgress(0);
     setTimer()
     innerClock();
 }
+
 function innerClock() {
+    
+    if (localStorage.getItem('count_timer')){
+        timer.innerHTML = ('0' + Math.floor(localStorage.getItem('count_timer') / 60)).slice(-2) + ':' + ('0' + (localStorage.getItem('count_timer') % 60)).slice(-2);
+    } else {
+
     if(timer.dataset.mode === 'pomodoro') {
         if(TIMER.POMODORO < 10) {
             timer.innerHTML = `0${TIMER.POMODORO}:00`
@@ -169,8 +175,18 @@ function innerClock() {
         } else {
             timer.innerHTML = `${TIMER.LONGBREAK}:00`
         }
-    }}
-    innerClock();
+    } 
+}
+}
+    
+    if(localStorage.getItem('timer-inner')){
+        timer.innerHTML = localStorage.getItem('timer-inner');
+    } else 
+    {
+        localStorage.setItem('timer-inner', timer.innerHTML)
+        innerClock();
+    }
+
    // CHANGE TABS
    let storedTab = localStorage.getItem('selectedTab') || '[]'
    let tabIndex = JSON.parse(storedTab)
@@ -220,7 +236,6 @@ for(const index of indexesColor) {
 }
 
 colorItem.forEach(function(item) {
-    
     item.addEventListener('click', function() {
         colorIcons.forEach(element => {
             element.addEventListener('click', function() {
@@ -286,7 +301,6 @@ colorItem.forEach(function(item) {
             timeRemaining = ('0' + Math.floor(count_timer / 60)).slice(-2) + ':' + ('0' + (count_timer % 60)).slice(-2);
             localStorage.setItem('count_timer', count_timer);
             localStorage.setItem('totalsecs', totalsecs);
-            localStorage.setItem('perc', perc);
             timeoutFunc()
             
         }
@@ -375,7 +389,7 @@ restartBtn.addEventListener('click', () => {
         localStorage.setItem('selectedTab', JSON.stringify(tabIndex));
     }
 
-    saveSelectedTab()
+    
     function saveSelectedFont() {
         const indexes = [];
         for(let i = 0; i < fontItem.length; i++){
@@ -439,14 +453,14 @@ function getNewData() {
     //SAVE FONTS
     if (localStorage.getItem('selectedTab') === null) {
         buttonControl[0].click();
-    }
+    };
     if (localStorage.getItem('selected') === null) {
         fontItem[0].click();
-    }
+    };
     if (localStorage.getItem('selectedColor') === null) {
         colorItem[0].click();
         colorIcons[0].click();
-    }
+    };
     JSON.parse(localStorage.getItem('items'));
 }
 
@@ -468,3 +482,6 @@ function handleTabletChange(e) {
   }
   mediaQuery.addEventListener('onchange', handleTabletChange);
   handleTabletChange(mediaQuery)
+  if (count_timer === setTimer) {
+    clickOnActive();
+    }
