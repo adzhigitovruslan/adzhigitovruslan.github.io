@@ -30,6 +30,8 @@ const fontBlock = document.querySelector('.setting__fonts')
 const colorItem = document.querySelectorAll('.color__item');
 const colorBlock = document.querySelector('.setting__color');
 const colorIcons = document.querySelectorAll('.color-icon');
+const circleBody = document.querySelector('.progress-ring__circle');
+const mediaQuery = window.matchMedia('(max-width: 450px)')
 
 let seconds, timeout, totalsecs, paused, perc;
 
@@ -465,23 +467,32 @@ function getNewData() {
 }
 
 
-const circleBody = document.querySelector('.progress-ring__circle');
-
-const mediaQuery = window.matchMedia('(max-width: 450px)')
-
-function handleTabletChange(e) {
-	if (e.matches) {
+function handleTabletChange() {
+	if (mediaQuery.matches) {
 	  	circleBody.setAttribute('r', '130');
 		circleBody.setAttribute('cx', '145');
 		circleBody.setAttribute('cy', '145');
-		
+
+		setProgress(perc * 0.77);
+
 		circle.setAttribute('r', '115');
 		circle.setAttribute('cx', '145');
 		circle.setAttribute('cy', '145');
-	}
+	} else {
+        circleBody.setAttribute('r', '170');
+		circleBody.setAttribute('cx', '190');
+		circleBody.setAttribute('cy', '190');
+		
+		setProgress(perc);
+
+		circle.setAttribute('r', '150');
+		circle.setAttribute('cx', '190');
+		circle.setAttribute('cy', '190');
+    }
   }
-  mediaQuery.addEventListener('onchange', handleTabletChange);
-  handleTabletChange(mediaQuery)
+  window.addEventListener('resize', handleTabletChange, true);
+  handleTabletChange()
+
   if (count_timer === setTimer) {
     clickOnActive();
     }
