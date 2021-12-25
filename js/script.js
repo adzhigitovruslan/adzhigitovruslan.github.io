@@ -88,12 +88,17 @@ upButton.forEach(button => {
     submitForm.addEventListener('submit', function(e) {
         e.preventDefault();
         localStorage.setItem('items', JSON.stringify(TIMER));
+        saveInputVal()
         TIMER = makeUser(`${focusTimeInput.value}`, `${shortBreakInput.value}`, `${longBreakInput.value}`)
         innerClock()
         setTimer()
     });
 
-//OPEN SETTINGS 
+//INPUT VALUE
+
+
+
+//
 
 
 
@@ -133,7 +138,17 @@ function timeSection(event) {
 const modeButtons = document.querySelector('[class=control]');
 modeButtons.addEventListener('click', changeMode);
 
+function changeInputVal() {
+if(localStorage.getItem('focusVal')){
+    focusTimeInput.value = JSON.parse(localStorage.getItem('focusVal'));
+    shortBreakInput.value = JSON.parse(localStorage.getItem('shortVal'));
+    longBreakInput.value = JSON.parse(localStorage.getItem('longVal'));
+}
+}
+changeInputVal()
+
 var TIMER = JSON.parse(localStorage.getItem('items')) ? JSON.parse(localStorage.getItem('items')) : makeUser(`${focusTimeInput.value}`, `${shortBreakInput.value}`, `${longBreakInput.value}`)
+
 
 function makeUser (POMODORO, SHORTBREAK, LONGBREAK) {
     return {
@@ -144,6 +159,7 @@ function makeUser (POMODORO, SHORTBREAK, LONGBREAK) {
 }
 
 function changeMode(e) {
+    changeButtonText()
     localStorage.removeItem('count_timer')
     changeClasses()
     clickOnActive()
@@ -161,8 +177,23 @@ function innerClock() {
     
     if (localStorage.getItem('count_timer')){
         timer.innerHTML = ('0' + Math.floor(localStorage.getItem('count_timer') / 60)).slice(-2) + ':' + ('0' + (localStorage.getItem('count_timer') % 60)).slice(-2);
+    } else if (localStorage.getItem('modeTab')){
+        if(JSON.parse(localStorage.getItem('modeTab')) === 'pomodoro'){
+            if(TIMER.POMODORO < 10) {
+                timer.innerHTML = `0${TIMER.POMODORO}:00`
+            } else {
+                timer.innerHTML = `${TIMER.POMODORO}:00`
+            }
+        } else if (JSON.parse(localStorage.getItem('modeTab')) === 'short') {
+            timer.innerHTML = `0${TIMER.SHORTBREAK}:00`
+        } else if(JSON.parse(localStorage.getItem('modeTab')) === 'long') {
+            if(TIMER.LONGBREAK < 10) {
+                timer.innerHTML = `0${TIMER.LONGBREAK}:00`
+            } else {
+                timer.innerHTML = `${TIMER.LONGBREAK}:00`
+            }
+        }
     } else {
-
     if(timer.dataset.mode === 'pomodoro') {
         if(TIMER.POMODORO < 10) {
             timer.innerHTML = `0${TIMER.POMODORO}:00`
@@ -304,7 +335,6 @@ colorItem.forEach(function(item) {
             localStorage.setItem('count_timer', count_timer);
             localStorage.setItem('totalsecs', totalsecs);
             timeoutFunc()
-            
         }
         if (startBtn.classList.contains('_active')) {
             startBtn.classList.remove('_active');
@@ -322,9 +352,6 @@ colorItem.forEach(function(item) {
         clearTimeout(timeout);
     }
 
-    if(count_timer < setTimer) {
-        timeoutFunc()
-    }
 
 function clickOnActive() {
     for(i=0; i<buttonControl.length;i++){
@@ -374,6 +401,7 @@ function pomodoroRestart() {
 startBtn.addEventListener('click', () => {
     timeoutFunc()
 });
+
 pauseBtn.addEventListener('click', () => {
     pomodoroPause();
 });
@@ -386,11 +414,18 @@ restartBtn.addEventListener('click', () => {
         for (let i = 0; i < buttonControl.length; i++) {
             if(buttonControl[i].classList.contains('_active')){
                 tabIndex.push(i);
+               var modeTab = buttonControl[i].dataset.mode ;
             }
         }
         localStorage.setItem('selectedTab', JSON.stringify(tabIndex));
+        localStorage.setItem('modeTab', JSON.stringify(modeTab))
     }
 
+    function saveInputVal() {
+        localStorage.setItem('focusVal', focusTimeInput.value)
+        localStorage.setItem('shortVal', shortBreakInput.value)
+        localStorage.setItem('longVal', longBreakInput.value)
+        }
     
     function saveSelectedFont() {
         const indexes = [];
@@ -411,11 +446,7 @@ restartBtn.addEventListener('click', () => {
         } else if (event.target.closest('[data-family=SpaceMono]')){
             localStorage.setItem('fontFamily', JSON.stringify('SpaceMono'))
         }
-    })
-
-//
-
-
+    });
 
 function saveSelectedColor() {
     const indexesColor = [];
@@ -439,6 +470,8 @@ colorBlock.addEventListener('click', function (event) {
 })
 
 function getNewData() {
+    //SAVE INPUT VAL 
+    saveInputVal() 
     //SAVE FONT-COLOR IN LOCALSTORAGE
     if (localStorage.getItem('fontColor') === null) 
     {localStorage.setItem('fontColor', JSON.stringify('#F87070'))} else 
@@ -492,6 +525,17 @@ function handleTabletChange() {
   }
   window.addEventListener('resize', handleTabletChange, true);
   handleTabletChange()
+
+  function changeButtonText(){
+    if(count_timer < setTimer) {
+        timeoutFunc()
+        startBtn.textContent = 'PAUSE'
+    } else 
+    {
+        clickOnActive()
+        startBtn.textContent = 'START'
+    }}
+    changeButtonText()
 
   if (count_timer === setTimer) {
     clickOnActive();
