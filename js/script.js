@@ -120,7 +120,12 @@ function createListElementByButton(event) {
 
 function getItemsFromLocalStorage() {
 	getDarkMode()
-	document.querySelector('#items').textContent = JSON.parse(localStorage.getItem('item-left')) + ' ' + 'items left';
+	if(localStorage.getItem('item-left')) {
+		document.querySelector('#items').textContent = JSON.parse(localStorage.getItem('item-left')) + ' ' + 'items left';
+	} else {
+		document.querySelector('#items').textContent = 0 + ' ' + 'items left';
+	}
+	
 
 	const localStorageElements = JSON.parse(localStorage.getItem('listElements'));
 
