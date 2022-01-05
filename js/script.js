@@ -3,40 +3,91 @@ const input = document.querySelector('#search_field');
 const submitButton = document.querySelector('#submit')
 let requestURL = "https://ipgeolocation.abstractapi.com/v1/?api_key=c5094700a1614fa08030c502c0fdf9f2";
 
-navigator.geolocation.getCurrentPosition(
-	function (position) {
-	   initMap(position.coords.latitude, position.coords.longitude)
-	},
-	function errorCallback(error) {
-	   console.log(error)
-	}
- );
+let map, infoWindow, myLatLng, marker;
 
-function initMap(lat, lng) {
-	var myLatLng = {
-		lat,
-		lng
-	},
-	image = 'img/location_icon.svg',
-	infoWindow;
+function initMap(myLatLng) {
 	
-	var map = new google.maps.Map(document.querySelector('#map'), {
-		zoom: 15,
-		center: myLatLng,
-		streetViewControl: false,
-		fullscreenControl: false,
-		mapTypeControl: false,
-	})
-
-	var marker = new google.maps.Marker({
-		position: myLatLng,
-		map: map,
-		icon: {
-			url: image,
-			scaledSize: new google.maps.Size(32,40),
-			}
-	})
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: myLatLng,
+    zoom: 15,
+	streetViewControl: false,
+	fullscreenControl: false,
+	mapTypeControl: false
+  });
+  marker = new google.maps.Marker({
+	position: myLatLng,
+	map: map,
+	icon: {
+		url: 'img/location_icon.svg',
+		scaledSize: new google.maps.Size(32,40),
+		}
+});
+  infoWindow = new google.maps.InfoWindow();
 }
+
+// Try HTML5 geolocation.
+if (navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition(
+	  (position) => {
+		const pos = {
+		  lat: position.coords.latitude,
+		  lng: position.coords.longitude,
+		};
+	
+		map.setCenter(pos);
+		marker = new google.maps.Marker({
+		  position: pos,
+		  map: map,
+		  icon: {
+			  url: 'img/location_icon.svg',
+			  scaledSize: new google.maps.Size(32,40),
+			  }
+	  });
+		
+	  },
+	  () => {
+		handleLocationError(true, infoWindow, map.getCenter());
+	  }
+	);
+  } else {
+	// Browser doesn't support Geolocation
+	handleLocationError(false, infoWindow, map.getCenter());
+  }
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(
+    browserHasGeolocation
+      ? "Error: The Geolocation service failed."
+      : "Error: Your browser doesn't support geolocation."
+  );
+  infoWindow.open(map);
+  }
+// function initMap(lat, lng) {
+// 	var myLatLng = {
+// 		lat,
+// 		lng
+// 	},
+// 	image = 'img/location_icon.svg',
+// 	infoWindow;
+	
+// 	var map = new google.maps.Map(document.querySelector('#map'), {
+// 		zoom: 15,
+// 		center: myLatLng,
+// 		streetViewControl: false,
+// 		fullscreenControl: false,
+// 		mapTypeControl: false,
+// 	})
+
+	// var marker = new google.maps.Marker({
+	// 	position: myLatLng,
+	// 	map: map,
+	// 	icon: {
+	// 		url: image,
+	// 		scaledSize: new google.maps.Size(32,40),
+	// 		}
+	// })
+// }
 
 function showData(data) {
 	document.querySelector('#isp_get').textContent = data.connection.isp_name;
@@ -56,7 +107,11 @@ submitButton.addEventListener('click', function() {
 		requestURL = "https://ipgeolocation.abstractapi.com/v1/?api_key=c5094700a1614fa08030c502c0fdf9f2&ip_address=" + input.value;
 		sendRequest('GET', requestURL)
 		.then(data => {
-			initMap(data.latitude, data.longitude);
+			myLatLng = {
+				lat: data.latitude,
+				lng: data.longitude
+					}
+			initMap(myLatLng)
 			showData(data)
 		})
 		.catch(err => customAlert());
@@ -109,5 +164,3 @@ const closeButton = document.querySelector('.close-btn')
 		alert.classList.add('hide')
 		alert.classList.remove('show')
 	})
-
-	
