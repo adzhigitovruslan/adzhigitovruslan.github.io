@@ -2,40 +2,23 @@
 const input = document.querySelector('#search_field');
 const submitButton = document.querySelector('#submit')
 let requestURL = "https://ipgeolocation.abstractapi.com/v1/?api_key=c5094700a1614fa08030c502c0fdf9f2";
-// function initMap(lat, lng) {
-// 	var lat,
-// 		lng,
-// 		latlng = new google.maps.LatLng(lat, lng),
-// 		image = 'img/location_icon.svg';
 
-//  	var mapOptions = {
-// 		center: new google.maps.LatLng(lat,lng),
-// 		zoom: 15,
-// 		mapTypeControl: false,
-// 		fullscreenControl: false,
-// 		streetViewControl: false
-//  	}
-	 
-// 	var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-// 	var	marker = new google.maps.Marker({
-// 			position: latlng,
-// 			map: map,
-// 			icon: {
-// 			url: image,
-// 			scaledSize: new google.maps.Size(32,40),
-// 			} 
-// 		})
-	
-// 	
-
-// }
+navigator.geolocation.getCurrentPosition(
+	function (position) {
+	   initMap(position.coords.latitude, position.coords.longitude)
+	},
+	function errorCallback(error) {
+	   console.log(error)
+	}
+ );
 
 function initMap(lat, lng) {
 	var myLatLng = {
 		lat,
 		lng
 	},
-	image = 'img/location_icon.svg';
+	image = 'img/location_icon.svg',
+	infoWindow;
 	
 	var map = new google.maps.Map(document.querySelector('#map'), {
 		zoom: 15,
@@ -51,7 +34,7 @@ function initMap(lat, lng) {
 		icon: {
 			url: image,
 			scaledSize: new google.maps.Size(32,40),
-			} 
+			}
 	})
 }
 
@@ -106,7 +89,6 @@ function sendRequest(method, url) {
 }
 sendRequest('GET', requestURL)
 	.then(data => {
-		initMap(data.latitude, data.longitude);
 		showData(data)
 	})
 	.catch(err => console.log(err))
@@ -127,3 +109,5 @@ const closeButton = document.querySelector('.close-btn')
 		alert.classList.add('hide')
 		alert.classList.remove('show')
 	})
+
+	
