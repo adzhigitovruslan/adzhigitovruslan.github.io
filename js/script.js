@@ -63,31 +63,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   );
   infoWindow.open(map);
   }
-// function initMap(lat, lng) {
-// 	var myLatLng = {
-// 		lat,
-// 		lng
-// 	},
-// 	image = 'img/location_icon.svg',
-// 	infoWindow;
-	
-// 	var map = new google.maps.Map(document.querySelector('#map'), {
-// 		zoom: 15,
-// 		center: myLatLng,
-// 		streetViewControl: false,
-// 		fullscreenControl: false,
-// 		mapTypeControl: false,
-// 	})
-
-	// var marker = new google.maps.Marker({
-	// 	position: myLatLng,
-	// 	map: map,
-	// 	icon: {
-	// 		url: image,
-	// 		scaledSize: new google.maps.Size(32,40),
-	// 		}
-	// })
-// }
 
 function showData(data) {
 	document.querySelector('#isp_get').textContent = data.connection.isp_name;
@@ -119,27 +94,16 @@ submitButton.addEventListener('click', function() {
 	}
 })
 
+input.addEventListener('keyup', function(e) {
+	e.preventDefault();
+	if (e.keyCode === 13) {
+		submitButton.click();
+	}
+})
+
 function sendRequest(method, url) {
-	return new Promise((resolve, reject) => {
-		const xhr = new XMLHttpRequest()
-
-		xhr.open(method, url)
-
-		xhr.responseType = 'json'
-
-		xhr.onload = () => {
-			if (xhr.status >= 400) {
-				reject(xhr.response)
-			} else {
-				resolve(xhr.response)
-			}
-		}
-
-		xhr.onerror = () => {
-			reject(xhr.response)
-		}
-
-		xhr.send()
+	return fetch(url).then(response => {
+		return response.json()
 	})
 }
 sendRequest('GET', requestURL)
