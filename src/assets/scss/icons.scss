@@ -1,0 +1,39 @@
+@font-face {
+	font-family: 'icons';
+	src:
+	  url('~@/assets/fonts/icons.woff') format('woff'),
+	  url('~@/assets/fonts/icons.woff2#icons') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+  }
+
+[class^="_icon-"], [class*=" _icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icons' !important;
+	speak-as: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+  
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  }
+._icon-shopping-bag:before {
+	content: "\e904";
+  }
+  ._icon-bag:before {
+	content: "\e900";
+  }
+  ._icon-call_back-Stroke:before {
+	content: "\e901";
+  }
+  ._icon-phone:before {
+	content: "\e902";
+  }
+  ._icon-stroke8:before {
+	content: "\e903";
+  }
