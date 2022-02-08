@@ -1,0 +1,68 @@
+{
+	"products": [
+        {
+          "image": "content1.png",
+          "name": "Quattro formaggi",
+          "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
+          "size": "32cm",
+          "price": "119",
+          "article": "Pizza1"
+        },
+        {
+          "image": "content2.png",
+          "name": "Карбонара",
+          "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
+          "size": "32cm",
+          "price": "119",
+          "article": "Pizza2"
+        },
+        {
+          "image": "content3.png",
+          "name": "Філадельфія селмон",
+          "discriptions": "Dough, mozzarella, barrel, eggs, Parmesan cheese",
+          "size": "32cm",
+          "price": "119",
+          "article": "Pizza3"
+        },
+        {
+          "image": "content4.png",
+          "name": "Ді маре",
+          "discriptions": "Dough, mozzarella, barrel, eggs, Parmesan cheese",
+          "size": "32cm",
+          "price": "119",
+          "article": "Pizza4"
+        },
+        {
+          "image": "content5.png",
+          "name": "Кватро формаджіо",
+          "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
+          "size": "32cm",
+          "price": "119",
+          "article": "Pizza5"
+        },
+        {
+          "image": "content6.png",
+          "name": "Кватро формаджіо",
+          "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
+          "size": "32cm",
+          "price": "119",
+          "article": "Pizza6"
+        },
+        {
+          "image": "content7.png",
+          "name": "Кватро формаджіо",
+          "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
+          "size": "32cm",
+          "price": "119",
+          "article": "Pizza7"
+        },
+        {
+          "image": "content8.png",
+          "name": "Кватро формаджіо",
+          "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
+          "size": "32cm",
+          "price": "119",
+          "article": "Pizza8"
+        }
+      ]
+  }
