@@ -1,11 +1,12 @@
 <template>
     <section class="page__main-header header-main">
       <div class="scene">
-        <div data-depth="0.7">
+        <div data-depth="0.7" v-parallax="0.5">
           <img
             src="@/assets/img/vegetables.png"
             alt="vegetables"
             class="images-veg"
+            
           />
         </div>
         <div class="header-main__container _container">
@@ -30,6 +31,12 @@
       </div>
     </section>
 </template>
+
+<script>
+export default {
+  
+}
+</script>
 
 <style lang="scss">
 ._container {

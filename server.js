@@ -1,11 +1,8 @@
 const express = require("express");
 const serveStatic = require("serve-static");
 const path = require("path");
-const jsonServer = require("json-server");
-const server = jsonServer.create();
-const router = jsonServer.router("db.json");
+
 app = express();
-server.use(router);
 app.use(serveStatic(path.join(__dirname, "dist")));
 const port = process.env.PORT || 3000;
 app.listen(port);

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <vMainWrapper />
-    <font-awesome-icon icon="fa-times" />
   </div>
 </template>
 
@@ -13,7 +12,9 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    
+  },
   components: {
     vMainWrapper,
   },
