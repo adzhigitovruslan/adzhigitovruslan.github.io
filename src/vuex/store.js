@@ -43,9 +43,12 @@ let store = new Vuex.Store({
   },
   actions: {
     GET_PRODUCTS_FROM_API({ commit }) {
-      return axios("http://localhost:3000/products", {
-        method: "GET",
-      })
+      return axios(
+        "https://my-json-server.typicode.com/adzhigitovruslan/adzhigitovruslan.github.io/products",
+        {
+          method: "GET",
+        }
+      )
         .then((products) => {
           commit("SET_PRODUCTS_TO_STATE", products.data);
           return products;
