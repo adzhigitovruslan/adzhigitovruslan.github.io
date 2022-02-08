@@ -1,7 +1,7 @@
 <template>
     <section class="page__main-header header-main">
       <div class="scene">
-        <div data-depth="0.7" v-parallax="0.5">
+        <div data-depth="0.7" v-parallax="0.2">
           <img
             src="@/assets/img/vegetables.png"
             alt="vegetables"

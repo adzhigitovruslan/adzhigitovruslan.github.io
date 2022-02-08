@@ -1,16 +1,13 @@
 <template>
   <section class="page__form form">
     <div class="scene">
-      <parallax-container>
-
-         <parallax-element :parallaxStrength="-5" :type="'translation'">
+      <div data-depth="0.4" v-parallax="0.2">
         <img
           src="@/assets/img/vegitable2.png"
           alt="vegetables"
           class="images__veg2"
         />
-</parallax-element>
-      </parallax-container>
+      </div>
     </div>
     <div class="form__container _container">
       <div class="form__content content-form">
