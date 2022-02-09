@@ -7,13 +7,28 @@
             <nav class="menu__body">
               <ul class="menu__list">
                 <li class="menu__item">
-                  <a href="#payment" class="menu__link">Payment</a>
+                  <a
+                    href="#payment"
+                    class="menu__link"
+                    @click="scrollMeTo('payment')"
+                    >Payment</a
+                  >
                 </li>
                 <li class="menu__item">
-                  <a href="#aboutus" class="menu__link">About us</a>
+                  <a
+                    href="#aboutus"
+                    class="menu__link"
+                    @click="scrollMeTo('about')"
+                    >About us</a
+                  >
                 </li>
                 <li class="menu__item">
-                  <a href="#contacts" class="menu__link">Contacts</a>
+                  <a
+                    href="#contacts"
+                    class="menu__link"
+                    @click="scrollMeTo('contacts')"
+                    >Contacts</a
+                  >
                 </li>
               </ul>
             </nav>
@@ -37,6 +52,16 @@
     </div>
   </header>
 </template>
+
+<script>
+export default {
+  methods: {
+    scrollMeTo(refName) {
+      this.$emit("scrollMeTo", refName);
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 .header {

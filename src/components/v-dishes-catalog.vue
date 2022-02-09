@@ -45,6 +45,7 @@
               href="#salad"
               class="menu__link"
               @click.prevent="setActive('salad')"
+              @click="activeTab = 'salad'"
               :class="{ _active: isActive('salad') }"
               >Salad</a
             >
@@ -54,6 +55,7 @@
               href="#dessert"
               class="menu__link"
               @click.prevent="setActive('dessert')"
+              @click="activeTab = 'dessert'"
               :class="{ _active: isActive('dessert') }"
               >Dessert</a
             >
@@ -63,6 +65,7 @@
               href="#drinks"
               class="menu__link"
               @click.prevent="setActive('drinks')"
+              @click="activeTab = 'drinks'"
               :class="{ _active: isActive('drinks') }"
               >Drinks</a
             >
