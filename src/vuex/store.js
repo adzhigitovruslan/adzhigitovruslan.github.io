@@ -44,7 +44,7 @@ let store = new Vuex.Store({
   actions: {
     GET_PRODUCTS_FROM_API({ commit }) {
       return axios(
-        "https://my-json-server.typicode.com/adzhigitovruslan/adzhigitovruslan.github.io/products",
+        "https://my-json-server.typicode.com/adzhigitovruslan/adzhigitovruslan.github.io/db",
         {
           method: "GET",
         }

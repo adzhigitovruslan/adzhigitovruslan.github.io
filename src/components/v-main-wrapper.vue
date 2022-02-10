@@ -1,13 +1,11 @@
 <template>
   <main class="page">
-    <Header 
-    @scrollMeTo="scrollMeTo(refName)"
-    />
+    <Header @scrollMeTo="scrollMeTo(refName)" />
     <MainPage />
-    <vDishes ref="payment"/>
+    <vDishes ref="payment" />
     <Slider />
-    <Form ref="contacts"/>
-    <Footer ref="about"/>
+    <Form ref="contacts" />
+    <Footer ref="about" />
   </main>
 </template>
 
@@ -33,13 +31,11 @@ export default {
     Footer,
   },
   methods: {
-    scrollMeTo(refName) {
-    var element = this.$refs[refName];
-    var top = element.offsetTop;
-
-    window.scrollTo(0, top);
-  }
-  }
+    // scrollMeTo(refName) {
+    //   var element = this.$refs[refName];
+    //       element.scrollIntoView();
+    // },
+  },
 };
 </script>
 

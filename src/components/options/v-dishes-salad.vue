@@ -2,19 +2,16 @@
   <div class="dishes__wrapper">
     <div class="dishes__item item-dishes">
       <div class="item-dishes__img">
-        <img
-          :src="require('@/assets/img/' + productsPizza_data.image)"
-          alt="img"
-        />
+        <img :src="require('@/assets/img/' + product_data.image)" alt="img" />
       </div>
       <div class="item-dishes__title_text">
-        <div class="item-dishes__title">{{ productsPizza_data.name }}</div>
-        <div class="item-dishes__title_size">{{ productsPizza_data.size }}</div>
+        <div class="item-dishes__title">{{ product_data.name }}</div>
+        <div class="item-dishes__title_size">{{ product_data.size }}</div>
       </div>
       <div class="item-dishes__subtitle">
-        {{ productsPizza_data.discriptions }}
+        {{ product_data.discriptions }}
       </div>
-      <div class="item-dishes__price">{{ productsPizza_data.price }} UAH</div>
+      <div class="item-dishes__price">{{ product_data.price }} UAH</div>
     </div>
     <button class="item-dishes__icon _active" @click="addToCart()">
       <i class="_icon-bag"></i>
@@ -25,12 +22,12 @@
 
 <script>
 export default {
-  name: "v-dishes-item",
+  name: "v-dishes-salad",
   data: function () {
     return {};
   },
   props: {
-    productsPizza_data: {
+    product_data: {
       type: Object,
       default() {
         return {};
@@ -39,11 +36,11 @@ export default {
   },
   methods: {
     addToCart() {
-      this.$emit("addToCart", this.productsPizza_data);
+      this.$emit("addToCart", this.product_data);
     },
   },
   mounted() {
-    this.$set(this.productsPizza_data, "quantity", 1);
+    this.$set(this.product_data, "quantity", 1);
   },
 };
 </script>
@@ -80,7 +77,8 @@ export default {
     img {
       width: 170px;
       height: 170px;
-      object-fit: contain;
+      object-fit: cover;
+      border-radius: 15px;
     }
   }
   &__title {

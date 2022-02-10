@@ -34,9 +34,9 @@
             <a
               href="#aboutus"
               class="menu__link"
-              @click.prevent="setActive('aboutus')"
+              @click.prevent="setActive('sushi')"
               @click="activeTab = 'sushi'"
-              :class="{ _active: isActive('aboutus') }"
+              :class="{ _active: isActive('sushi') }"
               >Sushi</a
             >
           </li>
@@ -80,10 +80,66 @@
       ]"
       id="pizza"
     >
-      <vDishesItem
-        v-for="product in PRODUCTS"
+      <vDishesPizza
+        v-for="product in PRODUCTS.products"
         :key="product.article"
-        :productsPizza_data="product"
+        :product_data="product"
+        @addToCart="addToCart"
+      />
+    </div>
+    <div
+      :class="[
+        { show: activeTab == 'sushi', hide: activeTab != 'sushi' },
+        dishes__body,
+      ]"
+      id="pizza"
+    >
+      <vDishesSushi
+        v-for="product in PRODUCTS.sushi"
+        :key="product.article"
+        :product_data="product"
+        @addToCart="addToCart"
+      />
+    </div>
+    <div
+      :class="[
+        { show: activeTab == 'salad', hide: activeTab != 'salad' },
+        dishes__body,
+      ]"
+      id="pizza"
+    >
+      <vDishesSalad
+        v-for="product in PRODUCTS.salad"
+        :key="product.article"
+        :product_data="product"
+        @addToCart="addToCart"
+      />
+    </div>
+    <div
+      :class="[
+        { show: activeTab == 'dessert', hide: activeTab != 'dessert' },
+        dishes__body,
+      ]"
+      id="pizza"
+    >
+      <vDishesDessert
+        v-for="product in PRODUCTS.dessert"
+        :key="product.article"
+        :product_data="product"
+        @addToCart="addToCart"
+      />
+    </div>
+    <div
+      :class="[
+        { show: activeTab == 'drinks', hide: activeTab != 'drinks' },
+        dishes__body,
+      ]"
+      id="pizza"
+    >
+      <vDishesDrinks
+        v-for="product in PRODUCTS.drinks"
+        :key="product.article"
+        :product_data="product"
         @addToCart="addToCart"
       />
     </div>
@@ -91,7 +147,12 @@
 </template>
 
 <script>
-import vDishesItem from "@/components/v-dishes-item.vue";
+import vDishesPizza from "@/components/options/v-dishes-pizza.vue";
+import vDishesSushi from "@/components/options/v-dishes-sushi.vue";
+import vDishesSalad from "@/components/options/v-dishes-salad.vue";
+import vDishesDessert from "@/components/options/v-dishes-dessert.vue";
+import vDishesDrinks from "@/components/options/v-dishes-drinks.vue";
+
 import { mapActions, mapGetters } from "vuex";
 
 export default {
@@ -105,7 +166,11 @@ export default {
     };
   },
   components: {
-    vDishesItem,
+    vDishesPizza,
+    vDishesSushi,
+    vDishesSalad,
+    vDishesDessert,
+    vDishesDrinks,
   },
   computed: {
     ...mapGetters(["PRODUCTS", "CART"]),
@@ -136,11 +201,6 @@ export default {
     setActive(menuItem) {
       this.activeItem = menuItem;
     },
-    checkIfHasAclass() {
-      if (document.querySelector("pizza").classList.contains("_active")) {
-        this.isPizza = true;
-      }
-    },
   },
   mounted() {
     this.GET_PRODUCTS_FROM_API().then((response) => {
@@ -154,7 +214,6 @@ export default {
 
 <style lang="scss">
 .dishes {
-
   &__body {
     display: grid;
 
