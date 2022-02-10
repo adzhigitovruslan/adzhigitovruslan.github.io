@@ -64,5 +64,31 @@
           "price": "119",
           "article": "Pizza8"
         }
-      ]
+      ],
+  "sushi": [
+    {
+      "image": "Sushi1.jpg",
+      "name": "Salmon skin",
+      "discriptions": "Crispy, deep-fried salmon skin with eel sauce",
+      "size": "6 items",
+      "price": "340",
+      "article": "Sushi1"
+    },
+    {
+      "image": "sushi2.jpg",
+      "name": "Mirugai",
+      "discriptions": "Giant clam, long-neck clam, geoduck",
+      "size": "6 items",
+      "price": "250",
+      "article": "Sushi2"
+    },
+    {
+      "image": "sushi3.jpg",
+      "name": "Umeboshi",
+      "discriptions": "Salt-cured sour plum",
+      "size": "8 items",
+      "price": "400",
+      "article": "Sushi3"
+    }
+  ]
   }
