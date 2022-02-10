@@ -67,7 +67,7 @@
       ],
   "sushi": [
     {
-      "image": "Sushi1.jpg",
+      "image": "sushi1.jpg",
       "name": "Salmon skin",
       "discriptions": "Crispy, deep-fried salmon skin with eel sauce",
       "size": "6 items",
@@ -89,6 +89,84 @@
       "size": "8 items",
       "price": "400",
       "article": "Sushi3"
+    }
+  ],
+  "salad": [
+    {
+      "image": "salad1.jpg",
+      "name": "Greek Salad",
+      "discriptions": "This easy Greek salad recipe is our new favorite summer side dish!",
+      "size": "220g",
+      "price": "650",
+      "article": "salad1"
+    },
+    {
+      "image": "salad2.jpg",
+      "name": "Cesar salad",
+      "discriptions": "Bread, lemon, romaine lettuce, worcestershire sauce, parmesan",
+      "size": "220g",
+      "price": "550",
+      "article": "salad2"
+    },
+    {
+      "image": "salad3.jpeg",
+      "name": "Fresh tomato salad",
+      "discriptions": "Simply combine garden fresh tomatoes, onions and a sprinkle herbs",
+      "size": "340g",
+      "price": "200",
+      "article": "salad3"
+    }
+  ],
+  "dessert": [
+    {
+      "image": "dessert1.jpg",
+      "name": "Cheesecake",
+      "discriptions": "Cheesecake is a sweet dessert consisting of one or more layers.",
+      "size": "220g",
+      "price": "1650",
+      "article": "dessert1"
+    },
+    {
+      "image": "dessert2.jpg",
+      "name": "Healthy chocolate",
+      "discriptions": "It tastes just like dark chocolate pudding, but it's simply Greek yogurt, dark cocoa powder, and maple syrup.",
+      "size": "350g",
+      "price": "1550",
+      "article": "dessert2"
+    },
+    {
+      "image": "dessert3.jpeg",
+      "name": "Choc banoffee filo stack",
+      "discriptions": "Make light work out of dessert with this filo pastry twist on banoffee pie that's ready in 30 minutes.",
+      "size": "340g",
+      "price": "1200",
+      "article": "dessert3"
+    }
+  ],
+  "drinks": [
+    {
+      "image": "drinks1.jpg",
+      "name": "Margarita",
+      "discriptions": "A well-made version is a fresh mix of lime juice and tequila",
+      "size": "50g",
+      "price": "650",
+      "article": "drinks1"
+    },
+    {
+      "image": "drinks2.jpg",
+      "name": "Cosmopolitan",
+      "discriptions": "The cosmo became almost ubiquitous in the '90s thanks to the TV show Sex and the City",
+      "size": "70g",
+      "price": "1550",
+      "article": "drinks2"
+    },
+    {
+      "image": "drinks3.jpg",
+      "name": "Moscow Mule",
+      "discriptions": "The Moscow Mule is one of the most refreshing things to sip on a hot summer day",
+      "size": "140g",
+      "price": "1200",
+      "article": "drinks3"
     }
   ]
   }
