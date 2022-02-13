@@ -6,7 +6,8 @@
           "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
           "size": "32cm",
           "price": "119",
-          "article": "Pizza1"
+          "article": "Pizza1",
+          "quantity": "1"
         },
         {
           "image": "content2.png",
@@ -14,7 +15,8 @@
           "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
           "size": "32cm",
           "price": "119",
-          "article": "Pizza2"
+          "article": "Pizza2",
+          "quantity": "1"
         },
         {
           "image": "content3.png",
@@ -22,7 +24,8 @@
           "discriptions": "Dough, mozzarella, barrel, eggs, Parmesan cheese",
           "size": "32cm",
           "price": "119",
-          "article": "Pizza3"
+          "article": "Pizza3",
+          "quantity": "1"
         },
         {
           "image": "content4.png",
@@ -30,7 +33,8 @@
           "discriptions": "Dough, mozzarella, barrel, eggs, Parmesan cheese",
           "size": "32cm",
           "price": "119",
-          "article": "Pizza4"
+          "article": "Pizza4",
+          "quantity": "1"
         },
         {
           "image": "content5.png",
@@ -38,7 +42,8 @@
           "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
           "size": "32cm",
           "price": "119",
-          "article": "Pizza5"
+          "article": "Pizza5",
+          "quantity": "1"
         },
         {
           "image": "content6.png",
@@ -46,7 +51,8 @@
           "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
           "size": "32cm",
           "price": "119",
-          "article": "Pizza6"
+          "article": "Pizza6",
+          "quantity": "1"
         },
         {
           "image": "content7.png",
@@ -54,7 +60,8 @@
           "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
           "size": "32cm",
           "price": "119",
-          "article": "Pizza7"
+          "article": "Pizza7",
+          "quantity": "1"
         },
         {
           "image": "content8.png",
@@ -62,7 +69,8 @@
           "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
           "size": "32cm",
           "price": "119",
-          "article": "Pizza8"
+          "article": "Pizza8",
+          "quantity": "1"
         }
       ],
   "sushi": [
@@ -72,7 +80,8 @@
       "discriptions": "Crispy, deep-fried salmon skin with eel sauce",
       "size": "6 items",
       "price": "340",
-      "article": "Sushi1"
+      "article": "Sushi1",
+      "quantity": "1"
     },
     {
       "image": "sushi2.jpg",
@@ -80,7 +89,8 @@
       "discriptions": "Giant clam, long-neck clam, geoduck",
       "size": "6 items",
       "price": "250",
-      "article": "Sushi2"
+      "article": "Sushi2",
+      "quantity": "1"
     },
     {
       "image": "sushi3.jpg",
@@ -88,7 +98,8 @@
       "discriptions": "Salt-cured sour plum",
       "size": "8 items",
       "price": "400",
-      "article": "Sushi3"
+      "article": "Sushi3",
+      "quantity": "1"
     }
   ],
   "salad": [
@@ -98,7 +109,8 @@
       "discriptions": "This easy Greek salad recipe is our new favorite summer side dish!",
       "size": "220g",
       "price": "650",
-      "article": "salad1"
+      "article": "salad1",
+      "quantity": "1"
     },
     {
       "image": "salad2.jpg",
@@ -106,7 +118,8 @@
       "discriptions": "Bread, lemon, romaine lettuce, worcestershire sauce, parmesan",
       "size": "220g",
       "price": "550",
-      "article": "salad2"
+      "article": "salad2",
+      "quantity": "1"
     },
     {
       "image": "salad3.jpeg",
@@ -114,7 +127,8 @@
       "discriptions": "Simply combine garden fresh tomatoes, onions and a sprinkle herbs",
       "size": "340g",
       "price": "200",
-      "article": "salad3"
+      "article": "salad3",
+      "quantity": "1"
     }
   ],
   "dessert": [
@@ -124,7 +138,8 @@
       "discriptions": "Cheesecake is a sweet dessert consisting of one or more layers.",
       "size": "220g",
       "price": "1650",
-      "article": "dessert1"
+      "article": "dessert1",
+      "quantity": "1"
     },
     {
       "image": "dessert2.jpg",
@@ -132,7 +147,8 @@
       "discriptions": "It tastes just like dark chocolate pudding, but it's simply Greek yogurt, dark cocoa powder, and maple syrup.",
       "size": "350g",
       "price": "1550",
-      "article": "dessert2"
+      "article": "dessert2",
+      "quantity": "1"
     },
     {
       "image": "dessert3.jpeg",
@@ -140,7 +156,8 @@
       "discriptions": "Make light work out of dessert with this filo pastry twist on banoffee pie that's ready in 30 minutes.",
       "size": "340g",
       "price": "1200",
-      "article": "dessert3"
+      "article": "dessert3",
+      "quantity": "1"
     }
   ],
   "drinks": [
@@ -150,7 +167,8 @@
       "discriptions": "A well-made version is a fresh mix of lime juice and tequila",
       "size": "50g",
       "price": "650",
-      "article": "drinks1"
+      "article": "drinks1",
+      "quantity": "1"
     },
     {
       "image": "drinks2.jpg",
@@ -158,7 +176,8 @@
       "discriptions": "The cosmo became almost ubiquitous in the '90s thanks to the TV show Sex and the City",
       "size": "70g",
       "price": "1550",
-      "article": "drinks2"
+      "article": "drinks2",
+      "quantity": "1"
     },
     {
       "image": "drinks3.jpg",
@@ -166,7 +185,8 @@
       "discriptions": "The Moscow Mule is one of the most refreshing things to sip on a hot summer day",
       "size": "140g",
       "price": "1200",
-      "article": "drinks3"
+      "article": "drinks3",
+      "quantity": "1"
     }
   ]
   }
