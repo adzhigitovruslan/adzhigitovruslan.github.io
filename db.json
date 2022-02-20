@@ -123,8 +123,8 @@
     },
     {
       "image": "salad3.jpeg",
-      "name": "Fresh tomato salad",
-      "discriptions": "Simply combine garden fresh tomatoes, onions and a sprinkle herbs",
+      "name": "Tomato salad",
+      "discriptions": "Garden fresh tomatoes, onions and a sprinkle herbs",
       "size": "340g",
       "price": "200",
       "article": "salad3",
@@ -144,7 +144,7 @@
     {
       "image": "dessert2.jpg",
       "name": "Healthy chocolate",
-      "discriptions": "It tastes just like dark chocolate pudding, but it's simply Greek yogurt, dark cocoa powder, and maple syrup.",
+      "discriptions": "Simply Greek yogurt, dark cocoa powder, and maple syrup.",
       "size": "350g",
       "price": "1550",
       "article": "dessert2",
@@ -152,8 +152,8 @@
     },
     {
       "image": "dessert3.jpeg",
-      "name": "Choc banoffee filo stack",
-      "discriptions": "Make light work out of dessert with this filo pastry twist on banoffee pie that's ready in 30 minutes.",
+      "name": "Banoffee stack",
+      "discriptions": "Filo pastry twist on banoffee pie",
       "size": "340g",
       "price": "1200",
       "article": "dessert3",
