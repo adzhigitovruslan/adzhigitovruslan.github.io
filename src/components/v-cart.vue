@@ -1,22 +1,26 @@
 <template>
-  <div class="dishes__actions actions">
-    <router-link :to="{ name: 'catalog' }">
-      <div class="actions__text">back to catalog</div>
-    </router-link>
-    <h1 class="header-block__title">Cart</h1>
-    <p v-if="!cart_data.length">There are no products in cart</p>
-    <div class="dishes__body-cart">
-    <vCartItem
-      v-for="(item, index) in cart_data"
-      :key="item.article"
-      :cart_item_data="item"
-      @deleteFromCart="deleteFromCart(index)"
-      @increment="increment(index)"
-      @decrement="decrement(index)"
-    />
-    </div>
-    <div class="actions__cart-total">
-      <p>Total: {{ cartTotalCost }} UAH</p>
+  <div class="dishes__popup-wrapper" ref="popup_wrapper">
+    <div class="dishes__popup">
+      <div class="dishes__actions actions">
+        <div class="actions__text" @click="closePopupInfo">close</div>
+        <h1 class="header-block__title">Cart</h1>
+        <p v-if="!cart_data.length">There are no products in cart</p>
+        <div class="dishes__body-cart">
+          <slot>
+            <vCartItem
+              v-for="(item, index) in cart_data"
+              :key="item.article"
+              :cart_item_data="item"
+              @deleteFromCart="deleteFromCart(index)"
+              @increment="increment(index)"
+              @decrement="decrement(index)"
+            />
+          </slot>
+        </div>
+        <div class="actions__cart-total">
+          <p>Total: {{ cartTotalCost }} UAH</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -59,36 +63,37 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["DELETE_FROM_CART",'INCREMENT_CART', 'DECREMENT_CART']),
+    ...mapActions(["DELETE_FROM_CART", "INCREMENT_CART", "DECREMENT_CART"]),
     deleteFromCart(index) {
       this.DELETE_FROM_CART(index);
     },
-    increment(index){
-      this.INCREMENT_CART(index)
+    increment(index) {
+      this.INCREMENT_CART(index);
     },
-    decrement(index){
-      this.DECREMENT_CART(index)
-    }
+    decrement(index) {
+      this.DECREMENT_CART(index);
+    },
+    closePopupInfo() {
+      this.$emit("closePopupInfo");
+    },
+  },
+  mounted() {
+    let vm = this;
+    document.addEventListener("click", function (item) {
+      if (item.target === vm.$refs["popup_wrapper"]) {
+        vm.closePopupInfo();
+      }
+    });
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .header-block__title {
-  font-size: 48px;
+  font-size: 25px;
   font-weight: 700;
   line-height: 122%;
   margin-bottom: 20px;
-}
-.router-link-active {
-  display: block;
-  margin-left: auto;
-  border: 1px solid black;
-  padding: 10px;
-  border-radius: 10px;
-  color: #000000;
-  font-size: 25px;
-  margin-bottom: 30px;
 }
 .actions {
   flex-direction: column;
@@ -97,14 +102,13 @@ export default {
     justify-content: center;
     margin-top: 50px;
     color: #000000;
-    font-size: 25px;
+    font-size: 20px;
   }
   &__v-cart {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     @media (max-width: 600px) {
-      margin-bottom: 30px;
       justify-content: center;
     }
   }
@@ -125,6 +129,7 @@ export default {
     margin-right: 15px;
     padding: 5px;
     border-radius: 3px;
+    white-space: nowrap;
     > span {
       color: #ffffff;
       font-size: 12px;
@@ -172,15 +177,43 @@ export default {
     font-size: 10px;
     margin-right: -1px;
   }
+  &__text {
+    cursor: pointer;
+    margin-left: auto;
+    color: #be1b1b;
+    border: 1px solid #be1b1b;
+    border-radius: 15px;
+    padding: 2px 15px;
+  }
+  &__text:hover {
+    box-shadow: 0 0 5px #be1b1b;
+  }
 }
 .dishes {
-  &__body-cart{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    @media(max-width: 766px) {
-      justify-content: center;
-    }
+  &__body-cart {
+    width: 100%;
+  }
+  &__popup-wrapper {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(64, 64, 64, 0.4);
+    z-index: 51;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 40px 15px;
+  }
+  &__popup {
+    z-index: 1150;
+    padding: 16px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 0 17px 0 #e7e7e7;
+    background: #ffffff;
+    border-radius: 15px;
+    margin: 0 auto;
   }
 }
 </style>

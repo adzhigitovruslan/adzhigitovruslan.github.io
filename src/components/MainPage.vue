@@ -314,22 +314,18 @@ export default {}
     display: grid;
 
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
 
     row-gap: 40px;
     column-gap: 40px;
     @media (max-width: 1035px) {
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 1fr);
     }
     @media (max-width: 785px) {
       margin-top: -50px;
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(4, 1fr);
     }
     @media (max-width: 600px) {
       grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: 1fr;
     }
   }
 

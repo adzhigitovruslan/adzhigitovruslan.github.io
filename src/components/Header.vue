@@ -10,7 +10,7 @@
                   <a
                     href="#payment"
                     class="menu__link"
-                    @click="scrollMeTo('payment')"
+                    @click="openSlide('payment')"
                     >Payment</a
                   >
                 </li>
@@ -18,7 +18,7 @@
                   <a
                     href="#aboutus"
                     class="menu__link"
-                    @click="scrollMeTo('about')"
+                    @click="openSlide('about')"
                     >About us</a
                   >
                 </li>
@@ -26,7 +26,7 @@
                   <a
                     href="#contacts"
                     class="menu__link"
-                    @click="scrollMeTo('contacts')"
+                    @click="openSlide('contacts')"
                     >Contacts</a
                   >
                 </li>
@@ -55,11 +55,7 @@
 
 <script>
 export default {
-  methods: {
-    scrollMeTo(refName) {
-      this.$emit("scrollMeTo", refName);
-    },
-  },
+  methods: {},
 };
 </script>
 

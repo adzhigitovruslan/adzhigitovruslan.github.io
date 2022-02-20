@@ -1,84 +1,19 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import axios from "axios";
+import cart_mod from "@/vuex/modules/cart.js";
+import products_mod from "@/vuex/modules/products.js";
 
 Vue.use(Vuex);
 
 let store = new Vuex.Store({
-  state: {
-    products: [],
-    cart: [],
+  modules: {
+    products_mod,
+    cart_mod,
   },
-  mutations: {
-    SET_PRODUCTS_TO_STATE: (state, products) => {
-      state.products = products;
-    },
-    REMOVE_FROM_CART: (state, index) => {
-      state.cart.splice(index, 1);
-    },
-    SET_CART: (state, product) => {
-      if (state.cart.length) {
-        let isProductExists = false;
-        state.cart.map(function (item) {
-          if (item.article === product.article) {
-            isProductExists = true;
-            item.quantity++;
-          }
-        });
-        if (!isProductExists) {
-          state.cart.push(product);
-        }
-      } else {
-        state.cart.push(product);
-      }
-    },
-    INCREMENT: (state, index) => {
-      state.cart[index].quantity++;
-    },
-    DECREMENT: (state, index) => {
-      if (state.cart[index].quantity > 1) {
-        state.cart[index].quantity--;
-      }
-    },
-  },
-  actions: {
-    GET_PRODUCTS_FROM_API({ commit }) {
-      return axios(
-        "https://my-json-server.typicode.com/adzhigitovruslan/adzhigitovruslan.github.io/db",
-        {
-          method: "GET",
-        }
-      )
-        .then((products) => {
-          commit("SET_PRODUCTS_TO_STATE", products.data);
-          return products;
-        })
-        .catch((error) => {
-          console.log(error);
-          return error;
-        });
-    },
-    ADD_TO_CART({ commit }, product) {
-      commit("SET_CART", product);
-    },
-    DELETE_FROM_CART({ commit }, index) {
-      commit("REMOVE_FROM_CART", index);
-    },
-    INCREMENT_CART({ commit }, index) {
-      commit("INCREMENT", index);
-    },
-    DECREMENT_CART({ commit }, index) {
-      commit("DECREMENT", index);
-    },
-  },
-  getters: {
-    PRODUCTS(state) {
-      return state.products;
-    },
-    CART(state) {
-      return state.cart;
-    },
-  },
+  state: {},
+  mutations: {},
+  actions: {},
+  getters: {},
 });
 
 export default store;

@@ -1,18 +1,17 @@
 <template>
   <div>
-    <router-link :to="{ name: 'cart', params: { cart_data: CART } }">
-      <div class="dishes__actions actions">
-        <div class="actions__price-tag">
-          <span>= {{ cartTotalCost }} ₴</span>
-        </div>
-        <div class="actions__cart">
-          <i class="_icon-shopping-bag"></i>
-          <div class="actions__amount">
-            <span class="actions__number">{{ CART.length }}</span>
-          </div>
+    <div class="dishes__actions actions">
+      <div class="actions__price-tag" @click="showPopUp">
+        <span>= {{ cartTotalCost }} ₴</span>
+      </div>
+      <div class="actions__cart"
+      @click="showPopUp">
+        <i class="_icon-shopping-bag"></i>
+        <div class="actions__amount">
+          <span class="actions__number">{{ this.CART.length }}</span>
         </div>
       </div>
-    </router-link>
+    </div>
     <div class="dishes__header header-block">
       <h1 class="header-block__title">Popular dishes</h1>
     </div>
@@ -92,7 +91,7 @@
         { show: activeTab == 'sushi', hide: activeTab != 'sushi' },
         dishes__body,
       ]"
-      id="pizza"
+      id="sushi"
     >
       <vDishesSushi
         v-for="product in PRODUCTS.sushi"
@@ -106,7 +105,7 @@
         { show: activeTab == 'salad', hide: activeTab != 'salad' },
         dishes__body,
       ]"
-      id="pizza"
+      id="salad"
     >
       <vDishesSalad
         v-for="product in PRODUCTS.salad"
@@ -120,7 +119,7 @@
         { show: activeTab == 'dessert', hide: activeTab != 'dessert' },
         dishes__body,
       ]"
-      id="pizza"
+      id="dessert"
     >
       <vDishesDessert
         v-for="product in PRODUCTS.dessert"
@@ -134,7 +133,7 @@
         { show: activeTab == 'drinks', hide: activeTab != 'drinks' },
         dishes__body,
       ]"
-      id="pizza"
+      id="drinks"
     >
       <vDishesDrinks
         v-for="product in PRODUCTS.drinks"
@@ -184,6 +183,7 @@ export default {
         result = result.reduce(function (sum, el) {
           return sum + el;
         });
+
         return result;
       } else {
         return 0;
@@ -201,8 +201,11 @@ export default {
     setActive(menuItem) {
       this.activeItem = menuItem;
     },
+    showPopUp() {
+      this.$emit("showPopUp");
+    },
   },
-  mounted() {
+  async mounted() {
     this.GET_PRODUCTS_FROM_API().then((response) => {
       if (response.data) {
         console.log("data arrived");
@@ -213,27 +216,32 @@ export default {
 </script>
 
 <style lang="scss">
+
+.actions {
+  &__price-tag {
+    white-space: nowrap;
+  }
+}
 .dishes {
   &__body {
     display: grid;
 
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
 
     row-gap: 40px;
     column-gap: 40px;
     @media (max-width: 1035px) {
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 1fr);
+
     }
     @media (max-width: 785px) {
       margin-top: -50px;
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(4, 1fr);
+
     }
     @media (max-width: 600px) {
       grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: 1fr;
+
     }
   }
 

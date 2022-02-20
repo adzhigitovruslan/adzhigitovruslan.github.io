@@ -1,26 +1,30 @@
 <template>
   <div class="dishes__wrapper cart">
     <div class="dishes__item item-dishes cart">
-      <div class="item-dishes__img">
-        <img :src="require('@/assets/img/' + cart_item_data.image)" alt="img" />
+      <div class="cart__left-block">
+        <div class="item-dishes__img cart">
+          <img
+            :src="require('@/assets/img/' + cart_item_data.image)"
+            alt="img"
+          />
+        </div>
+        <div class="item-dishes__title_text cart">
+          <div class="item-dishes__title">{{ cart_item_data.name }}</div>
+        </div>
       </div>
-      <div class="item-dishes__title_text">
-        <div class="item-dishes__title">{{ cart_item_data.name }}</div>
-        <div class="item-dishes__title_size">{{ cart_item_data.size }}</div>
+      <div class="cart__right-block">
+        <div class="item-dishes__quantity cart">
+          <button class="item-dishes__button" @click="decrementItem">-</button>
+          {{ cart_item_data.quantity }}
+          <button class="item-dishes__button" @click="incrementItem">+</button>
+        </div>
+        <div class="item-dishes__price cart">
+          {{ cart_item_data.price }} UAH
+        </div>
       </div>
-      <div class="item-dishes__subtitle">
-        {{ cart_item_data.discriptions }}
-      </div>
-      <div class="item-dishes__price">{{ cart_item_data.price }} UAH</div>
-    </div>
-    <button class="item-dishes__icon _active" @click="deleteFromCart()">
-      <i class="fa fa-times"></i>
-    </button>
-    <div class="triangle"></div>
-    <div class="item-dishes__quantity">
-      <button class="item-dishes__button" @click="decrementItem">-</button>
-      Quantity: {{ cart_item_data.quantity
-      }}<button class="item-dishes__button" @click="incrementItem">+</button>
+      <button class="item-dishes__icon cart _active" @click="deleteFromCart()">
+        <i class="fa fa-times"></i>
+      </button>
     </div>
   </div>
 </template>
@@ -51,15 +55,29 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 @import "~font-awesome/css/font-awesome.min.css";
 
-.dishes {
-  &__item {
+.cart {
+  &__right-block {
     display: flex;
-    flex-direction: column;
+    flex: 0 0 50%;
+    padding-left: 10px;
+    align-items: center;
+  }
+  &__left-block {
+    display: flex;
+    flex: 0 0 50%;
+    padding-right: 10px;
+    align-items: center;
+  }
+}
+.dishes {
+  &__item.cart {
+    display: flex;
     justify-content: center;
-
+    align-items: center;
+    flex-direction: unset;
   }
   &__wrapper {
     display: flex;
@@ -68,51 +86,54 @@ export default {
     align-items: center;
   }
   &__wrapper.cart {
-      margin-bottom: 30px;
-    @media(min-width: 766px) {
+    margin-bottom: 30px;
+    @media (min-width: 766px) {
       margin-right: 30px;
     }
   }
 }
 .item-dishes.cart {
-  width: 339px;
-  @media(max-width: 420px) {
-    width: 280px;
-    }
+  width: 100%;
+  height: unset;
+  position: relative;
+  padding: 10px 15px;
 }
 .item-dishes {
-  padding: 36px 10px 36px 25px;
   border: 2px solid #eceef7;
   border-radius: 15px;
   position: relative;
   background: #ffffff;
-  height: 395px;
   width: 100%;
   @media (max-width: 400px) {
     width: 90%;
   }
   &__button {
-    font-size: 20px;
+    font-size: 12px;
     font-weight: 600;
     color: #000000;
     margin: 0 10px 0 10px;
     border: 1px solid black;
-    padding: 5px 10px;
-    border-radius: 8px;
+    padding: 0px 4px;
+    border-radius: 50%;
     background: none;
   }
   &__quantity {
-    font-size: 20px;
+    font-size: 13px;
     color: #000000;
-    font-weight: 500;
-    margin: 20px 0px 0 0px;
+    font-weight: 600;
+    margin: unset;
   }
-  &__img {
-    margin: 0 auto 30px auto;
+  &__quantity.cart {
+    flex: 0 0 50%;
+  }
+  &__img.cart {
+    margin: unset;
+    flex: 0 0 50%;
     img {
-      width: 170px;
-      height: 170px;
-      object-fit: contain;
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 50%;
     }
   }
   &__title {
@@ -120,8 +141,13 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 10px;
     }
-    font-size: 16px;
+    &_text.cart {
+      flex: 0 0 50%;
+      margin-bottom: unset;
+    }
+    font-size: 15px;
     font-weight: 600;
     line-height: 140%;
     &_size {
@@ -135,24 +161,31 @@ export default {
     font-size: 12px;
     line-height: 140%;
     font-weight: 400;
-    margin: 8px 0 19px 0;
+    flex: 1;
   }
   &__price {
-    font-size: 24px;
-    font-weight: 300;
+    font-size: 15px;
+    font-weight: 600;
     line-height: 140%;
     color: #121146;
     text-align: center;
+    margin-top: 5px;
   }
-  &__icon {
-    width: 33px;
-    height: 33px;
+  &__price.cart {
+    flex: 0 0 50%;
+  }
+  &__icon.cart {
+    width: 23px;
+    height: 23px;
     border: 2px solid #eceef6;
     border-radius: 50%;
     position: relative;
     color: #fe5626;
     z-index: 50;
-    position: relative;
+    position: absolute;
+    top: 19px;
+    right: -1px;
+
     margin-top: -20px;
     outline: none;
     background: transparent;
@@ -171,16 +204,5 @@ export default {
   top: 46%;
   left: 52%;
   transform: translate(-50%, -50%);
-}
-.triangle {
-  width: 48px;
-  height: 48px;
-  border: 2px solid #eceef7;
-  border-bottom-left-radius: 20px;
-  border-top: 2px solid transparent;
-  border-right: 2px solid transparent;
-  transform: rotate(-45deg);
-  background: white;
-  margin-top: -39px;
 }
 </style>

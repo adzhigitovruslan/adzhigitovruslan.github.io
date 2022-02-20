@@ -1,9 +1,12 @@
 <template>
   <section class="page__dishes dishes">
     <div class="dishes__container _container">
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
+      <vCart
+        v-if="isInfoPopupVisible"
+        @closePopupInfo="closePopupInfo"
+        :cart_data="CART"
+      />
+      <vDishesCatalog @showPopUp="showPopUp" />
       <div class="dishes__refresh">
         <button class="dishes__refresh-icon">
           <i class="_icon-stroke8"></i>
@@ -14,22 +17,38 @@
 </template>
 
 <script>
+import vCart from "@/components/v-cart";
+import vDishesCatalog from "@/components/v-dishes-catalog";
+import { mapGetters } from "vuex";
 
 export default {
   name: "v-dishes",
-  components: {},
-  computed: {},
-  props: [],
-  data() {
-    return {};
+  components: {
+    vCart,
+    vDishesCatalog,
   },
-
+  computed: {
+    ...mapGetters(["CART"]),
+  },
+  data() {
+    return {
+      isInfoPopupVisible: false,
+    };
+  },
   methods: {
     isActive(menuItem) {
       return this.activeItem === menuItem;
     },
     setActive(menuItem) {
       this.activeItem = menuItem;
+    },
+    showPopUp() {
+      this.isInfoPopupVisible = true;
+      document.querySelector("body").classList.add("hidden");
+    },
+    closePopupInfo() {
+      this.isInfoPopupVisible = false;
+      document.querySelector("body").classList.remove("hidden");
     },
   },
 };
@@ -47,8 +66,7 @@ export default {
 }
 
 .dishes {
-  &__container {
-  }
+  &__container {}
 
   &__header {
     margin-bottom: 49px;
@@ -59,8 +77,6 @@ export default {
     justify-content: center;
     margin-bottom: 50px;
   }
-
-  
 
   &__refresh {
     display: flex;
@@ -230,6 +246,7 @@ export default {
     margin-right: 15px;
     padding: 5px;
     border-radius: 3px;
+    cursor: pointer;
     > span {
       color: #ffffff;
       font-size: 12px;
@@ -256,6 +273,7 @@ export default {
     justify-content: center;
     align-items: center;
     position: relative;
+    cursor: pointer;
   }
 
   &__amount {

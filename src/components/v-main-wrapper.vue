@@ -1,11 +1,11 @@
 <template>
   <main class="page">
-    <Header @scrollMeTo="scrollMeTo(refName)" />
+    <Header />
     <MainPage />
-    <vDishes ref="payment" />
+    <vDishes />
     <Slider />
-    <Form ref="contacts" />
-    <Footer ref="about" />
+    <Form />
+    <Footer />
   </main>
 </template>
 
@@ -31,15 +31,22 @@ export default {
     Footer,
   },
   methods: {
-    // scrollMeTo(refName) {
-    //   var element = this.$refs[refName];
-    //       element.scrollIntoView();
-    // },
+    openSlide(refName) {
+      // Получение ссылки на элемент
+      let slide = this.$refs[`slide-${refName}`];
+      // Определение расстояния от начала страницы до нужного элемента
+      let top = window.scrollY + slide.getBoundingClientRect().y;
+      // Перемотка
+      window.scrollTo(0, top);
+    },
   },
 };
 </script>
 
 <style lang="scss">
+body.hidden {
+  overflow: hidden;
+}
 .page {
   overflow: hidden;
 }

@@ -12,9 +12,7 @@ export default {
   data() {
     return {};
   },
-  methods: {
-    
-  },
+  methods: {},
   components: {
     vMainWrapper,
   },

@@ -39,9 +39,7 @@ export default {
       this.$emit("addToCart", this.product_data);
     },
   },
-  mounted() {
-    this.$set(this.product_data, "quantity", 1);
-  },
+  mounted() {},
 };
 </script>
 
@@ -50,7 +48,7 @@ export default {
   &__item {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
   }
   &__wrapper {
     display: flex;
@@ -78,6 +76,7 @@ export default {
       width: 170px;
       height: 170px;
       object-fit: contain;
+      border-radius: 50%;
     }
   }
   &__title {
@@ -85,6 +84,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 10px;
     }
     font-size: 16px;
     font-weight: 600;
@@ -100,7 +100,7 @@ export default {
     font-size: 12px;
     line-height: 140%;
     font-weight: 400;
-    margin: 8px 0 19px 0;
+    flex: 1;
   }
   &__price {
     font-size: 24px;
@@ -108,6 +108,7 @@ export default {
     line-height: 140%;
     color: #121146;
     text-align: center;
+    margin-top: 5px;
   }
   &__icon {
     width: 33px;
