@@ -1,192 +1,206 @@
-{
-	"products": [
-        {
-          "image": "content1.png",
-          "name": "Quattro formaggi",
-          "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
-          "size": "32cm",
-          "price": "119",
-          "article": "Pizza1",
-          "quantity": "1"
-        },
-        {
-          "image": "content2.png",
-          "name": "Карбонара",
-          "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
-          "size": "32cm",
-          "price": "119",
-          "article": "Pizza2",
-          "quantity": "1"
-        },
-        {
-          "image": "content3.png",
-          "name": "Філадельфія селмон",
-          "discriptions": "Dough, mozzarella, barrel, eggs, Parmesan cheese",
-          "size": "32cm",
-          "price": "119",
-          "article": "Pizza3",
-          "quantity": "1"
-        },
-        {
-          "image": "content4.png",
-          "name": "Ді маре",
-          "discriptions": "Dough, mozzarella, barrel, eggs, Parmesan cheese",
-          "size": "32cm",
-          "price": "119",
-          "article": "Pizza4",
-          "quantity": "1"
-        },
-        {
-          "image": "content5.png",
-          "name": "Кватро формаджіо",
-          "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
-          "size": "32cm",
-          "price": "119",
-          "article": "Pizza5",
-          "quantity": "1"
-        },
-        {
-          "image": "content6.png",
-          "name": "Кватро формаджіо",
-          "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
-          "size": "32cm",
-          "price": "119",
-          "article": "Pizza6",
-          "quantity": "1"
-        },
-        {
-          "image": "content7.png",
-          "name": "Кватро формаджіо",
-          "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
-          "size": "32cm",
-          "price": "119",
-          "article": "Pizza7",
-          "quantity": "1"
-        },
-        {
-          "image": "content8.png",
-          "name": "Кватро формаджіо",
-          "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
-          "size": "32cm",
-          "price": "119",
-          "article": "Pizza8",
-          "quantity": "1"
-        }
-      ],
-  "sushi": [
-    {
-      "image": "sushi1.jpg",
-      "name": "Salmon skin",
-      "discriptions": "Crispy, deep-fried salmon skin with eel sauce",
-      "size": "6 items",
-      "price": "340",
-      "article": "Sushi1",
-      "quantity": "1"
-    },
-    {
-      "image": "sushi2.jpg",
-      "name": "Mirugai",
-      "discriptions": "Giant clam, long-neck clam, geoduck",
-      "size": "6 items",
-      "price": "250",
-      "article": "Sushi2",
-      "quantity": "1"
-    },
-    {
-      "image": "sushi3.jpg",
-      "name": "Umeboshi",
-      "discriptions": "Salt-cured sour plum",
-      "size": "8 items",
-      "price": "400",
-      "article": "Sushi3",
-      "quantity": "1"
+[
+  {
+    "products": [
+          {
+            "image": "content1.png",
+            "name": "Quattro formaggi",
+            "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
+            "size": "32cm",
+            "price": "119",
+            "article": "Pizza1",
+            "quantity": "1",
+            "type": "pizza"
+          },
+          {
+            "image": "content2.png",
+            "name": "Карбонара",
+            "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
+            "size": "32cm",
+            "price": "119",
+            "article": "Pizza2",
+            "quantity": "1",
+            "type": "pizza"
+          },
+          {
+            "image": "content3.png",
+            "name": "Філадельфія селмон",
+            "discriptions": "Dough, mozzarella, barrel, eggs, Parmesan cheese",
+            "size": "32cm",
+            "price": "119",
+            "article": "Pizza3",
+            "quantity": "1",
+            "type": "pizza"
+          },
+          {
+            "image": "content4.png",
+            "name": "Ді маре",
+            "discriptions": "Dough, mozzarella, barrel, eggs, Parmesan cheese",
+            "size": "32cm",
+            "price": "119",
+            "article": "Pizza4",
+            "quantity": "1",
+            "type": "pizza"
+          },
+          {
+            "image": "content5.png",
+            "name": "Кватро формаджіо",
+            "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
+            "size": "32cm",
+            "price": "119",
+            "article": "Pizza5",
+            "quantity": "1",
+            "type": "pizza"
+          },
+          {
+            "image": "content6.png",
+            "name": "Кватро формаджіо",
+            "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
+            "size": "32cm",
+            "price": "119",
+            "article": "Pizza6",
+            "quantity": "1",
+            "type": "pizza"
+          },
+          {
+            "image": "content7.png",
+            "name": "Кватро формаджіо",
+            "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
+            "size": "32cm",
+            "price": "119",
+            "article": "Pizza7",
+            "quantity": "1",
+            "type": "pizza"
+          },
+          {
+            "image": "content8.png",
+            "name": "Кватро формаджіо",
+            "discriptions": "Dough, Mozzarella, Cheddar, Blue, Parmesan",
+            "size": "32cm",
+            "price": "119",
+            "article": "Pizza8",
+            "quantity": "1",
+            "type": "pizza"
+          },
+          {
+            "image": "drinks1.jpg",
+            "name": "Margarita",
+            "discriptions": "A well-made version is a fresh mix of lime juice and tequila",
+            "size": "50g",
+            "price": "650",
+            "article": "drinks1",
+            "quantity": "1",
+            "type": "drinks"
+          },
+          {
+            "image": "drinks2.jpg",
+            "name": "Cosmopolitan",
+            "discriptions": "The cosmo became almost ubiquitous in the '90s thanks to the TV show Sex and the City",
+            "size": "70g",
+            "price": "1550",
+            "article": "drinks2",
+            "quantity": "1",
+            "type": "drinks"
+          },
+          {
+            "image": "drinks3.jpg",
+            "name": "Moscow Mule",
+            "discriptions": "The Moscow Mule is one of the most refreshing things to sip on a hot summer day",
+            "size": "140g",
+            "price": "1200",
+            "article": "drinks3",
+            "quantity": "1",
+            "type": "drinks"
+          },
+          {
+            "image": "sushi1.jpg",
+            "name": "Salmon skin",
+            "discriptions": "Crispy, deep-fried salmon skin with eel sauce",
+            "size": "6 items",
+            "price": "340",
+            "article": "Sushi1",
+            "quantity": "1",
+            "type": "sushi"
+          },
+          {
+            "image": "sushi2.jpg",
+            "name": "Mirugai",
+            "discriptions": "Giant clam, long-neck clam, geoduck",
+            "size": "6 items",
+            "price": "250",
+            "article": "Sushi2",
+            "quantity": "1",
+            "type": "sushi"
+          },
+          {
+            "image": "sushi3.jpg",
+            "name": "Umeboshi",
+            "discriptions": "Salt-cured sour plum",
+            "size": "8 items",
+            "price": "400",
+            "article": "Sushi3",
+            "quantity": "1",
+            "type": "sushi"
+          },
+          {
+            "image": "salad1.jpg",
+            "name": "Greek Salad",
+            "discriptions": "This easy Greek salad recipe is our new favorite summer side dish!",
+            "size": "220g",
+            "price": "650",
+            "article": "salad1",
+            "quantity": "1",
+            "type": "salad"
+          },
+          {
+            "image": "salad2.jpg",
+            "name": "Cesar salad",
+            "discriptions": "Bread, lemon, romaine lettuce, worcestershire sauce, parmesan",
+            "size": "220g",
+            "price": "550",
+            "article": "salad2",
+            "quantity": "1",
+            "type": "salad"
+          },
+          {
+            "image": "salad3.jpeg",
+            "name": "Tomato salad",
+            "discriptions": "Garden fresh tomatoes, onions and a sprinkle herbs",
+            "size": "340g",
+            "price": "200",
+            "article": "salad3",
+            "quantity": "1",
+            "type": "salad"
+          },
+          {
+            "image": "dessert1.jpg",
+            "name": "Cheesecake",
+            "discriptions": "Cheesecake is a sweet dessert consisting of one or more layers.",
+            "size": "220g",
+            "price": "1650",
+            "article": "dessert1",
+            "quantity": "1",
+            "type": "dessert"
+          },
+          {
+            "image": "dessert2.jpg",
+            "name": "Healthy chocolate",
+            "discriptions": "Simply Greek yogurt, dark cocoa powder, and maple syrup.",
+            "size": "350g",
+            "price": "1550",
+            "article": "dessert2",
+            "quantity": "1",
+            "type": "dessert"
+          },
+          {
+            "image": "dessert3.jpeg",
+            "name": "Banoffee stack",
+            "discriptions": "Filo pastry twist on banoffee pie",
+            "size": "340g",
+            "price": "1200",
+            "article": "dessert3",
+            "quantity": "1",
+            "type": "dessert"
+          }
+        ]
     }
-  ],
-  "salad": [
-    {
-      "image": "salad1.jpg",
-      "name": "Greek Salad",
-      "discriptions": "This easy Greek salad recipe is our new favorite summer side dish!",
-      "size": "220g",
-      "price": "650",
-      "article": "salad1",
-      "quantity": "1"
-    },
-    {
-      "image": "salad2.jpg",
-      "name": "Cesar salad",
-      "discriptions": "Bread, lemon, romaine lettuce, worcestershire sauce, parmesan",
-      "size": "220g",
-      "price": "550",
-      "article": "salad2",
-      "quantity": "1"
-    },
-    {
-      "image": "salad3.jpeg",
-      "name": "Tomato salad",
-      "discriptions": "Garden fresh tomatoes, onions and a sprinkle herbs",
-      "size": "340g",
-      "price": "200",
-      "article": "salad3",
-      "quantity": "1"
-    }
-  ],
-  "dessert": [
-    {
-      "image": "dessert1.jpg",
-      "name": "Cheesecake",
-      "discriptions": "Cheesecake is a sweet dessert consisting of one or more layers.",
-      "size": "220g",
-      "price": "1650",
-      "article": "dessert1",
-      "quantity": "1"
-    },
-    {
-      "image": "dessert2.jpg",
-      "name": "Healthy chocolate",
-      "discriptions": "Simply Greek yogurt, dark cocoa powder, and maple syrup.",
-      "size": "350g",
-      "price": "1550",
-      "article": "dessert2",
-      "quantity": "1"
-    },
-    {
-      "image": "dessert3.jpeg",
-      "name": "Banoffee stack",
-      "discriptions": "Filo pastry twist on banoffee pie",
-      "size": "340g",
-      "price": "1200",
-      "article": "dessert3",
-      "quantity": "1"
-    }
-  ],
-  "drinks": [
-    {
-      "image": "drinks1.jpg",
-      "name": "Margarita",
-      "discriptions": "A well-made version is a fresh mix of lime juice and tequila",
-      "size": "50g",
-      "price": "650",
-      "article": "drinks1",
-      "quantity": "1"
-    },
-    {
-      "image": "drinks2.jpg",
-      "name": "Cosmopolitan",
-      "discriptions": "The cosmo became almost ubiquitous in the '90s thanks to the TV show Sex and the City",
-      "size": "70g",
-      "price": "1550",
-      "article": "drinks2",
-      "quantity": "1"
-    },
-    {
-      "image": "drinks3.jpg",
-      "name": "Moscow Mule",
-      "discriptions": "The Moscow Mule is one of the most refreshing things to sip on a hot summer day",
-      "size": "140g",
-      "price": "1200",
-      "article": "drinks3",
-      "quantity": "1"
-    }
-  ]
-  }
+]
