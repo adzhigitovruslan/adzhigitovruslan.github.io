@@ -1,5 +1,4 @@
-[
-  {
+{
     "products": [
           {
             "image": "content1.png",
@@ -203,4 +202,3 @@
           }
         ]
     }
-]
