@@ -1,27 +1,24 @@
 <template>
   <div class="dishes__wrapper cart">
     <div class="dishes__item item-dishes cart">
-      <div class="cart__left-block">
-        <div class="item-dishes__img cart">
-          <img
-            :src="require('@/assets/img/' + cart_item_data.image)"
-            alt="img"
-          />
-        </div>
-        <div class="item-dishes__title_text cart">
-          <div class="item-dishes__title">{{ cart_item_data.name }}</div>
-        </div>
+      <div class="item-dishes__img cart">
+        <img :src="require('@/assets/img/' + cart_item_data.image)" alt="img" />
       </div>
-      <div class="cart__right-block">
-        <div class="item-dishes__quantity cart">
-          <button class="item-dishes__button" @click="decrementItem">-</button>
-          {{ cart_item_data.quantity }}
-          <button class="item-dishes__button" @click="incrementItem">+</button>
-        </div>
-        <div class="item-dishes__price cart">
-          {{ cart_item_data.price }} UAH
-        </div>
+      <div class="item-dishes__title_text cart">
+        <div class="item-dishes__title cart">{{ cart_item_data.name }}</div>
       </div>
+
+      <div class="item-dishes__quantity cart">
+        <button class="item-dishes__button" @click="decrementItem">
+          <div class="item-dishes__decrement">-</div>
+        </button>
+        {{ cart_item_data.quantity }}
+        <button class="item-dishes__button" @click="incrementItem">
+          <div class="item-dishes__increment">+</div>
+        </button>
+      </div>
+      <div class="item-dishes__price cart">{{ cart_item_data.price }} UAH</div>
+
       <button class="item-dishes__icon cart _active" @click="deleteFromCart()">
         <i class="fa fa-times"></i>
       </button>
@@ -58,26 +55,12 @@ export default {
 <style lang="scss">
 @import "~font-awesome/css/font-awesome.min.css";
 
-.cart {
-  &__right-block {
-    display: flex;
-    flex: 0 0 50%;
-    padding-left: 10px;
-    align-items: center;
-  }
-  &__left-block {
-    display: flex;
-    flex: 0 0 50%;
-    padding-right: 10px;
-    align-items: center;
-  }
-}
 .dishes {
   &__item.cart {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: unset;
+    flex-direction: row;
   }
   &__wrapper {
     display: flex;
@@ -86,10 +69,12 @@ export default {
     align-items: center;
   }
   &__wrapper.cart {
-    margin-bottom: 30px;
     @media (min-width: 766px) {
       margin-right: 30px;
     }
+  }
+  &__wrapper.cart:not(:last-child) {
+    margin-bottom: 30px;
   }
 }
 .item-dishes.cart {
@@ -97,6 +82,9 @@ export default {
   height: unset;
   position: relative;
   padding: 10px 15px;
+  @media (max-width: 375px) {
+    padding: 10px 10px;
+  }
 }
 .item-dishes {
   border: 2px solid #eceef7;
@@ -113,27 +101,62 @@ export default {
     color: #000000;
     margin: 0 10px 0 10px;
     border: 1px solid black;
-    padding: 0px 4px;
     border-radius: 50%;
     background: none;
+
+    width: 16px;
+    height: 16px;
+    position: relative;
+    @media (max-width: 414px) {
+      width: 12px;
+      height: 12px;
+      font-size: 10px;
+    }
+  }
+  &__decrement {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    line-height: 1;
+  }
+  &__increment {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-55%, -50%);
   }
   &__quantity {
     font-size: 13px;
     color: #000000;
     font-weight: 600;
     margin: unset;
+    @media (max-width: 414px) {
+      font-size: 10px;
+    }
   }
   &__quantity.cart {
-    flex: 0 0 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex: 0 0 25%;
   }
   &__img.cart {
     margin: unset;
-    flex: 0 0 50%;
+    margin-right: 5px;
+    @media (max-width: 375px) {
+      margin-right: 10px;
+    }
     img {
       width: 40px;
       height: 40px;
       object-fit: cover;
       border-radius: 50%;
+      @media (max-width: 414px) {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
   &__title {
@@ -144,8 +167,12 @@ export default {
       margin-bottom: 10px;
     }
     &_text.cart {
-      flex: 0 0 50%;
       margin-bottom: unset;
+      flex: 1;
+      justify-content: center;
+      @media (max-width: 375px) {
+        justify-content: flex-start;
+      }
     }
     font-size: 15px;
     font-weight: 600;
@@ -155,6 +182,14 @@ export default {
       font-size: 12px;
       line-height: 140%;
       margin-left: 10px;
+    }
+  }
+  &__title.cart {
+    @media (max-width: 500px) {
+      font-size: 13px;
+    }
+    @media (max-width: 414px) {
+      font-size: 10px;
     }
   }
   &__subtitle {
@@ -172,7 +207,18 @@ export default {
     margin-top: 5px;
   }
   &__price.cart {
-    flex: 0 0 50%;
+    margin-top: unset;
+    line-height: 1;
+    flex: 0 0 25%;
+    @media (max-width: 500px) {
+      font-size: 13px;
+    }
+    @media (max-width: 414px) {
+      font-size: 11px;
+    }
+    @media (max-width: 375px) {
+      font-size: 10px;
+    }
   }
   &__icon.cart {
     width: 23px;
@@ -190,6 +236,10 @@ export default {
     outline: none;
     background: transparent;
     transition: 0.2s ease;
+    @media (max-width: 375px) {
+      width: 20px;
+      height: 20px;
+    }
   }
   &__icon:hover {
     color: #ffffff;
@@ -197,6 +247,11 @@ export default {
       linear-gradient(180deg, #fe5626 0%, #f23f0e 100%), #59aaf1;
     box-shadow: 0px 4px 8px rgba(205, 71, 41, 0.26);
     border: none;
+  }
+}
+.fa-times {
+  @media (max-width: 375px) {
+    font-size: 10px;
   }
 }
 ._icon-bag {

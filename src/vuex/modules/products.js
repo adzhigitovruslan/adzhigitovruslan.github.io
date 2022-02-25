@@ -4,7 +4,7 @@ export default {
   actions: {
     GET_PRODUCTS_FROM_API({ commit }) {
       return axios(
-        "https://my-json-server.typicode.com/adzhigitovruslan/adzhigitovruslan.github.io/db",
+        "https://my-json-server.typicode.com/adzhigitovruslan/adzhigitovruslan.github.io/products",
         {
           method: "GET",
         }

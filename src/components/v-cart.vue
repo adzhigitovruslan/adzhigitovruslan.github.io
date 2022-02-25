@@ -1,7 +1,7 @@
 <template>
   <div class="dishes__popup-wrapper" ref="popup_wrapper">
     <div class="dishes__popup">
-      <div class="dishes__actions actions">
+      <div class="dishes__actions actions cart">
         <div class="actions__text" @click="closePopupInfo">close</div>
         <h1 class="header-block__title">Cart</h1>
         <p v-if="!cart_data.length">There are no products in cart</p>
@@ -93,14 +93,14 @@ export default {
   font-size: 25px;
   font-weight: 700;
   line-height: 122%;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 .actions {
   flex-direction: column;
   &__cart-total {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 25px;
     color: #000000;
     font-size: 20px;
   }
@@ -184,9 +184,22 @@ export default {
     border: 1px solid #be1b1b;
     border-radius: 15px;
     padding: 2px 15px;
+    @media (max-width: 500px) {
+      font-size: 12px;
+      padding: 2px 10px;
+    }
+    @media (max-width: 375px) {
+      font-size: 10px;
+      padding: 2px 5px;
+    }
   }
   &__text:hover {
     box-shadow: 0 0 5px #be1b1b;
+  }
+}
+.actions.cart {
+  @media (max-width: 600px) {
+    margin-bottom: unset;
   }
 }
 .dishes {

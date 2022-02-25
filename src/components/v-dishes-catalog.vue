@@ -4,8 +4,7 @@
       <div class="actions__price-tag" @click="showPopUp">
         <span>= {{ cartTotalCost }} ₴</span>
       </div>
-      <div class="actions__cart"
-      @click="showPopUp">
+      <div class="actions__cart" @click="showPopUp">
         <i class="_icon-shopping-bag"></i>
         <div class="actions__amount">
           <span class="actions__number">{{ this.CART.length }}</span>
@@ -31,7 +30,7 @@
           </li>
           <li class="menu__item">
             <a
-              href="#aboutus"
+              href="#sushi"
               class="menu__link"
               @click.prevent="setActive('sushi')"
               @click="activeTab = 'sushi'"
@@ -72,71 +71,9 @@
         </ul>
       </nav>
     </div>
-    <div
-      :class="[
-        { show: activeTab == 'pizza', hide: activeTab != 'pizza' },
-        dishes__body,
-      ]"
-      id="pizza"
-    >
-      <vDishesPizza
-        v-for="product in PRODUCTS.products"
-        :key="product.article"
-        :product_data="product"
-        @addToCart="addToCart"
-      />
-    </div>
-    <div
-      :class="[
-        { show: activeTab == 'sushi', hide: activeTab != 'sushi' },
-        dishes__body,
-      ]"
-      id="sushi"
-    >
-      <vDishesSushi
-        v-for="product in PRODUCTS.sushi"
-        :key="product.article"
-        :product_data="product"
-        @addToCart="addToCart"
-      />
-    </div>
-    <div
-      :class="[
-        { show: activeTab == 'salad', hide: activeTab != 'salad' },
-        dishes__body,
-      ]"
-      id="salad"
-    >
-      <vDishesSalad
-        v-for="product in PRODUCTS.salad"
-        :key="product.article"
-        :product_data="product"
-        @addToCart="addToCart"
-      />
-    </div>
-    <div
-      :class="[
-        { show: activeTab == 'dessert', hide: activeTab != 'dessert' },
-        dishes__body,
-      ]"
-      id="dessert"
-    >
-      <vDishesDessert
-        v-for="product in PRODUCTS.dessert"
-        :key="product.article"
-        :product_data="product"
-        @addToCart="addToCart"
-      />
-    </div>
-    <div
-      :class="[
-        { show: activeTab == 'drinks', hide: activeTab != 'drinks' },
-        dishes__body,
-      ]"
-      id="drinks"
-    >
-      <vDishesDrinks
-        v-for="product in PRODUCTS.drinks"
+    <div class="dishes__body" id="products">
+      <vDishesItem
+        v-for="product in filteredProducts"
         :key="product.article"
         :product_data="product"
         @addToCart="addToCart"
@@ -146,11 +83,7 @@
 </template>
 
 <script>
-import vDishesPizza from "@/components/options/v-dishes-pizza.vue";
-import vDishesSushi from "@/components/options/v-dishes-sushi.vue";
-import vDishesSalad from "@/components/options/v-dishes-salad.vue";
-import vDishesDessert from "@/components/options/v-dishes-dessert.vue";
-import vDishesDrinks from "@/components/options/v-dishes-drinks.vue";
+import vDishesItem from "@/components/v-dishes-item.vue";
 
 import { mapActions, mapGetters } from "vuex";
 
@@ -165,11 +98,7 @@ export default {
     };
   },
   components: {
-    vDishesPizza,
-    vDishesSushi,
-    vDishesSalad,
-    vDishesDessert,
-    vDishesDrinks,
+    vDishesItem,
   },
   computed: {
     ...mapGetters(["PRODUCTS", "CART"]),
@@ -188,6 +117,21 @@ export default {
       } else {
         return 0;
       }
+    },
+    filteredProducts() {
+      return this.PRODUCTS.filter((item) => {
+        if (this.activeTab === "pizza") {
+          return item.type === "pizza";
+        } else if (this.activeTab === "sushi") {
+          return item.type === "sushi";
+        } else if (this.activeTab === "salad") {
+          return item.type === "salad";
+        } else if (this.activeTab === "dessert") {
+          return item.type === "dessert";
+        } else if (this.activeTab === "drinks") {
+          return item.type === "drinks";
+        }
+      });
     },
   },
   methods: {
@@ -216,7 +160,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .actions {
   &__price-tag {
     white-space: nowrap;
@@ -232,16 +175,13 @@ export default {
     column-gap: 40px;
     @media (max-width: 1035px) {
       grid-template-columns: repeat(3, 1fr);
-
     }
     @media (max-width: 785px) {
       margin-top: -50px;
       grid-template-columns: repeat(2, 1fr);
-
     }
     @media (max-width: 600px) {
       grid-template-columns: repeat(1, 1fr);
-
     }
   }
 
