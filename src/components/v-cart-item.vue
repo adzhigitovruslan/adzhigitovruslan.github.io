@@ -144,7 +144,7 @@ export default {
   }
   &__img.cart {
     margin: unset;
-    margin-right: 5px;
+    margin-right: 15px;
     @media (max-width: 375px) {
       margin-right: 10px;
     }
@@ -169,10 +169,7 @@ export default {
     &_text.cart {
       margin-bottom: unset;
       flex: 1;
-      justify-content: center;
-      @media (max-width: 375px) {
-        justify-content: flex-start;
-      }
+      justify-content: flex-start;
     }
     font-size: 15px;
     font-weight: 600;
