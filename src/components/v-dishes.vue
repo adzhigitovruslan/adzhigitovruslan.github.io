@@ -54,7 +54,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .page {
   &__dishes {
     padding: 140px 0 103px 0;
@@ -66,7 +66,11 @@ export default {
 }
 
 .dishes {
-  &__container {}
+  &__container {
+    max-width: 1196 + px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
 
   &__header {
     margin-bottom: 49px;

@@ -28,7 +28,7 @@
   </section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .page {
   &__slider {
     padding: 0 0 127px 0;
@@ -43,9 +43,6 @@
     > *:not(:last-child) {
       margin-right: 10px;
     }
-  }
-
-  &__item {
   }
 
   &__card {

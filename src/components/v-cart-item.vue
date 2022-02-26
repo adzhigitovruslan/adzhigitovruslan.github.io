@@ -52,8 +52,29 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "~font-awesome/css/font-awesome.min.css";
+.actions {
+  &__text {
+    cursor: pointer;
+    margin-left: auto;
+    color: #be1b1b;
+    border: 1px solid #be1b1b;
+    border-radius: 15px;
+    padding: 2px 15px;
+    @media (max-width: 500px) {
+      font-size: 12px;
+      padding: 2px 10px;
+    }
+    @media (max-width: 375px) {
+      font-size: 10px;
+      padding: 2px 5px;
+    }
+  }
+  &__text:hover {
+    box-shadow: 0 0 5px #be1b1b;
+  }
+}
 
 .dishes {
   &__item.cart {
@@ -67,11 +88,6 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  &__wrapper.cart {
-    @media (min-width: 766px) {
-      margin-right: 30px;
-    }
   }
   &__wrapper.cart:not(:last-child) {
     margin-bottom: 30px;

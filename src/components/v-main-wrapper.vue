@@ -30,16 +30,7 @@ export default {
     Form,
     Footer,
   },
-  methods: {
-    openSlide(refName) {
-      // Получение ссылки на элемент
-      let slide = this.$refs[`slide-${refName}`];
-      // Определение расстояния от начала страницы до нужного элемента
-      let top = window.scrollY + slide.getBoundingClientRect().y;
-      // Перемотка
-      window.scrollTo(0, top);
-    },
-  },
+  methods: {},
 };
 </script>
 

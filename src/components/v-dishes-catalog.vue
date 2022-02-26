@@ -18,54 +18,49 @@
       <nav class="menu__body">
         <ul class="menu__list">
           <li class="menu__item">
-            <a
+            <span
               id="pizza"
               href="#pizza"
               class="menu__link"
-              @click.prevent="setActive('pizza')"
-              @click="activeTab = 'pizza'"
+              @click="setActive('pizza'), (activeTab = 'pizza')"
               :class="{ _active: isActive('pizza') }"
-              >Pizza</a
+              >Pizza</span
             >
           </li>
           <li class="menu__item">
-            <a
+            <span
               href="#sushi"
               class="menu__link"
-              @click.prevent="setActive('sushi')"
-              @click="activeTab = 'sushi'"
+              @click="setActive('sushi'), (activeTab = 'sushi')"
               :class="{ _active: isActive('sushi') }"
-              >Sushi</a
+              >Sushi</span
             >
           </li>
           <li class="menu__item">
-            <a
+            <span
               href="#salad"
               class="menu__link"
-              @click.prevent="setActive('salad')"
-              @click="activeTab = 'salad'"
+              @click="setActive('salad'), (activeTab = 'salad')"
               :class="{ _active: isActive('salad') }"
-              >Salad</a
+              >Salad</span
             >
           </li>
           <li class="menu__item">
-            <a
+            <span
               href="#dessert"
               class="menu__link"
-              @click.prevent="setActive('dessert')"
-              @click="activeTab = 'dessert'"
+              @click="setActive('dessert'), (activeTab = 'dessert')"
               :class="{ _active: isActive('dessert') }"
-              >Dessert</a
+              >Dessert</span
             >
           </li>
           <li class="menu__item">
-            <a
+            <span
               href="#drinks"
               class="menu__link"
-              @click.prevent="setActive('drinks')"
-              @click="activeTab = 'drinks'"
+              @click="setActive('drinks'), (activeTab = 'drinks')"
               :class="{ _active: isActive('drinks') }"
-              >Drinks</a
+              >Drinks</span
             >
           </li>
         </ul>
@@ -120,16 +115,22 @@ export default {
     },
     filteredProducts() {
       return this.PRODUCTS.filter((item) => {
-        if (this.activeTab === "pizza") {
-          return item.type === "pizza";
-        } else if (this.activeTab === "sushi") {
-          return item.type === "sushi";
-        } else if (this.activeTab === "salad") {
-          return item.type === "salad";
-        } else if (this.activeTab === "dessert") {
-          return item.type === "dessert";
-        } else if (this.activeTab === "drinks") {
-          return item.type === "drinks";
+        switch (this.activeTab) {
+          case "pizza":
+            return item.type === "pizza";
+            break;
+          case "sushi":
+            return item.type === "sushi";
+            break;
+          case "salad":
+            return item.type === "salad";
+            break;
+          case "dessert":
+            return item.type === "dessert";
+            break;
+          case "drinks":
+            return item.type === "drinks";
+            break;
         }
       });
     },
@@ -159,13 +160,83 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  @media (max-width: 600px) {
+    margin-bottom: 30px;
+    justify-content: center;
+  }
   &__price-tag {
     white-space: nowrap;
+    position: relative;
+    z-index: 1;
+    width: 60px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    padding: 5px;
+    border-radius: 3px;
+    > span {
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+  &__price-tag::after {
+    content: "";
+    position: absolute;
+    left: 60px;
+    border: 6px solid transparent;
+    border-left: 6px solid rgba(0, 0, 0, 0.8);
+  }
+  &__cart {
+    background: #ffffff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    box-shadow: -4px -6px 22px 10px rgba(206, 206, 206, 0.2);
+    box-shadow: 4px 6px -22px -10px rgba(206, 206, 206, 0.2);
+    border: 1px solid RGBA(0, 0, 0, 0.07);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  &__amount {
+    background: #f58656;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 32px;
+    left: 28px;
+  }
+  &__number {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 10px;
+    margin-right: -1px;
   }
 }
 .dishes {
+  &__menu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  &__header {
+    margin-bottom: 49px;
+  }
   &__body {
     display: grid;
 
@@ -191,6 +262,35 @@ export default {
   &__body.hide {
     display: none;
   }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__refresh {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 55px;
+  }
+
+  &__refresh-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: relative;
+    color: #ffffff;
+    background: linear-gradient(287.74deg, #f58656 8.52%, #fe5626 92.72%),
+      linear-gradient(180deg, #fe5626 0%, #f23f0e 100%), #59aaf1;
+    box-shadow: 0px 4px 8px rgba(205, 71, 41, 0.26);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > ._icon-stroke8 {
+      font-size: 25px;
+    }
+  }
 }
 .dishes__menu {
   & .menu {
@@ -199,6 +299,8 @@ export default {
     }
 
     &__list {
+      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       @media (max-width: 471px) {
         display: grid;
@@ -212,7 +314,7 @@ export default {
 
     &__item {
       text-align: center;
-
+      cursor: pointer;
       @media (max-width: 785px) {
         margin-bottom: 50px !important;
       }
@@ -253,6 +355,23 @@ export default {
         color: #ffffff;
       }
     }
+  }
+}
+.header-block {
+  text-align: center;
+  &__title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 122%;
+    @media (max-width: 375px) {
+      font-size: 37px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 138%;
   }
 }
 </style>

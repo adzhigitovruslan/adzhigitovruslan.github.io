@@ -59,16 +59,17 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .header {
   position: absolute;
   width: 100%;
   top: 0;
   left: 0;
-  &__wrapper {
-  }
-
+  
   &__container {
+    max-width: 1196 + px;
+    padding: 0 15px;
+    margin: 0 auto;
   }
 
   &__body {
@@ -121,15 +122,10 @@ export default {
   @media (max-width: 700px) {
     order: 3;
   }
-  &__body {
-  }
 
   &__list {
     display: flex;
     flex-wrap: wrap;
-  }
-
-  &__item {
   }
 
   &__item:not(:last-child) {

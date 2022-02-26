@@ -16,9 +16,12 @@
   </footer>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .footer {
   &__container {
+    max-width: 1196 + px;
+    padding: 0 15px;
+    margin: 0 auto;
   }
 
   &__body {

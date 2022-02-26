@@ -48,7 +48,7 @@
   </section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .page {
   &__form {
     padding: 82px 0 0 0;
@@ -58,6 +58,9 @@
 }
 .form {
   &__container {
+    max-width: 1196 + px;
+    padding: 0 15px;
+    margin: 0 auto;
   }
 
   &__content {
@@ -210,5 +213,22 @@
 ._icon-call_back-Stroke {
   margin-left: 30px;
   font-size: 15px;
+}
+.header-block {
+  text-align: center;
+  &__title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 122%;
+    @media (max-width: 375px) {
+      font-size: 37px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 138%;
+  }
 }
 </style>
