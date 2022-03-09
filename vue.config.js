@@ -1,5 +1,5 @@
 module.exports = {
-	publicPath: '/countries-api/',
+	publicPath: '/adzhigitovruslan.github.io/',
 	chainWebpack: config => {
         config.module.rules.delete('eslint');
     },
