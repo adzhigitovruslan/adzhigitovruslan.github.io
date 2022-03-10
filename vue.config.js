@@ -1,13 +1,15 @@
 module.exports = {
-	publicPath: '/adzhigitovruslan.github.io/',
+	publicPath: process.env.NODE_ENV === 'production'
+    ? '/adzhigitovruslan.github.io/'
+    : '/',
 	chainWebpack: config => {
         config.module.rules.delete('eslint');
     },
 	css: {
-	  loaderOptions: {
+	loaderOptions: {
 		sass: {
-		  prependData: `@import "@/assets/scss/null.scss";`
+		prependData: `@import "@/assets/scss/null.scss";`
 		}
-	  }
+	}
 	}
   };
