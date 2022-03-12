@@ -129,6 +129,9 @@ export default {
 		&__flag {
 			background: #2B3844;
 		}
+		&__body {
+			background: #202C36;
+		}
 	}
 	.info {
 		&__title {

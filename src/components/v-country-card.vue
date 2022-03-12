@@ -266,13 +266,16 @@ export default {
 		}
 }
 .dark {
+	body {
+		background: #202C36;
+	}
 	.card {
 		&__button {
 			background: #2B3844;
 			color: #FFFFFF;
 		}
 		&__wrapper {
-			background: #202C36;
+			
 		}
 	}
 	.info {
