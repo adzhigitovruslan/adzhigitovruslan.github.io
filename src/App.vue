@@ -29,9 +29,9 @@ export default {
 	  setTimeout(e=>{iconNight.classList.toggle("active")},1);
 
     if (iconSun.classList.contains('active')) {
-      document.querySelector('.app').classList.add('dark')
+      document.querySelector('body').classList.add('dark')
      } else {
-      document.querySelector('.app').classList.remove('dark')
+      document.querySelector('body').classList.remove('dark')
      }
     }
   }
@@ -40,4 +40,8 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap');
+
+body.dark {
+	background: #202C36;
+}
 </style>
