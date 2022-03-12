@@ -23,7 +23,9 @@
 							<div class="info__description">
 								<div class="info__block-one block">
 									<div class="block__data">Native Name: <span class="block__data-response">{{card.nativeName}}</span></div>
-									<div class="block__data">Population: <span class="block__data-response">{{card.population}}</span></div>
+									<div class="block__data">Population: <span 
+									v-if="card.population"
+									class="block__data-response">{{card.population | toFix}}</span></div>
 									<div class="block__data">Region: <span class="block__data-response">{{card.region}}</span></div>
 									<div class="block__data">Sub Region: <span class="block__data-response">{{card.subregion}}</span></div>
 									<div class="block__data">Capital: <span class="block__data-response">{{card.capital}}</span></div>
@@ -184,7 +186,6 @@ export default {
 			display: flex;
 			align-items: center;
 			flex-wrap: wrap;
-			height: 80px;
 		}
 }
 ._icon-arrow-left {}

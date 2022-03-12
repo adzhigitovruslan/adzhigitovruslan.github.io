@@ -6,7 +6,6 @@
     <router-link  
 	:to="{name: 'card', params: {country: country}}"
 	>
-		
 			<div class="item__body">
 				<div class="item__flag">
 					<img class="flag-image" :src="country.flags.svg" alt="flag">
@@ -14,7 +13,7 @@
 				<div class="item__info info">
 					<div class="info__title">{{country.name}}</div>
 					<div class="info__discription">
-						<div class="info__data">Population: <span class="info__data-response">{{country.population}}</span></div>
+						<div class="info__data">Population: <span class="info__data-response">{{country.population | toFix }}</span></div>
 						<div class="info__data">Region: <span class="info__data-response">{{country.region}}</span></div>
 						<div class="info__data">Capital: <span class="info__data-response">{{country.capital}}</span></div>
 					</div>
@@ -25,10 +24,15 @@
 </template>
 
 <script>
+import toFix from '@/filters/toFix.js'
+
 export default {
 	name: "v-item",
 	data() {
 		return {}
+	},
+	filters: {
+		toFix
 	},
 	props: {
 		country: {

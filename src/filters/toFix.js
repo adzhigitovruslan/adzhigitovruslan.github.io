@@ -1,4 +1,3 @@
-export default function toFix(value) {
-	value = parseFloat(value)
-	return value.toFixed(3)
+export default function numberFormat(value) {
+	return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
