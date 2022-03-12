@@ -52,6 +52,10 @@
 						:key="index"
 						class="border-countries__item"
 						>{{item}}</div>
+						<div
+						class="border-countries__item"
+						v-if="!card.borders"
+						>There are no border countries</div>
 					</div>
 					</div>
 				</div>
