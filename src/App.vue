@@ -1,6 +1,12 @@
 <template>
-  <div class="app" :class="mode">
-    <vHeader @changeTheme='changeTheme' />
+  <div
+  class="app"
+  :class="{'dark': nightMode}"
+  >
+    <vHeader 
+    @changeTheme='changeTheme'
+    :nightMode="nightMode"
+    />
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
@@ -17,22 +23,20 @@ export default {
   },
   data() {
     return {
-      mode: ''
+      nightMode: false
     }
+  },
+  watch: {
+    nightMode: function() {
+      localStorage.setItem("nightMode", JSON.stringify(this.nightMode))
+    }
+  },
+  created() {
+    this.nightMode = JSON.parse(localStorage.getItem("nightMode"))
   },
   methods: {
     changeTheme() {
-    const iconSun = document.querySelector('.switch__light-mode');
-		const iconNight = document.querySelector('.switch__dark-mode');
-		
-		setTimeout(e=>{iconSun.classList.toggle("active")},1) ,
-	  setTimeout(e=>{iconNight.classList.toggle("active")},1);
-
-    if (iconSun.classList.contains('active')) {
-      document.querySelector('body').classList.add('dark')
-     } else {
-      document.querySelector('body').classList.remove('dark')
-     }
+      this.nightMode = !this.nightMode
     }
   }
 }
@@ -41,7 +45,9 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap');
 
-body.dark {
-	background: #202C36;
+.app.dark {
+  height: 100%;
+  width: 100%;
+  background: #202C36;
 }
 </style>

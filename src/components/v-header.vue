@@ -6,14 +6,19 @@
 			<div class="header__main-switch switch">
 				<button 
 				class="switch__icon"
-				@click="changeTheme()"
 				>
-					<div class="switch__light-mode active">
-						<i class="_icon-empty-moon"></i>
-					</div>
-					<div class="switch__dark-mode">
-						<i class="_icon-fill-moon"></i>
-					</div>
+				<i 
+				v-if="nightMode"
+				@click="changeTheme()"
+				class="_icon-fill-moon"
+				>
+				</i>
+				<i 
+				v-else
+				@click="changeTheme()"
+				class="_icon-empty-moon"
+				>
+				</i>
 				</button>
 				<div class="switch__mode">Dark Mode</div>
 			</div>
@@ -25,10 +30,14 @@
 <script>
 export default {
   name: 'v-header',
+  data() {
+	return {}
+  },
+  props: ["nightMode"],
   methods: {
-	  changeTheme() {
+	changeTheme() {
 		this.$emit('changeTheme')
-	  }
+	}
   },
 }
 </script>
