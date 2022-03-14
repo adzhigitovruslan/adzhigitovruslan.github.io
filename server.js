@@ -12,7 +12,7 @@ app.use(serveStatic(path.join(__dirname, "dist")));
 
 // const port = process.env.PORT || 3000;
 
-app.set('port', (process.env.PORT || 8080));
+app.set('port', (process.env.PORT || 3000));
 
 app.listen(app.get('port'), () => {
 	console.log(`ENV: ${process.env.NODE_ENV}`);
