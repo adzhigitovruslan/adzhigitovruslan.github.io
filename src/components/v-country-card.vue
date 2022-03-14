@@ -50,7 +50,7 @@
 						<div 
 						v-for="(item, index) in card.borders" 
 						:key="index"
-						class="border-countries__item"
+						class="border-countries__item fill"
 						>{{item}}</div>
 						<div
 						class="border-countries__item"
@@ -105,7 +105,15 @@ export default {
 	},
 	},
 	async mounted() {
-		this.GET_COUNTRIES_FROM_API()
+		try {
+			const api_contries = await this.GET_COUNTRIES_FROM_API()
+			console.log('v-country-card arrived');
+			return api_contries
+		} catch (error) {
+			console.log(error);
+			return error
+		}
+
 	}
 }
 </script>
@@ -252,17 +260,37 @@ export default {
 			margin-bottom: 10px;
 		}
 
-		&__item {
+		&__item.fill{
 			background: #FFFFFF;
 			box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
-			border-radius: 2px;
-			padding: 5px 25px;
+
+			width: 96px;
+			height: 28px;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			
 			font-weight: 300;
-
 			font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1440 - 320)));
 
 			margin-bottom: 10px;
+			padding: 5px 25px;
+			border-radius: 2px;
+		}
+
+		&__item {
+			margin-bottom: 10px;
+			border-radius: 2px;
+			padding: 5px 25px;
+			font-weight: 300;
+			font-size: calc(12px + (14 - 12) * ((100vw - 320px) / (1440 - 320)));
+			background: #FFFFFF;
+			box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.104931);
+			height: 28px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 
 		&__item:not(:last-child) {

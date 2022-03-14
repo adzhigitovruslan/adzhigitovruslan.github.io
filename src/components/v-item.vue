@@ -1,26 +1,26 @@
 <template>
-<div 
+	<div 
 		class="country__item item"
 		@click="cardClick"
 		>
-    <router-link  
-	:to="{name: 'card', params: {country: country}}"
-	>
+		<router-link  
+		:to="{name: 'card', params: {country: country}}"
+		>
 			<div class="item__body">
-				<div class="item__flag">
-					<img class="flag-image" :src="country.flags.svg" alt="flag">
-				</div>
-				<div class="item__info info">
-					<div class="info__title">{{country.name}}</div>
-					<div class="info__discription">
-						<div class="info__data">Population: <span class="info__data-response">{{country.population | toFix }}</span></div>
-						<div class="info__data">Region: <span class="info__data-response">{{country.region}}</span></div>
-						<div class="info__data">Capital: <span class="info__data-response">{{country.capital}}</span></div>
+					<div class="item__flag">
+						<img class="flag-image" :src="country.flags.svg" alt="flag">
 					</div>
-				</div>
+					<div class="item__info info">
+						<div class="info__title">{{country.name}}</div>
+						<div class="info__discription">
+							<div class="info__data">Population: <span class="info__data-response">{{country.population | toFix }}</span></div>
+							<div class="info__data">Region: <span class="info__data-response">{{country.region}}</span></div>
+							<div class="info__data">Capital: <span class="info__data-response">{{country.capital}}</span></div>
+						</div>
+					</div>
 			</div>
-	</router-link>
-		</div>
+		</router-link>
+	</div>
 </template>
 
 <script>

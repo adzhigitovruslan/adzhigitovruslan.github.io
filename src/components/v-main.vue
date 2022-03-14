@@ -17,6 +17,12 @@
       :selected="selected"
       />
       </div>
+      <div 
+      v-if="!this.COUNTRIES"
+      class="main__error"> 
+        <img class="main__error-picture" 
+        :src="require('@/assets/cactus.webp')"  alt="error404" /> 
+      </div>
       <div class="main__body">
           <vItem 
         v-for="(country, name) in filteredList"  
@@ -33,6 +39,7 @@
 import vSelect from '@/components/v-select.vue'
 import vItem from '@/components/v-item.vue'
 import {mapActions, mapGetters} from 'vuex'
+// import { response } from 'express'
 
 export default {
   name: 'v-main',
@@ -51,7 +58,7 @@ export default {
       ],
       selected: 'Filter by Region',
       sortedCountries: [],
-      searchValue: ''
+      searchValue: '',
     }
   },
   computed: {
@@ -95,12 +102,12 @@ export default {
     }
   },
   async mounted() {
-    this.GET_COUNTRIES_FROM_API()
-     .then((response) => {
-       if(response.data) {
-         console.log('data arrived');
-       }
-     })
+    try {
+          const api_contries = await this.GET_COUNTRIES_FROM_API()
+          return api_contries
+        } catch (error) {
+            return error
+        }
   }
 }
 </script>
@@ -108,11 +115,20 @@ export default {
 <style scoped lang="scss">
 .main {
 
+    &__error {
+      flex: 0 1 100%;
+      position: relative;
+      min-height: 150px;
+    }
+
+    &__error-picture {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
 		&__wrapper {
       padding-top: calc(24px + (48 - 24) * ((100vw - 320px) / (1440 - 320)));
       padding-bottom: calc(24px + (48 - 24) * ((100vw - 320px) / (1440 - 320)));
-
-      background: #F2F2F2;
     }
 
     &__body {
@@ -156,7 +172,6 @@ export default {
 }
 
 ._icon-loupe {}
-
 
 .search {
   display: flex;

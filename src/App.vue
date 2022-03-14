@@ -45,9 +45,14 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap');
 
-.app.dark {
+.app {
   height: 100%;
   width: 100%;
-  background: #202C36;
+  background: #F2F2F2;
+  &.dark {
+    background: #202C36;
+  }
 }
+
+
 </style>
