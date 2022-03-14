@@ -1,16 +1,16 @@
 <template>
-	<div class="v-select">
+	<button 
+	class="v-select"
+	@click="optionsVisible = !optionsVisible"
+	:class="{ active: optionsVisible }"
+	>
 		<div class="v-select__header">
 			<div class="v-select__title">
 			{{selected}}
 			</div>
-			<button 
-			class="v-select__icon"
-			@click="optionsVisible = !optionsVisible"
-			:class="{ active: optionsVisible }"
-			>
+			<div class="v-select__icon">
 				<i class="_icon-arrow_up-down"></i>
-			</button>
+			</div>
 			</div>
 		<div 
 		class="v-select__options"
@@ -24,7 +24,7 @@
 			{{option.region}}
 			</div>
 		</div>
-	</div>
+	</button>
 </template>
 
 <script>
@@ -107,6 +107,7 @@ export default {
 			cursor: pointer;
 			transition: 0.4s ease;
 			line-height: 1.5;
+			text-align: left;
 		}
 
 		&__item:hover {
