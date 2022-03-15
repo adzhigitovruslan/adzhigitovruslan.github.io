@@ -8,7 +8,9 @@
     :nightMode="nightMode"
     />
     <keep-alive>
-      <router-view></router-view>
+      <router-view
+      :nightMode="nightMode"
+      ></router-view>
     </keep-alive>
   </div>
 </template>

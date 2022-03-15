@@ -18,13 +18,25 @@
       />
       </div>
       <div 
-      v-if="!this.COUNTRIES"
+      v-if="loading"
+      class="main__loader">
+        <RingLoader 
+        :size="size"
+        :radius="radius"
+        />
+        <p 
+        class="main__loader-text">Loading...</p>
+      </div>
+      <div 
+      v-else-if="!this.COUNTRIES.length"
       class="main__error"> 
         <img class="main__error-picture" 
         :src="require('@/assets/cactus.webp')"  alt="error404" /> 
       </div>
-      <div class="main__body">
-          <vItem 
+      <div 
+      v-else
+      class="main__body">
+        <vItem 
         v-for="(country, name) in filteredList"  
         :key="name" 
         :country="country"
@@ -38,6 +50,7 @@
 <script>
 import vSelect from '@/components/v-select.vue'
 import vItem from '@/components/v-item.vue'
+import RingLoader from 'vue-spinner/src/RingLoader.vue'
 import {mapActions, mapGetters} from 'vuex'
 // import { response } from 'express'
 
@@ -45,7 +58,8 @@ export default {
   name: 'v-main',
   components: {
   vSelect,
-  vItem
+  vItem,
+  RingLoader
   },
   data() {
     return {
@@ -59,8 +73,13 @@ export default {
       selected: 'Filter by Region',
       sortedCountries: [],
       searchValue: '',
+      loading: false,
+      size: '80px',
+      radius: '50%',
+      color: "#000000",
     }
   },
+  props: ['nightMode'],
   computed: {
     ...mapGetters([
       'COUNTRIES'
@@ -102,11 +121,14 @@ export default {
     }
   },
   async mounted() {
-    try {
+    this.loading = true
+        try {
           const api_contries = await this.GET_COUNTRIES_FROM_API()
           return api_contries
         } catch (error) {
             return error
+        } finally {
+          this.loading = false
         }
   }
 }
@@ -114,6 +136,21 @@ export default {
 
 <style scoped lang="scss">
 .main {
+
+    &__loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    &__loader-text {
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: rgba(93, 197, 150, 1);
+      margin-top: 50px;
+    }
 
     &__error {
       flex: 0 1 100%;
@@ -129,6 +166,7 @@ export default {
 		&__wrapper {
       padding-top: calc(24px + (48 - 24) * ((100vw - 320px) / (1440 - 320)));
       padding-bottom: calc(24px + (48 - 24) * ((100vw - 320px) / (1440 - 320)));
+      background: #F2F2F2;
     }
 
     &__body {

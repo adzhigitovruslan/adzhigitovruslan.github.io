@@ -105,15 +105,9 @@ export default {
 	},
 	},
 	async mounted() {
-		try {
-			const api_contries = await this.GET_COUNTRIES_FROM_API()
-			console.log('v-country-card arrived');
-			return api_contries
-		} catch (error) {
-			console.log(error);
-			return error
+		if(!Object.keys(this.COUNTRIES).length) {
+		await this.GET_COUNTRIES_FROM_API()
 		}
-
 	}
 }
 </script>
@@ -124,6 +118,7 @@ export default {
 		&__wrapper {
 			padding-top: calc(40px + (80 - 40) * ((100vw - 320px) / (1440 - 320)));
 			padding-bottom: calc(40px + (80 - 40) * ((100vw - 320px) / (1440 - 320)));
+			background: #F2F2F2;
 		}
 
 		&__container {}
@@ -304,7 +299,7 @@ export default {
 			color: #FFFFFF;
 		}
 		&__wrapper {
-			
+			background: #202C36;
 		}
 	}
 	.info {

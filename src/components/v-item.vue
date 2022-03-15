@@ -6,7 +6,7 @@
 		<router-link  
 		:to="{name: 'card', params: {country: country}}"
 		>
-			<div class="item__body">
+		<div class="item__body">
 					<div class="item__flag">
 						<img class="flag-image" :src="country.flags.svg" alt="flag">
 					</div>
@@ -18,7 +18,7 @@
 							<div class="info__data">Capital: <span class="info__data-response">{{country.capital}}</span></div>
 						</div>
 					</div>
-			</div>
+		</div>
 		</router-link>
 	</div>
 </template>
