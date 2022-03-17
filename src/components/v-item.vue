@@ -54,7 +54,6 @@ export default {
 .country {
 
 		&__item {
-			max-width: 264px;
 			width: 100%;
 			height: 336px;
 

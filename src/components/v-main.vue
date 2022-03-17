@@ -28,17 +28,18 @@
         class="main__loader-text">Loading...</p>
       </div>
       <div 
-      v-else-if="!this.COUNTRIES.length"
-      class="main__error"> 
-        <img class="main__error-picture" 
-        :src="require('@/assets/cactus.webp')"  alt="error404" /> 
+      v-else-if="!this.checkIfMatch"
+      class="main__nothing"> 
+      <div class="main__nothing-text">
+        Oops! There is nothing here!
+      </div>
       </div>
       <div 
       v-else
       class="main__body">
-        <vItem 
+        <vItem
         v-for="(country, name) in filteredList"  
-        :key="name" 
+        :key="name"
         :country="country"
         @cardClick="cardClick"
         />
@@ -77,6 +78,7 @@ export default {
       size: '80px',
       radius: '50%',
       color: "#000000",
+      match: false
     }
   },
   props: ['nightMode'],
@@ -85,21 +87,37 @@ export default {
       'COUNTRIES'
     ]),
     filteredList() {
-      if(this.searchValue && !this.sortedCountries.length) {
-        return this.COUNTRIES.filter(item => {
-          return this.searchValue.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
-        })
+      if(!this.sortedCountries.length) {
+        if(this.searchValue) {
+          return this.COUNTRIES.filter((item) => {
+            return item.name.toLowerCase().startsWith(this.searchValue)
+          })
+        } else if (this.searchValue && !this.filteredList().length) {
+          return this.match == true;
+        } else {
+          return this.COUNTRIES
+        }
       } else
       if (this.sortedCountries.length) {
         if(this.searchValue) {
-          return this.sortedCountries.filter(item => {
-            return this.searchValue.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
+          return this.sortedCountries.filter((item) => {
+          return item.name.toLowerCase().startsWith(this.searchValue)
         })
-      } else {
+      }
+      else {
         return this.sortedCountries
       }
-      } else {
+      }
+      else {
         return this.COUNTRIES
+      }
+    },
+    // eslint-disable-next-line vue/return-in-computed-property
+    checkIfMatch() {
+      if (this.filteredList.length) {
+        return true
+      } else {
+        return false
       }
     }
   },
@@ -137,6 +155,19 @@ export default {
 <style scoped lang="scss">
 .main {
 
+    &__nothing {
+      margin-top: 70px;
+    }
+
+    &__nothing-text {
+      font-size: 25px;
+      font-weight: 600;
+      font-size: calc(15px + (30 - 15) * ((100vw - 320px) / (1440 - 320)));
+      text-align: center;
+      text-shadow: 4px 3px 3px rgba(149, 150, 150, 0.77);
+      color: #111517;
+    }
+
     &__loader {
       display: flex;
       justify-content: center;
@@ -152,17 +183,6 @@ export default {
       margin-top: 50px;
     }
 
-    &__error {
-      flex: 0 1 100%;
-      position: relative;
-      min-height: 150px;
-    }
-
-    &__error-picture {
-      max-width: 100%;
-      border-radius: 10px;
-    }
-
 		&__wrapper {
       padding-top: calc(24px + (48 - 24) * ((100vw - 320px) / (1440 - 320)));
       padding-bottom: calc(24px + (48 - 24) * ((100vw - 320px) / (1440 - 320)));
@@ -174,6 +194,14 @@ export default {
       grid-template-columns: repeat(4, 1fr);
       column-gap: 70px;
       row-gap: 75px;
+      @media (min-width: 1650px) {
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 70px;
+      }
+      @media (min-width: 2050px) {
+      grid-template-columns: repeat(5, 1fr);
+      column-gap: 100px;
+      }
       @media (max-width: 1250px) {
       grid-template-columns: repeat(3, 1fr);
       column-gap: 140px;
@@ -272,6 +300,9 @@ export default {
   .main {
     &__wrapper {
       background: #202C36;
+    }
+    &__nothing-text {
+      color: #FFFFFF;
     }
   }
   .search {

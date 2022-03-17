@@ -1,17 +1,19 @@
 <template>
 	<button 
 	class="v-select"
-	@click="optionsVisible = !optionsVisible"
-	:class="{ active: optionsVisible }"
 	>
-		<div class="v-select__header">
+		<div 
+		@click="optionsVisible = !optionsVisible"
+		class="v-select__header">
 			<div class="v-select__title">
 			{{selected}}
 			</div>
-			<div class="v-select__icon">
+			<div 
+			:class="{ active: optionsVisible }"
+			class="v-select__icon">
 				<i class="_icon-arrow_up-down"></i>
 			</div>
-			</div>
+		</div>
 		<div 
 		class="v-select__options"
 		v-if="optionsVisible"
