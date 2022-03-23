@@ -18,9 +18,10 @@ html,body{
 	width: 100%;
 	font-size: 100%;
 	line-height: 1;
-	font-family: 'Nunito Sans', sans-serif;
-	font-size: 16 + px;
-	color: #111517;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18 + px;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.6);
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
@@ -39,8 +40,6 @@ img{vertical-align: top;}
 h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 
 ._container {
-	padding: 0px calc(15px + (80 - 15) * ((100vw - 320px) / (1440 - 320)));
+	padding: 0 calc(15px + (80 - 15) * ((100vw - 320px) / (1440 - 320)));
 	margin: 0 auto;
   }
-
-@import '~@/assets/scss/icons.scss';

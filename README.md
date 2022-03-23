@@ -1,4 +1,4 @@
-# rest-countries
+# vue-digital
 
 ## Project setup
 ```
