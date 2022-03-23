@@ -142,7 +142,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  metaInfo: {
+    title: "Blog",
+  },
+};
 </script>
 
 <style lang="scss" scoped>

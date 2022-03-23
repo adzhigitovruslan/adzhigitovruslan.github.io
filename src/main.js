@@ -4,6 +4,7 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
+import VueMeta from "vue-meta";
 import "materialize-css/dist/js/materialize.min";
 import messagePlugin from "@/utils/message.plugin.js";
 import firebase from "firebase/compat/app";
@@ -12,6 +13,7 @@ import "firebase/compat/database";
 
 Vue.config.productionTip = false;
 Vue.use(Vuelidate);
+Vue.use(VueMeta);
 Vue.use(messagePlugin);
 
 firebase.initializeApp({

@@ -85,6 +85,9 @@ import { email, required, minLength } from "vuelidate/lib/validators";
 
 export default {
   name: "login",
+  metaInfo: {
+    title: "Sign up",
+  },
   data: function () {
     return {
       email: "",
@@ -118,8 +121,6 @@ export default {
     },
   },
   mounted() {
-    this.$message("test");
-
     document.querySelectorAll("button").forEach((item) => {
       item.classList.remove("btn");
     });
@@ -133,25 +134,26 @@ export default {
 <style lang="scss" scoped>
 .main {
   &__check-text {
-    font-size: 25px;
+    font-size: 15px;
     margin-left: 20px;
+    cursor: pointer;
   }
   &__check {
-    margin-bottom: calc(20px + (60 - 20) * ((100vw - 320px) / (1200 - 320)));
+    margin-bottom: 25px;
     display: flex;
     align-items: center;
     > input {
       position: unset;
       opacity: 1;
       pointer-events: all;
-      width: 20px;
-      height: 20px;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
     }
   }
   &__page {
     display: flex;
-    margin-bottom: calc(20px + (40 - 20) * ((100vw - 320px) / (1200 - 320)));
-    margin-top: calc(40px + (65 - 40) * ((100vw - 320px) / (1200 - 320)));
+    margin: 65px 0 65px 0;
   }
 
   &__form {
@@ -232,24 +234,30 @@ export default {
     border: 1px solid #3751fe;
     color: #3751fe;
     margin-right: 30px;
-    font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1200 - 320)));
+    font-size: 18px;
 
     height: 52px;
     width: 100%;
     max-width: 129px;
 
     text-transform: uppercase;
+    @media (max-width: 990px) {
+      font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1200 - 320)));
+    }
   }
 
   &__signup-btn {
     border: 1px solid #3751fe;
     color: #3751fe;
-    font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1200 - 320)));
+    font-size: 18px;
     height: 52px;
     width: 100%;
     max-width: 129px;
 
     text-transform: uppercase;
+    @media (max-width: 990px) {
+      font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1200 - 320)));
+    }
   }
 
   &__buttons {

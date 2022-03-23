@@ -87,6 +87,9 @@
 
 <script>
 export default {
+  metaInfo: {
+    title: "Home",
+  },
   data() {
     return {
       percent: 20,

@@ -72,7 +72,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  metaInfo: {
+    title: "About Us",
+  },
+};
 </script>
 
 <style lang="scss" scoped>

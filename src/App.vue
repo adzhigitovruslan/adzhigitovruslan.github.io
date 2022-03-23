@@ -20,4 +20,8 @@ export default {
 body {
   background: rgba(229, 229, 229, 0.41);
 }
+#app {
+  height: 100%;
+  width: 100%;
+}
 </style>

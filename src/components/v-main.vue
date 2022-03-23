@@ -33,10 +33,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .wrapper {
-  padding: 65px 0 65px 0;
-  height: 100vh;
+  padding: 40px 0 40px 0;
+  height: 100%;
+  width: 100%;
   background: white;
 }
 .main {
@@ -44,7 +45,7 @@ export default {
   }
 
   &__header-logo {
-    margin-bottom: calc(60px + (109 - 60) * ((100vw - 320px) / (1200 - 320)));
+    margin-bottom: 40px;
   }
 
   &__logo {
@@ -71,7 +72,7 @@ export default {
   }
 
   &__subtitle-text {
-    font-size: calc(10px + (18 - 10) * ((100vw - 320px) / (1200 - 320)));
+    font-size: 18px;
     color: rgba(0, 0, 0, 0.6);
   }
 }

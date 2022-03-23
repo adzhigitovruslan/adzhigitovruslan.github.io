@@ -83,6 +83,9 @@ import messages from "@/utils/messages.js";
 
 export default {
   name: "login",
+  metaInfo: {
+    title: "Sign in",
+  },
   data: function () {
     return {
       email: "",
@@ -129,8 +132,7 @@ export default {
 .main {
   &__page {
     display: flex;
-    margin-bottom: calc(30px + (100 - 30) * ((100vw - 320px) / (1200 - 320)));
-    margin-top: calc(40px + (65 - 40) * ((100vw - 320px) / (1200 - 320)));
+    margin: 65px 0 65px 0;
     @media (max-width: 550px) {
       flex-direction: column;
     }
