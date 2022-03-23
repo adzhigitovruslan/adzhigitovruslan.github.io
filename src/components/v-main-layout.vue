@@ -17,7 +17,7 @@ export default {
 <style lang="scss" scoped>
 
 .wrapper-layout {
-  padding: 65px 0 65px 0;
+  padding: 65px 0 0px 0;
   @media(max-width: 550px) {
     padding: unset;
   }
