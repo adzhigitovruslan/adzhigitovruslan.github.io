@@ -6,7 +6,8 @@
         Welcome back! Please login to your account.
       </div>
     </div>
-    <form @submit.prevent="submitHandler" class="main__form">
+    <Loader v-if="loading" />
+    <form v-else @submit.prevent="submitHandler" class="main__form">
       <div class="main__page">
         <div class="main__input-block">
           <div class="main__login">
@@ -90,6 +91,7 @@ export default {
     return {
       email: "",
       password: "",
+      loading: false,
     };
   },
   validations: {
@@ -101,6 +103,8 @@ export default {
       if (this.$v.$invalid) {
         this.$v.$touch();
         return;
+      } else {
+        this.loading = true;
       }
       const formData = {
         email: this.email,
@@ -108,6 +112,7 @@ export default {
       };
       try {
         await this.$store.dispatch("login", formData);
+        this.loading = false;
         this.$router.push({ name: "home" });
         // eslint-disable-next-line no-empty
       } catch (error) {}

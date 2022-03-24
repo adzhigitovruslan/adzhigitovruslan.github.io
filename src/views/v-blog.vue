@@ -167,7 +167,7 @@ export default {
 
 .wrapper-blog {
   @media (max-width: 550px) {
-    padding-top: 65px;
+    padding-top: 20px;
   }
 }
 
@@ -290,6 +290,9 @@ export default {
   -webkit-background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
+  @media(max-width: 550px) {
+    background-attachment: unset;
+  }
 }
 #parallax-world-of-ugg .parallax-two {
   padding-top: 200px;
@@ -304,6 +307,9 @@ export default {
   -webkit-background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  @media(max-width: 550px) {
+    background-attachment: unset;
+  }
 }
 #parallax-world-of-ugg .parallax-three {
   padding-top: 200px;
@@ -318,6 +324,9 @@ export default {
   -webkit-background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  @media(max-width: 550px) {
+    background-attachment: unset;
+  }
 }
 
 /* Extras */

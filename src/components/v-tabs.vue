@@ -125,6 +125,8 @@ export default {
     border-radius: 10px;
     height: unset;
     position: relative;
+    height: 45px;
+    width: 45px;
   }
 
   &__logout-btn:hover {
@@ -143,6 +145,9 @@ export default {
     margin-bottom: 70px;
     background: transparent;
     box-shadow: unset;
+    @media (min-width: 550px) {
+      align-items: center;
+    }
   }
 
   &__navbar-list {
@@ -210,6 +215,7 @@ export default {
   align-items: center;
   justify-content: center;
   color: rgba(0, 0, 0, 0.6);
+  height: 100%;
 }
 
 .fa-sign-out:hover {
@@ -235,9 +241,7 @@ export default {
   font-size: 35px;
   color: rgba(0, 0, 0, 0.6);
   z-index: 5;
-  position: absolute;
-  top: 40px;
-  right: 15px;
+  margin-top: 40px;
 }
 
 .fade-enter-active,

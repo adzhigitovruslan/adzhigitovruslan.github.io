@@ -10,11 +10,13 @@ import messagePlugin from "@/utils/message.plugin.js";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/database";
+import Loader from "@/components/v-loader.vue";
 
 Vue.config.productionTip = false;
 Vue.use(Vuelidate);
 Vue.use(VueMeta);
 Vue.use(messagePlugin);
+Vue.component("Loader", Loader);
 
 firebase.initializeApp({
   apiKey: "AIzaSyAyI9TQnYDB3clO1d2vKTeFcX9-ICUS07M",

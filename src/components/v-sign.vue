@@ -3,7 +3,8 @@
     <div class="main__subtitle">
       <div class="main__subtitle-text">Fill out the form to sign up!</div>
     </div>
-    <form class="main__form" @submit.prevent="submitHandler">
+    <Loader v-if="loading" />
+    <form v-else class="main__form" @submit.prevent="submitHandler">
       <div class="main__page">
         <div class="main__input-block">
           <div class="main__login">
@@ -93,6 +94,7 @@ export default {
       email: "",
       password: "",
       agree: false,
+      loading: false,
     };
   },
   validations: {
@@ -105,14 +107,16 @@ export default {
       if (this.$v.$invalid) {
         this.$v.$touch();
         return;
+      } else {
+        this.loading = true;
       }
-
       const formData = {
         email: this.email,
         password: this.password,
       };
       try {
         await this.$store.dispatch("register", formData);
+        this.loading = false;
         this.$router.push({ name: "home" });
         // eslint-disable-next-line no-empty
       } catch (error) {

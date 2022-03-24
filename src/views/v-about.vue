@@ -81,8 +81,9 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper-about {
+  padding: 0 0 60px 0;
   @media (max-width: 550px) {
-    padding: 100px 0;
+    padding: 60px 0;
   }
 }
 .main {

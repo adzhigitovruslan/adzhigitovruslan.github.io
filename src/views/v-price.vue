@@ -141,9 +141,6 @@ export default {
 <style lang="scss" scoped>
 .page {
   padding: 71px 0 103px 0;
-  @media (max-width: 550px) {
-    padding: 110px 0 103px 0;
-  }
 }
 
 .component {

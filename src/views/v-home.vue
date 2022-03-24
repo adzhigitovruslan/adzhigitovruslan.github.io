@@ -1,11 +1,13 @@
 <template>
   <div class="main__home">
-    <div class="main__content">
-      <img
-        class="main__content-img"
-        :src="require('@/assets/bike.svg')"
-        alt="bike"
-      />
+    <div class="main__container _container">
+      <div class="main__content">
+        <img
+          class="main__content-img"
+          :src="require('@/assets/bike.svg')"
+          alt="bike"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -24,7 +26,7 @@ export default {
 .main {
   &__home {
     @media (max-width: 550px) {
-      margin-top: 165px;
+      margin-top: 125px;
     }
   }
   &__content {
